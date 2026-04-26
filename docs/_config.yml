@@ -1,0 +1,23 @@
+title: OpenLoco
+description: Open-source wheel–leg–aerial hybrid robot substrate. CC0-1.0.
+remote_theme: just-the-docs/just-the-docs
+url: https://openie-dev.github.io
+baseurl: /openloco
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+
+color_scheme: dark
+heading_anchors: true
+search_enabled: true
+
+aux_links:
+  "GitHub":
+    - "https://github.com/openIE-dev/openloco"
+
+aux_links_new_tab: true
+
+footer_content: 'CC0-1.0 public-domain dedication. <a href="https://github.com/openIE-dev/openloco">github.com/openIE-dev/openloco</a>'
+
+ga_tracking: ~

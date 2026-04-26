@@ -1,7 +1,7 @@
 # Descriptor catalog
 
 Sixteen robots in OpenLoco's UDD format as of v0.7.8, spanning
-five morphology families. Every entry has a hand-authored
+seven morphology families. Every entry has a hand-authored
 [descriptor](descriptors/) plus pre-emitted artifacts in
 [`examples/baked/`](examples/baked/). Drop the URDF or MJCF
 straight into your sim — no OpenLoco binary required.
