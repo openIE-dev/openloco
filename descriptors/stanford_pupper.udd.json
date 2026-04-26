@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "meta": {
+    "name": "stanford_pupper",
+    "version": "0.1",
+    "units_length": "Metre",
+    "author": "OpenLoco Contributors",
+    "description": "Stanford Pupper — open-source 12-DoF hobbyist quadruped (Stanford Robotics Club, 2020). Brushless gimbal-grade actuators (Tier 0/1), ~1.2 kg, ~22 cm body length. Three-DoF leg per corner (hip_roll → hip_pitch → knee_pitch) terminating in a fixed rubber-tipped foot — no terminal wheel. Walking gait only; designed for low-cost research and education. Geometry adapted from chandyalex/stanford_pupper_description URDF (community-published derivative of the Stanford Robotics Club CAD).",
+    "generator": "openloco-cli"
+  },
+  "robot": {
+    "links": [
+      { "name": "base", "mass_kg": 0.334, "inertia": [2.48e-4, 1.18e-3, 1.29e-3, 0, 0, 0] },
+
+      { "name": "FL_hip_housing",  "mass_kg": 0.096, "inertia": [2.56e-5, 2.56e-5, 2.56e-5, 0, 0, 0] },
+      { "name": "FL_upper_leg",    "mass_kg": 0.007, "inertia": [8.70e-6, 8.70e-6, 2.30e-7, 0, 0, 0] },
+      { "name": "FL_lower_leg",    "mass_kg": 0.003, "inertia": [3.36e-6, 3.36e-6, 1.00e-7, 0, 0, 0] },
+      { "name": "FL_foot",         "mass_kg": 0.002, "inertia": [8.00e-8, 8.00e-8, 8.00e-8, 0, 0, 0] },
+
+      { "name": "FR_hip_housing",  "mass_kg": 0.096, "inertia": [2.56e-5, 2.56e-5, 2.56e-5, 0, 0, 0] },
+      { "name": "FR_upper_leg",    "mass_kg": 0.007, "inertia": [8.70e-6, 8.70e-6, 2.30e-7, 0, 0, 0] },
+      { "name": "FR_lower_leg",    "mass_kg": 0.003, "inertia": [3.36e-6, 3.36e-6, 1.00e-7, 0, 0, 0] },
+      { "name": "FR_foot",         "mass_kg": 0.002, "inertia": [8.00e-8, 8.00e-8, 8.00e-8, 0, 0, 0] },
+
+      { "name": "RL_hip_housing",  "mass_kg": 0.096, "inertia": [2.56e-5, 2.56e-5, 2.56e-5, 0, 0, 0] },
+      { "name": "RL_upper_leg",    "mass_kg": 0.007, "inertia": [8.70e-6, 8.70e-6, 2.30e-7, 0, 0, 0] },
+      { "name": "RL_lower_leg",    "mass_kg": 0.003, "inertia": [3.36e-6, 3.36e-6, 1.00e-7, 0, 0, 0] },
+      { "name": "RL_foot",         "mass_kg": 0.002, "inertia": [8.00e-8, 8.00e-8, 8.00e-8, 0, 0, 0] },
+
+      { "name": "RR_hip_housing",  "mass_kg": 0.096, "inertia": [2.56e-5, 2.56e-5, 2.56e-5, 0, 0, 0] },
+      { "name": "RR_upper_leg",    "mass_kg": 0.007, "inertia": [8.70e-6, 8.70e-6, 2.30e-7, 0, 0, 0] },
+      { "name": "RR_lower_leg",    "mass_kg": 0.003, "inertia": [3.36e-6, 3.36e-6, 1.00e-7, 0, 0, 0] },
+      { "name": "RR_foot",         "mass_kg": 0.002, "inertia": [8.00e-8, 8.00e-8, 8.00e-8, 0, 0, 0] }
+    ],
+    "joints": [
+      { "name": "FL_HIP_roll",    "joint_type": "revolute",   "parent_link": "base",            "child_link": "FL_hip_housing", "axis": [1, 0, 0], "origin_xyz": [ 0.0705,  0.04, 0.0243], "origin_rpy": [0, 0, 0], "limits": { "lower": -1.5, "upper": 1.5, "effort_max":  3.0, "velocity_max": 8.0 } },
+      { "name": "FL_HIP_pitch",   "joint_type": "revolute",   "parent_link": "FL_hip_housing",  "child_link": "FL_upper_leg",   "axis": [0, 1, 0], "origin_xyz": [ 0.0274,  0.0295, 0.0013], "origin_rpy": [0, 0, 0], "limits": { "lower": -2.5, "upper": 2.5, "effort_max":  3.0, "velocity_max": 8.0 } },
+      { "name": "FL_KNEE_pitch",  "joint_type": "revolute",   "parent_link": "FL_upper_leg",    "child_link": "FL_lower_leg",   "axis": [0, 1, 0], "origin_xyz": [ 0.0220,  0.0023, -0.1215], "origin_rpy": [0, 0, 0], "limits": { "lower": -2.5, "upper": 2.5, "effort_max":  3.0, "velocity_max": 8.0 } },
+      { "name": "FL_FOOT_mount",  "joint_type": "fixed",      "parent_link": "FL_lower_leg",    "child_link": "FL_foot",        "axis": [0, 0, 1], "origin_xyz": [-0.01,    0.00, -0.116], "origin_rpy": [0, 0, 0] },
+
+      { "name": "FR_HIP_roll",    "joint_type": "revolute",   "parent_link": "base",            "child_link": "FR_hip_housing", "axis": [1, 0, 0], "origin_xyz": [ 0.0705, -0.04, 0.0243], "origin_rpy": [0, 0, 0], "limits": { "lower": -1.5, "upper": 1.5, "effort_max":  3.0, "velocity_max": 8.0 } },
+      { "name": "FR_HIP_pitch",   "joint_type": "revolute",   "parent_link": "FR_hip_housing",  "child_link": "FR_upper_leg",   "axis": [0, 1, 0], "origin_xyz": [ 0.0274, -0.0295, 0.0013], "origin_rpy": [0, 0, 0], "limits": { "lower": -2.5, "upper": 2.5, "effort_max":  3.0, "velocity_max": 8.0 } },
+      { "name": "FR_KNEE_pitch",  "joint_type": "revolute",   "parent_link": "FR_upper_leg",    "child_link": "FR_lower_leg",   "axis": [0, 1, 0], "origin_xyz": [ 0.0220, -0.0023, -0.1215], "origin_rpy": [0, 0, 0], "limits": { "lower": -2.5, "upper": 2.5, "effort_max":  3.0, "velocity_max": 8.0 } },
+      { "name": "FR_FOOT_mount",  "joint_type": "fixed",      "parent_link": "FR_lower_leg",    "child_link": "FR_foot",        "axis": [0, 0, 1], "origin_xyz": [-0.01,    0.00, -0.116], "origin_rpy": [0, 0, 0] },
+
+      { "name": "RL_HIP_roll",    "joint_type": "revolute",   "parent_link": "base",            "child_link": "RL_hip_housing", "axis": [1, 0, 0], "origin_xyz": [-0.1299,  0.04, 0.0243], "origin_rpy": [0, 0, 0], "limits": { "lower": -1.5, "upper": 1.5, "effort_max":  3.0, "velocity_max": 8.0 } },
+      { "name": "RL_HIP_pitch",   "joint_type": "revolute",   "parent_link": "RL_hip_housing",  "child_link": "RL_upper_leg",   "axis": [0, 1, 0], "origin_xyz": [ 0.0278,  0.0295, 0.0013], "origin_rpy": [0, 0, 0], "limits": { "lower": -2.5, "upper": 2.5, "effort_max":  3.0, "velocity_max": 8.0 } },
+      { "name": "RL_KNEE_pitch",  "joint_type": "revolute",   "parent_link": "RL_upper_leg",    "child_link": "RL_lower_leg",   "axis": [0, 1, 0], "origin_xyz": [ 0.0220,  0.0026, -0.1215], "origin_rpy": [0, 0, 0], "limits": { "lower": -2.5, "upper": 2.5, "effort_max":  3.0, "velocity_max": 8.0 } },
+      { "name": "RL_FOOT_mount",  "joint_type": "fixed",      "parent_link": "RL_lower_leg",    "child_link": "RL_foot",        "axis": [0, 0, 1], "origin_xyz": [-0.01,    0.00, -0.116], "origin_rpy": [0, 0, 0] },
+
+      { "name": "RR_HIP_roll",    "joint_type": "revolute",   "parent_link": "base",            "child_link": "RR_hip_housing", "axis": [1, 0, 0], "origin_xyz": [-0.1299, -0.04, 0.0243], "origin_rpy": [0, 0, 0], "limits": { "lower": -1.5, "upper": 1.5, "effort_max":  3.0, "velocity_max": 8.0 } },
+      { "name": "RR_HIP_pitch",   "joint_type": "revolute",   "parent_link": "RR_hip_housing",  "child_link": "RR_upper_leg",   "axis": [0, 1, 0], "origin_xyz": [ 0.0278, -0.0295, 0.0013], "origin_rpy": [0, 0, 0], "limits": { "lower": -2.5, "upper": 2.5, "effort_max":  3.0, "velocity_max": 8.0 } },
+      { "name": "RR_KNEE_pitch",  "joint_type": "revolute",   "parent_link": "RR_upper_leg",    "child_link": "RR_lower_leg",   "axis": [0, 1, 0], "origin_xyz": [ 0.0220, -0.0026, -0.1215], "origin_rpy": [0, 0, 0], "limits": { "lower": -2.5, "upper": 2.5, "effort_max":  3.0, "velocity_max": 8.0 } },
+      { "name": "RR_FOOT_mount",  "joint_type": "fixed",      "parent_link": "RR_lower_leg",    "child_link": "RR_foot",        "axis": [0, 0, 1], "origin_xyz": [-0.01,    0.00, -0.116], "origin_rpy": [0, 0, 0] }
+    ],
+    "actuator_slots": [
+      { "name": "FL_HIP_roll",   "joint": "FL_HIP_roll",   "tier": 0 },
+      { "name": "FL_HIP_pitch",  "joint": "FL_HIP_pitch",  "tier": 0 },
+      { "name": "FL_KNEE_pitch", "joint": "FL_KNEE_pitch", "tier": 0 },
+      { "name": "FR_HIP_roll",   "joint": "FR_HIP_roll",   "tier": 0 },
+      { "name": "FR_HIP_pitch",  "joint": "FR_HIP_pitch",  "tier": 0 },
+      { "name": "FR_KNEE_pitch", "joint": "FR_KNEE_pitch", "tier": 0 },
+      { "name": "RL_HIP_roll",   "joint": "RL_HIP_roll",   "tier": 0 },
+      { "name": "RL_HIP_pitch",  "joint": "RL_HIP_pitch",  "tier": 0 },
+      { "name": "RL_KNEE_pitch", "joint": "RL_KNEE_pitch", "tier": 0 },
+      { "name": "RR_HIP_roll",   "joint": "RR_HIP_roll",   "tier": 0 },
+      { "name": "RR_HIP_pitch",  "joint": "RR_HIP_pitch",  "tier": 0 },
+      { "name": "RR_KNEE_pitch", "joint": "RR_KNEE_pitch", "tier": 0 }
+    ],
+    "modes": [
+      {
+        "name": "walking",
+        "hold_positions": {},
+        "actuator_roles": {
+          "FL_HIP_roll": "impedance", "FL_HIP_pitch": "impedance", "FL_KNEE_pitch": "impedance",
+          "FR_HIP_roll": "impedance", "FR_HIP_pitch": "impedance", "FR_KNEE_pitch": "impedance",
+          "RL_HIP_roll": "impedance", "RL_HIP_pitch": "impedance", "RL_KNEE_pitch": "impedance",
+          "RR_HIP_roll": "impedance", "RR_HIP_pitch": "impedance", "RR_KNEE_pitch": "impedance"
+        }
+      }
+    ]
+  }
+}
