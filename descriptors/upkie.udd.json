@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "meta": {
+    "name": "upkie",
+    "version": "0.1",
+    "units_length": "Metre",
+    "author": "OpenLoco Contributors",
+    "description": "Upkie — open-source two-legged wheeled biped (upkie/upkie, Apache-2.0). ~5 kg, ~30 cm tall standing. Two legs, each terminating in a continuous-drive wheel; balances via wheel torque + leg actuation (LQR / inverted-pendulum control). mjbots qdd100 actuators (Tier 2). First non-quadruped morphology in the OpenLoco catalog: corner naming uses L/R for left/right (no front/rear distinction). Walking/balancing mode only — no flying or driving variant.",
+    "generator": "openloco-cli"
+  },
+  "robot": {
+    "links": [
+      { "name": "base", "mass_kg": 2.500, "inertia": [1.20e-2, 1.50e-2, 8.00e-3, 0, 0, 0] },
+
+      { "name": "L_upper_leg",     "mass_kg": 0.350, "inertia": [1.00e-3, 1.00e-3, 8.00e-5, 0, 0, 0] },
+      { "name": "L_lower_leg",     "mass_kg": 0.250, "inertia": [6.50e-4, 6.50e-4, 5.00e-5, 0, 0, 0] },
+      { "name": "L_wheel",         "mass_kg": 0.300, "inertia": [3.00e-4, 5.50e-4, 3.00e-4, 0, 0, 0] },
+
+      { "name": "R_upper_leg",     "mass_kg": 0.350, "inertia": [1.00e-3, 1.00e-3, 8.00e-5, 0, 0, 0] },
+      { "name": "R_lower_leg",     "mass_kg": 0.250, "inertia": [6.50e-4, 6.50e-4, 5.00e-5, 0, 0, 0] },
+      { "name": "R_wheel",         "mass_kg": 0.300, "inertia": [3.00e-4, 5.50e-4, 3.00e-4, 0, 0, 0] }
+    ],
+    "joints": [
+      { "name": "L_HIP_pitch",   "joint_type": "revolute",   "parent_link": "base",          "child_link": "L_upper_leg",   "axis": [0, 1, 0], "origin_xyz": [0.000,  0.080, -0.040], "origin_rpy": [0, 0, 0], "limits": { "lower": -1.5, "upper": 1.5, "effort_max": 18.0, "velocity_max": 30.0 } },
+      { "name": "L_KNEE_pitch",  "joint_type": "revolute",   "parent_link": "L_upper_leg",   "child_link": "L_lower_leg",   "axis": [0, 1, 0], "origin_xyz": [0.000,  0.000, -0.115], "origin_rpy": [0, 0, 0], "limits": { "lower": -2.5, "upper": 2.5, "effort_max": 18.0, "velocity_max": 30.0 } },
+      { "name": "L_WHEEL_drive", "joint_type": "continuous", "parent_link": "L_lower_leg",   "child_link": "L_wheel",       "axis": [0, 0, 1], "origin_xyz": [0.000,  0.000, -0.115], "origin_rpy": [-1.5707963, 0, 0], "limits": { "lower": -3.14, "upper": 3.14, "effort_max":  8.0, "velocity_max": 60.0 } },
+
+      { "name": "R_HIP_pitch",   "joint_type": "revolute",   "parent_link": "base",          "child_link": "R_upper_leg",   "axis": [0, 1, 0], "origin_xyz": [0.000, -0.080, -0.040], "origin_rpy": [0, 0, 0], "limits": { "lower": -1.5, "upper": 1.5, "effort_max": 18.0, "velocity_max": 30.0 } },
+      { "name": "R_KNEE_pitch",  "joint_type": "revolute",   "parent_link": "R_upper_leg",   "child_link": "R_lower_leg",   "axis": [0, 1, 0], "origin_xyz": [0.000,  0.000, -0.115], "origin_rpy": [0, 0, 0], "limits": { "lower": -2.5, "upper": 2.5, "effort_max": 18.0, "velocity_max": 30.0 } },
+      { "name": "R_WHEEL_drive", "joint_type": "continuous", "parent_link": "R_lower_leg",   "child_link": "R_wheel",       "axis": [0, 0, 1], "origin_xyz": [0.000,  0.000, -0.115], "origin_rpy": [-1.5707963, 0, 0], "limits": { "lower": -3.14, "upper": 3.14, "effort_max":  8.0, "velocity_max": 60.0 } }
+    ],
+    "actuator_slots": [
+      { "name": "L_HIP_pitch",   "joint": "L_HIP_pitch",   "tier": 2 },
+      { "name": "L_KNEE_pitch",  "joint": "L_KNEE_pitch",  "tier": 2 },
+      { "name": "L_WHEEL_drive", "joint": "L_WHEEL_drive", "tier": 2 },
+      { "name": "R_HIP_pitch",   "joint": "R_HIP_pitch",   "tier": 2 },
+      { "name": "R_KNEE_pitch",  "joint": "R_KNEE_pitch",  "tier": 2 },
+      { "name": "R_WHEEL_drive", "joint": "R_WHEEL_drive", "tier": 2 }
+    ],
+    "modes": [
+      {
+        "name": "balancing",
+        "hold_positions": {},
+        "actuator_roles": {
+          "L_HIP_pitch": "impedance", "L_KNEE_pitch": "impedance", "L_WHEEL_drive": "velocity",
+          "R_HIP_pitch": "impedance", "R_KNEE_pitch": "impedance", "R_WHEEL_drive": "velocity"
+        }
+      }
+    ]
+  }
+}

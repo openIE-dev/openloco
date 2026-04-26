@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco model="upkie">
+  <compiler angle="radian" coordinate="local" meshdir="meshes" autolimits="true"/>
+  <option timestep="0.002" integrator="implicitfast"/>
+  <default>
+    <joint damping="0.1" armature="0.01"/>
+    <geom contype="0" conaffinity="1" friction="1.0 0.005 0.0001"/>
+  </default>
+  <asset>
+  </asset>
+  <worldbody>
+    <geom name="ground" type="plane" size="10 10 0.1" contype="1" conaffinity="1" rgba="0.85 0.85 0.85 1"/>
+    <body name="base" pos="0 0 0.600">
+      <freejoint name="root"/>
+      <inertial pos="0.000000 0.000000 0.000000" mass="2.500000" diaginertia="1.200000e-2 1.500000e-2 8.000000e-3"/>
+      <body name="L_upper_leg" pos="0.000000 0.080000 -0.040000">
+        <joint name="L_HIP_pitch" type="hinge" range="-1.5000 1.5000" limited="true" axis="0.000000 1.000000 0.000000" pos="0 0 0" ref="0.000000"/>
+        <inertial pos="0.000000 0.000000 0.000000" mass="0.350000" diaginertia="1.000000e-3 1.000000e-3 8.000000e-5"/>
+        <body name="L_lower_leg" pos="0.000000 0.000000 -0.115000">
+          <joint name="L_KNEE_pitch" type="hinge" range="-2.5000 2.5000" limited="true" axis="0.000000 1.000000 0.000000" pos="0 0 0" ref="0.000000"/>
+          <inertial pos="0.000000 0.000000 0.000000" mass="0.250000" diaginertia="6.500000e-4 6.500000e-4 5.000000e-5"/>
+          <body name="L_wheel" pos="0.000000 0.000000 -0.115000" euler="-1.570796 0.000000 0.000000">
+            <joint name="L_WHEEL_drive" type="hinge" limited="false" damping="0.001" armature="0.0001" axis="0.000000 0.000000 1.000000" pos="0 0 0"/>
+            <inertial pos="0.000000 0.000000 0.000000" mass="0.300000" diaginertia="3.000000e-4 5.500000e-4 3.000000e-4"/>
+          </body>
+        </body>
+      </body>
+      <body name="R_upper_leg" pos="0.000000 -0.080000 -0.040000">
+        <joint name="R_HIP_pitch" type="hinge" range="-1.5000 1.5000" limited="true" axis="0.000000 1.000000 0.000000" pos="0 0 0" ref="0.000000"/>
+        <inertial pos="0.000000 0.000000 0.000000" mass="0.350000" diaginertia="1.000000e-3 1.000000e-3 8.000000e-5"/>
+        <body name="R_lower_leg" pos="0.000000 0.000000 -0.115000">
+          <joint name="R_KNEE_pitch" type="hinge" range="-2.5000 2.5000" limited="true" axis="0.000000 1.000000 0.000000" pos="0 0 0" ref="0.000000"/>
+          <inertial pos="0.000000 0.000000 0.000000" mass="0.250000" diaginertia="6.500000e-4 6.500000e-4 5.000000e-5"/>
+          <body name="R_wheel" pos="0.000000 0.000000 -0.115000" euler="-1.570796 0.000000 0.000000">
+            <joint name="R_WHEEL_drive" type="hinge" limited="false" damping="0.001" armature="0.0001" axis="0.000000 0.000000 1.000000" pos="0 0 0"/>
+            <inertial pos="0.000000 0.000000 0.000000" mass="0.300000" diaginertia="3.000000e-4 5.500000e-4 3.000000e-4"/>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+    <motor name="L_HIP_pitch" joint="L_HIP_pitch" ctrlrange="-18.000 18.000" gear="1"/>
+    <motor name="L_KNEE_pitch" joint="L_KNEE_pitch" ctrlrange="-18.000 18.000" gear="1"/>
+    <motor name="L_WHEEL_drive" joint="L_WHEEL_drive" ctrlrange="-8.000 8.000" gear="1"/>
+    <motor name="R_HIP_pitch" joint="R_HIP_pitch" ctrlrange="-18.000 18.000" gear="1"/>
+    <motor name="R_KNEE_pitch" joint="R_KNEE_pitch" ctrlrange="-18.000 18.000" gear="1"/>
+    <motor name="R_WHEEL_drive" joint="R_WHEEL_drive" ctrlrange="-8.000 8.000" gear="1"/>
+  </actuator>
+</mujoco>
