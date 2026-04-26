@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "meta": {
+    "name": "anymal_wl",
+    "version": "0.1",
+    "units_length": "Metre",
+    "author": "OpenLoco Contributors",
+    "description": "ANYmal-class wheel-leg quadruped. Four legs with wheeled feet. Research-tier Moteus QDD actuators (Tier 2), ~7 kg total mass. Two modes: walking (legs active, wheels braked as feet) and driving (legs stowed, wheels drive). 3-DoF leg chain per corner: hip_roll (X) → hip_bracket (fixed, ±0.06 m outward) → hip_pitch (Y) → upper_leg (0.20 m) → knee_mount (fixed) → knee_pitch (Y) → lower_leg (0.22 m) → wheel_drive (continuous).",
+    "generator": "openloco-cli"
+  },
+  "robot": {
+    "links": [
+      { "name": "base", "mass_kg": 1.132107, "inertia": [6.037904e-3, 1.569855e-2, 2.052887e-2, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_chassis_quadruped_body__height-80__hip_spacing_x-300__hip_spacing_y-180__length-400__width-240" } },
+
+      { "name": "FL_hip_roll_housing",  "mass_kg": 0.203539, "inertia": [1.372533e-4, 1.372533e-4, 1.176457e-4, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115" } },
+      { "name": "FL_hip_pitch_housing", "mass_kg": 0.203539, "inertia": [1.372533e-4, 1.372533e-4, 1.176457e-4, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115" } },
+      { "name": "FL_upper_leg",         "mass_kg": 0.250000, "inertia": [8.583333e-4, 8.583333e-4, 5.000000e-5, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_brackets_leg_segment__length-200" } },
+      { "name": "FL_knee_housing",      "mass_kg": 0.203539, "inertia": [1.372533e-4, 1.372533e-4, 1.176457e-4, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115" } },
+      { "name": "FL_lower_leg",         "mass_kg": 0.200000, "inertia": [8.228667e-4, 8.228667e-4, 3.240000e-5, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_brackets_leg_segment__length-220" } },
+      { "name": "FL_wheel",             "mass_kg": 0.387743, "inertia": [3.885509e-4, 6.979376e-4, 3.885509e-4, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_wheels_wheel_simple__radius-60__width-35" } },
+
+      { "name": "FR_hip_roll_housing",  "mass_kg": 0.203539, "inertia": [1.372533e-4, 1.372533e-4, 1.176457e-4, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115" } },
+      { "name": "FR_hip_pitch_housing", "mass_kg": 0.203539, "inertia": [1.372533e-4, 1.372533e-4, 1.176457e-4, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115" } },
+      { "name": "FR_upper_leg",         "mass_kg": 0.250000, "inertia": [8.583333e-4, 8.583333e-4, 5.000000e-5, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_brackets_leg_segment__length-200" } },
+      { "name": "FR_knee_housing",      "mass_kg": 0.203539, "inertia": [1.372533e-4, 1.372533e-4, 1.176457e-4, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115" } },
+      { "name": "FR_lower_leg",         "mass_kg": 0.200000, "inertia": [8.228667e-4, 8.228667e-4, 3.240000e-5, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_brackets_leg_segment__length-220" } },
+      { "name": "FR_wheel",             "mass_kg": 0.387743, "inertia": [3.885509e-4, 6.979376e-4, 3.885509e-4, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_wheels_wheel_simple__radius-60__width-35" } },
+
+      { "name": "RL_hip_roll_housing",  "mass_kg": 0.203539, "inertia": [1.372533e-4, 1.372533e-4, 1.176457e-4, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115" } },
+      { "name": "RL_hip_pitch_housing", "mass_kg": 0.203539, "inertia": [1.372533e-4, 1.372533e-4, 1.176457e-4, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115" } },
+      { "name": "RL_upper_leg",         "mass_kg": 0.250000, "inertia": [8.583333e-4, 8.583333e-4, 5.000000e-5, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_brackets_leg_segment__length-200" } },
+      { "name": "RL_knee_housing",      "mass_kg": 0.203539, "inertia": [1.372533e-4, 1.372533e-4, 1.176457e-4, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115" } },
+      { "name": "RL_lower_leg",         "mass_kg": 0.200000, "inertia": [8.228667e-4, 8.228667e-4, 3.240000e-5, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_brackets_leg_segment__length-220" } },
+      { "name": "RL_wheel",             "mass_kg": 0.387743, "inertia": [3.885509e-4, 6.979376e-4, 3.885509e-4, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_wheels_wheel_simple__radius-60__width-35" } },
+
+      { "name": "RR_hip_roll_housing",  "mass_kg": 0.203539, "inertia": [1.372533e-4, 1.372533e-4, 1.176457e-4, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115" } },
+      { "name": "RR_hip_pitch_housing", "mass_kg": 0.203539, "inertia": [1.372533e-4, 1.372533e-4, 1.176457e-4, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115" } },
+      { "name": "RR_upper_leg",         "mass_kg": 0.250000, "inertia": [8.583333e-4, 8.583333e-4, 5.000000e-5, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_brackets_leg_segment__length-200" } },
+      { "name": "RR_knee_housing",      "mass_kg": 0.203539, "inertia": [1.372533e-4, 1.372533e-4, 1.176457e-4, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115" } },
+      { "name": "RR_lower_leg",         "mass_kg": 0.200000, "inertia": [8.228667e-4, 8.228667e-4, 3.240000e-5, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_brackets_leg_segment__length-220" } },
+      { "name": "RR_wheel",             "mass_kg": 0.387743, "inertia": [3.885509e-4, 6.979376e-4, 3.885509e-4, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_wheels_wheel_simple__radius-60__width-35" } }
+    ],
+    "joints": [
+      { "name": "FL_HIP_roll",    "joint_type": "revolute",   "parent_link": "base",                "child_link": "FL_hip_roll_housing",  "axis": [1, 0, 0], "origin_xyz": [ 0.15,  0.09, -0.04], "origin_rpy": [0, 0, 0], "limits": { "lower": -0.5, "upper": 0.5, "effort_max": 18.0, "velocity_max": 20.0 } },
+      { "name": "FL_HIP_bracket", "joint_type": "fixed",      "parent_link": "FL_hip_roll_housing", "child_link": "FL_hip_pitch_housing", "axis": [0, 0, 1], "origin_xyz": [ 0.00,  0.06,  0.00], "origin_rpy": [0, 0, 0] },
+      { "name": "FL_HIP_pitch",   "joint_type": "revolute",   "parent_link": "FL_hip_pitch_housing","child_link": "FL_upper_leg",         "axis": [0, 1, 0], "origin_xyz": [ 0.00,  0.00,  0.00], "origin_rpy": [0, 0, 0], "limits": { "lower": -2.0, "upper": 1.5, "effort_max": 18.0, "velocity_max": 20.0 } },
+      { "name": "FL_KNEE_mount",  "joint_type": "fixed",      "parent_link": "FL_upper_leg",        "child_link": "FL_knee_housing",      "axis": [0, 0, 1], "origin_xyz": [ 0.00,  0.00, -0.20], "origin_rpy": [0, 0, 0] },
+      { "name": "FL_KNEE_pitch",  "joint_type": "revolute",   "parent_link": "FL_knee_housing",     "child_link": "FL_lower_leg",         "axis": [0, 1, 0], "origin_xyz": [ 0.00,  0.00,  0.00], "origin_rpy": [0, 0, 0], "limits": { "lower":  0.2, "upper": 2.8, "effort_max": 25.0, "velocity_max": 20.0 } },
+      { "name": "FL_WHEEL_drive", "joint_type": "continuous", "parent_link": "FL_lower_leg",        "child_link": "FL_wheel",             "axis": [0, 1, 0], "origin_xyz": [ 0.00,  0.00, -0.22], "origin_rpy": [0, 0, 0], "limits": { "lower": -3.14, "upper": 3.14, "effort_max":  8.0, "velocity_max": 60.0 } },
+
+      { "name": "FR_HIP_roll",    "joint_type": "revolute",   "parent_link": "base",                "child_link": "FR_hip_roll_housing",  "axis": [1, 0, 0], "origin_xyz": [ 0.15, -0.09, -0.04], "origin_rpy": [0, 0, 0], "limits": { "lower": -0.5, "upper": 0.5, "effort_max": 18.0, "velocity_max": 20.0 } },
+      { "name": "FR_HIP_bracket", "joint_type": "fixed",      "parent_link": "FR_hip_roll_housing", "child_link": "FR_hip_pitch_housing", "axis": [0, 0, 1], "origin_xyz": [ 0.00, -0.06,  0.00], "origin_rpy": [0, 0, 0] },
+      { "name": "FR_HIP_pitch",   "joint_type": "revolute",   "parent_link": "FR_hip_pitch_housing","child_link": "FR_upper_leg",         "axis": [0, 1, 0], "origin_xyz": [ 0.00,  0.00,  0.00], "origin_rpy": [0, 0, 0], "limits": { "lower": -2.0, "upper": 1.5, "effort_max": 18.0, "velocity_max": 20.0 } },
+      { "name": "FR_KNEE_mount",  "joint_type": "fixed",      "parent_link": "FR_upper_leg",        "child_link": "FR_knee_housing",      "axis": [0, 0, 1], "origin_xyz": [ 0.00,  0.00, -0.20], "origin_rpy": [0, 0, 0] },
+      { "name": "FR_KNEE_pitch",  "joint_type": "revolute",   "parent_link": "FR_knee_housing",     "child_link": "FR_lower_leg",         "axis": [0, 1, 0], "origin_xyz": [ 0.00,  0.00,  0.00], "origin_rpy": [0, 0, 0], "limits": { "lower":  0.2, "upper": 2.8, "effort_max": 25.0, "velocity_max": 20.0 } },
+      { "name": "FR_WHEEL_drive", "joint_type": "continuous", "parent_link": "FR_lower_leg",        "child_link": "FR_wheel",             "axis": [0, 1, 0], "origin_xyz": [ 0.00,  0.00, -0.22], "origin_rpy": [0, 0, 0], "limits": { "lower": -3.14, "upper": 3.14, "effort_max":  8.0, "velocity_max": 60.0 } },
+
+      { "name": "RL_HIP_roll",    "joint_type": "revolute",   "parent_link": "base",                "child_link": "RL_hip_roll_housing",  "axis": [1, 0, 0], "origin_xyz": [-0.15,  0.09, -0.04], "origin_rpy": [0, 0, 0], "limits": { "lower": -0.5, "upper": 0.5, "effort_max": 18.0, "velocity_max": 20.0 } },
+      { "name": "RL_HIP_bracket", "joint_type": "fixed",      "parent_link": "RL_hip_roll_housing", "child_link": "RL_hip_pitch_housing", "axis": [0, 0, 1], "origin_xyz": [ 0.00,  0.06,  0.00], "origin_rpy": [0, 0, 0] },
+      { "name": "RL_HIP_pitch",   "joint_type": "revolute",   "parent_link": "RL_hip_pitch_housing","child_link": "RL_upper_leg",         "axis": [0, 1, 0], "origin_xyz": [ 0.00,  0.00,  0.00], "origin_rpy": [0, 0, 0], "limits": { "lower": -2.0, "upper": 1.5, "effort_max": 18.0, "velocity_max": 20.0 } },
+      { "name": "RL_KNEE_mount",  "joint_type": "fixed",      "parent_link": "RL_upper_leg",        "child_link": "RL_knee_housing",      "axis": [0, 0, 1], "origin_xyz": [ 0.00,  0.00, -0.20], "origin_rpy": [0, 0, 0] },
+      { "name": "RL_KNEE_pitch",  "joint_type": "revolute",   "parent_link": "RL_knee_housing",     "child_link": "RL_lower_leg",         "axis": [0, 1, 0], "origin_xyz": [ 0.00,  0.00,  0.00], "origin_rpy": [0, 0, 0], "limits": { "lower":  0.2, "upper": 2.8, "effort_max": 25.0, "velocity_max": 20.0 } },
+      { "name": "RL_WHEEL_drive", "joint_type": "continuous", "parent_link": "RL_lower_leg",        "child_link": "RL_wheel",             "axis": [0, 1, 0], "origin_xyz": [ 0.00,  0.00, -0.22], "origin_rpy": [0, 0, 0], "limits": { "lower": -3.14, "upper": 3.14, "effort_max":  8.0, "velocity_max": 60.0 } },
+
+      { "name": "RR_HIP_roll",    "joint_type": "revolute",   "parent_link": "base",                "child_link": "RR_hip_roll_housing",  "axis": [1, 0, 0], "origin_xyz": [-0.15, -0.09, -0.04], "origin_rpy": [0, 0, 0], "limits": { "lower": -0.5, "upper": 0.5, "effort_max": 18.0, "velocity_max": 20.0 } },
+      { "name": "RR_HIP_bracket", "joint_type": "fixed",      "parent_link": "RR_hip_roll_housing", "child_link": "RR_hip_pitch_housing", "axis": [0, 0, 1], "origin_xyz": [ 0.00, -0.06,  0.00], "origin_rpy": [0, 0, 0] },
+      { "name": "RR_HIP_pitch",   "joint_type": "revolute",   "parent_link": "RR_hip_pitch_housing","child_link": "RR_upper_leg",         "axis": [0, 1, 0], "origin_xyz": [ 0.00,  0.00,  0.00], "origin_rpy": [0, 0, 0], "limits": { "lower": -2.0, "upper": 1.5, "effort_max": 18.0, "velocity_max": 20.0 } },
+      { "name": "RR_KNEE_mount",  "joint_type": "fixed",      "parent_link": "RR_upper_leg",        "child_link": "RR_knee_housing",      "axis": [0, 0, 1], "origin_xyz": [ 0.00,  0.00, -0.20], "origin_rpy": [0, 0, 0] },
+      { "name": "RR_KNEE_pitch",  "joint_type": "revolute",   "parent_link": "RR_knee_housing",     "child_link": "RR_lower_leg",         "axis": [0, 1, 0], "origin_xyz": [ 0.00,  0.00,  0.00], "origin_rpy": [0, 0, 0], "limits": { "lower":  0.2, "upper": 2.8, "effort_max": 25.0, "velocity_max": 20.0 } },
+      { "name": "RR_WHEEL_drive", "joint_type": "continuous", "parent_link": "RR_lower_leg",        "child_link": "RR_wheel",             "axis": [0, 1, 0], "origin_xyz": [ 0.00,  0.00, -0.22], "origin_rpy": [0, 0, 0], "limits": { "lower": -3.14, "upper": 3.14, "effort_max":  8.0, "velocity_max": 60.0 } }
+    ],
+    "actuator_slots": [
+      { "name": "FL_HIP_roll",    "joint": "FL_HIP_roll",    "tier": 2 },
+      { "name": "FL_HIP_pitch",   "joint": "FL_HIP_pitch",   "tier": 2 },
+      { "name": "FL_KNEE_pitch",  "joint": "FL_KNEE_pitch",  "tier": 2 },
+      { "name": "FL_WHEEL_drive", "joint": "FL_WHEEL_drive", "tier": 2 },
+      { "name": "FR_HIP_roll",    "joint": "FR_HIP_roll",    "tier": 2 },
+      { "name": "FR_HIP_pitch",   "joint": "FR_HIP_pitch",   "tier": 2 },
+      { "name": "FR_KNEE_pitch",  "joint": "FR_KNEE_pitch",  "tier": 2 },
+      { "name": "FR_WHEEL_drive", "joint": "FR_WHEEL_drive", "tier": 2 },
+      { "name": "RL_HIP_roll",    "joint": "RL_HIP_roll",    "tier": 2 },
+      { "name": "RL_HIP_pitch",   "joint": "RL_HIP_pitch",   "tier": 2 },
+      { "name": "RL_KNEE_pitch",  "joint": "RL_KNEE_pitch",  "tier": 2 },
+      { "name": "RL_WHEEL_drive", "joint": "RL_WHEEL_drive", "tier": 2 },
+      { "name": "RR_HIP_roll",    "joint": "RR_HIP_roll",    "tier": 2 },
+      { "name": "RR_HIP_pitch",   "joint": "RR_HIP_pitch",   "tier": 2 },
+      { "name": "RR_KNEE_pitch",  "joint": "RR_KNEE_pitch",  "tier": 2 },
+      { "name": "RR_WHEEL_drive", "joint": "RR_WHEEL_drive", "tier": 2 }
+    ],
+    "modes": [
+      {
+        "name": "walking",
+        "hold_positions": {},
+        "actuator_roles": {
+          "FL_HIP_roll": "impedance", "FL_HIP_pitch": "impedance", "FL_KNEE_pitch": "impedance", "FL_WHEEL_drive": "brake",
+          "FR_HIP_roll": "impedance", "FR_HIP_pitch": "impedance", "FR_KNEE_pitch": "impedance", "FR_WHEEL_drive": "brake",
+          "RL_HIP_roll": "impedance", "RL_HIP_pitch": "impedance", "RL_KNEE_pitch": "impedance", "RL_WHEEL_drive": "brake",
+          "RR_HIP_roll": "impedance", "RR_HIP_pitch": "impedance", "RR_KNEE_pitch": "impedance", "RR_WHEEL_drive": "brake"
+        }
+      },
+      {
+        "name": "driving",
+        "hold_positions": {
+          "FL_HIP_roll": 0.0, "FL_HIP_pitch": -0.3, "FL_KNEE_pitch": 1.2,
+          "FR_HIP_roll": 0.0, "FR_HIP_pitch": -0.3, "FR_KNEE_pitch": 1.2,
+          "RL_HIP_roll": 0.0, "RL_HIP_pitch": -0.3, "RL_KNEE_pitch": 1.2,
+          "RR_HIP_roll": 0.0, "RR_HIP_pitch": -0.3, "RR_KNEE_pitch": 1.2
+        },
+        "actuator_roles": {
+          "FL_HIP_roll": "hold", "FL_HIP_pitch": "hold", "FL_KNEE_pitch": "hold", "FL_WHEEL_drive": "velocity",
+          "FR_HIP_roll": "hold", "FR_HIP_pitch": "hold", "FR_KNEE_pitch": "hold", "FR_WHEEL_drive": "velocity",
+          "RL_HIP_roll": "hold", "RL_HIP_pitch": "hold", "RL_KNEE_pitch": "hold", "RL_WHEEL_drive": "velocity",
+          "RR_HIP_roll": "hold", "RR_HIP_pitch": "hold", "RR_KNEE_pitch": "hold", "RR_WHEEL_drive": "velocity"
+        }
+      }
+    ]
+  }
+}

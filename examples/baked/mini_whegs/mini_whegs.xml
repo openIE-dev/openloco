@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco model="mini_whegs">
+  <compiler angle="radian" coordinate="local" meshdir="meshes" autolimits="true"/>
+  <option timestep="0.002" integrator="implicitfast"/>
+  <default>
+    <joint damping="0.1" armature="0.01"/>
+    <geom contype="0" conaffinity="1" friction="1.0 0.005 0.0001"/>
+  </default>
+  <asset>
+    <mesh name="catalog_chassis_quadruped_body__height-60__hip_spacing_x-140__hip_spacing_y-120__length-220__width-160" file="catalog_chassis_quadruped_body__height-60__hip_spacing_x-140__hip_spacing_y-120__length-220__width-160.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="catalog_wheels_wheg__hub_radius-10__hub_thickness-8__spoke_length-45__spoke_thickness-8__spoke_width-12" file="catalog_wheels_wheg__hub_radius-10__hub_thickness-8__spoke_length-45__spoke_thickness-8__spoke_width-12.stl" scale="0.001 0.001 0.001"/>
+  </asset>
+  <worldbody>
+    <geom name="ground" type="plane" size="10 10 0.1" contype="1" conaffinity="1" rgba="0.85 0.85 0.85 1"/>
+    <body name="base" pos="0 0 0.600">
+      <freejoint name="root"/>
+      <inertial pos="0.000000 0.000000 0.000000" mass="0.433295" diaginertia="1.054351e-3 1.877612e-3 2.671986e-3"/>
+      <geom name="base_geom" type="mesh" mesh="catalog_chassis_quadruped_body__height-60__hip_spacing_x-140__hip_spacing_y-120__length-220__width-160" mass="0" rgba="0.55 0.68 0.85 1"/>
+      <body name="FL_wheg" pos="0.070000 0.060000 -0.030000">
+        <joint name="FL_WHEG_drive" type="hinge" limited="false" damping="0.001" armature="0.0001" axis="0.000000 1.000000 0.000000" pos="0 0 0"/>
+        <inertial pos="0.000000 0.000000 0.000000" mass="0.016513" diaginertia="3.901244e-6 7.802487e-6 3.901244e-6"/>
+        <geom name="FL_wheg_geom" type="mesh" mesh="catalog_wheels_wheg__hub_radius-10__hub_thickness-8__spoke_length-45__spoke_thickness-8__spoke_width-12" mass="0" rgba="0.55 0.68 0.85 1"/>
+      </body>
+      <body name="FR_wheg" pos="0.070000 -0.060000 -0.030000">
+        <joint name="FR_WHEG_drive" type="hinge" limited="false" damping="0.001" armature="0.0001" axis="0.000000 1.000000 0.000000" pos="0 0 0"/>
+        <inertial pos="0.000000 0.000000 0.000000" mass="0.016513" diaginertia="3.901244e-6 7.802487e-6 3.901244e-6"/>
+        <geom name="FR_wheg_geom" type="mesh" mesh="catalog_wheels_wheg__hub_radius-10__hub_thickness-8__spoke_length-45__spoke_thickness-8__spoke_width-12" mass="0" rgba="0.55 0.68 0.85 1"/>
+      </body>
+      <body name="RL_wheg" pos="-0.070000 0.060000 -0.030000">
+        <joint name="RL_WHEG_drive" type="hinge" limited="false" damping="0.001" armature="0.0001" axis="0.000000 1.000000 0.000000" pos="0 0 0"/>
+        <inertial pos="0.000000 0.000000 0.000000" mass="0.016513" diaginertia="3.901244e-6 7.802487e-6 3.901244e-6"/>
+        <geom name="RL_wheg_geom" type="mesh" mesh="catalog_wheels_wheg__hub_radius-10__hub_thickness-8__spoke_length-45__spoke_thickness-8__spoke_width-12" mass="0" rgba="0.55 0.68 0.85 1"/>
+      </body>
+      <body name="RR_wheg" pos="-0.070000 -0.060000 -0.030000">
+        <joint name="RR_WHEG_drive" type="hinge" limited="false" damping="0.001" armature="0.0001" axis="0.000000 1.000000 0.000000" pos="0 0 0"/>
+        <inertial pos="0.000000 0.000000 0.000000" mass="0.016513" diaginertia="3.901244e-6 7.802487e-6 3.901244e-6"/>
+        <geom name="RR_wheg_geom" type="mesh" mesh="catalog_wheels_wheg__hub_radius-10__hub_thickness-8__spoke_length-45__spoke_thickness-8__spoke_width-12" mass="0" rgba="0.55 0.68 0.85 1"/>
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+    <motor name="FL_WHEG_drive" joint="FL_WHEG_drive" ctrlrange="-1.500 1.500" gear="1"/>
+    <motor name="FR_WHEG_drive" joint="FR_WHEG_drive" ctrlrange="-1.500 1.500" gear="1"/>
+    <motor name="RL_WHEG_drive" joint="RL_WHEG_drive" ctrlrange="-1.500 1.500" gear="1"/>
+    <motor name="RR_WHEG_drive" joint="RR_WHEG_drive" ctrlrange="-1.500 1.500" gear="1"/>
+  </actuator>
+</mujoco>

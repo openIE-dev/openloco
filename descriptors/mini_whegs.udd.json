@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "meta": {
+    "name": "mini_whegs",
+    "version": "0.1",
+    "units_length": "Metre",
+    "author": "OpenLoco Contributors",
+    "description": "Mini-Whegs quadruped. Four three-spoke wheg appendages driven independently; alternating diagonal gait emerges from 60-degree spoke phase offsets between FL/RR and FR/RL pairs. Derived from CWRU Mini-Whegs (Quinn lab). Tier 0 Dynamixel actuators, ~1.5 kg target mass, ~20 cm body length.",
+    "generator": "openloco-cli"
+  },
+  "robot": {
+    "links": [
+      {
+        "name": "base",
+        "mass_kg": 0.433295,
+        "inertia": [1.054351e-3, 1.877612e-3, 2.671986e-3, 0, 0, 0],
+        "geometry_ref": {
+          "type": "mesh_hash",
+          "hash": "catalog_chassis_quadruped_body__height-60__hip_spacing_x-140__hip_spacing_y-120__length-220__width-160"
+        }
+      },
+      {
+        "name": "FL_wheg",
+        "mass_kg": 0.016513,
+        "inertia": [3.901244e-6, 7.802487e-6, 3.901244e-6, 0, 0, 0],
+        "geometry_ref": {
+          "type": "mesh_hash",
+          "hash": "catalog_wheels_wheg__hub_radius-10__hub_thickness-8__spoke_length-45__spoke_thickness-8__spoke_width-12"
+        }
+      },
+      {
+        "name": "FR_wheg",
+        "mass_kg": 0.016513,
+        "inertia": [3.901244e-6, 7.802487e-6, 3.901244e-6, 0, 0, 0],
+        "geometry_ref": {
+          "type": "mesh_hash",
+          "hash": "catalog_wheels_wheg__hub_radius-10__hub_thickness-8__spoke_length-45__spoke_thickness-8__spoke_width-12"
+        }
+      },
+      {
+        "name": "RL_wheg",
+        "mass_kg": 0.016513,
+        "inertia": [3.901244e-6, 7.802487e-6, 3.901244e-6, 0, 0, 0],
+        "geometry_ref": {
+          "type": "mesh_hash",
+          "hash": "catalog_wheels_wheg__hub_radius-10__hub_thickness-8__spoke_length-45__spoke_thickness-8__spoke_width-12"
+        }
+      },
+      {
+        "name": "RR_wheg",
+        "mass_kg": 0.016513,
+        "inertia": [3.901244e-6, 7.802487e-6, 3.901244e-6, 0, 0, 0],
+        "geometry_ref": {
+          "type": "mesh_hash",
+          "hash": "catalog_wheels_wheg__hub_radius-10__hub_thickness-8__spoke_length-45__spoke_thickness-8__spoke_width-12"
+        }
+      }
+    ],
+    "joints": [
+      {
+        "name": "FL_WHEG_drive",
+        "joint_type": "continuous",
+        "parent_link": "base",
+        "child_link": "FL_wheg",
+        "axis": [0, 1, 0],
+        "origin_xyz": [0.07, 0.06, -0.03],
+        "origin_rpy": [0, 0, 0],
+        "limits": {
+          "lower": -3.14,
+          "upper": 3.14,
+          "effort_max": 1.5,
+          "velocity_max": 20.0
+        }
+      },
+      {
+        "name": "FR_WHEG_drive",
+        "joint_type": "continuous",
+        "parent_link": "base",
+        "child_link": "FR_wheg",
+        "axis": [0, 1, 0],
+        "origin_xyz": [0.07, -0.06, -0.03],
+        "origin_rpy": [0, 0, 0],
+        "limits": {
+          "lower": -3.14,
+          "upper": 3.14,
+          "effort_max": 1.5,
+          "velocity_max": 20.0
+        }
+      },
+      {
+        "name": "RL_WHEG_drive",
+        "joint_type": "continuous",
+        "parent_link": "base",
+        "child_link": "RL_wheg",
+        "axis": [0, 1, 0],
+        "origin_xyz": [-0.07, 0.06, -0.03],
+        "origin_rpy": [0, 0, 0],
+        "limits": {
+          "lower": -3.14,
+          "upper": 3.14,
+          "effort_max": 1.5,
+          "velocity_max": 20.0
+        }
+      },
+      {
+        "name": "RR_WHEG_drive",
+        "joint_type": "continuous",
+        "parent_link": "base",
+        "child_link": "RR_wheg",
+        "axis": [0, 1, 0],
+        "origin_xyz": [-0.07, -0.06, -0.03],
+        "origin_rpy": [0, 0, 0],
+        "limits": {
+          "lower": -3.14,
+          "upper": 3.14,
+          "effort_max": 1.5,
+          "velocity_max": 20.0
+        }
+      }
+    ],
+    "actuator_slots": [
+      { "name": "FL_WHEG_drive", "joint": "FL_WHEG_drive", "tier": 0 },
+      { "name": "FR_WHEG_drive", "joint": "FR_WHEG_drive", "tier": 0 },
+      { "name": "RL_WHEG_drive", "joint": "RL_WHEG_drive", "tier": 0 },
+      { "name": "RR_WHEG_drive", "joint": "RR_WHEG_drive", "tier": 0 }
+    ],
+    "modes": [
+      {
+        "name": "walking",
+        "hold_positions": {},
+        "actuator_roles": {
+          "FL_WHEG_drive": "velocity",
+          "FR_WHEG_drive": "velocity",
+          "RL_WHEG_drive": "velocity",
+          "RR_WHEG_drive": "velocity"
+        }
+      }
+    ]
+  }
+}

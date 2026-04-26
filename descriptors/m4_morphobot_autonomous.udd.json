@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "meta": {
+    "name": "m4_morphobot_autonomous",
+    "version": "0.1",
+    "units_length": "Metre",
+    "author": "OpenLoco Contributors",
+    "description": "M4 Morphobot (Sihite et al. 2023 / Caltech CAST) extended with autonomous drive-fly-drive perception. Mechanical layer identical to `m4_morphobot.udd.json` — same hashes, same URDF / MJCF emit, same BOM. The superset adds a `perception` section with a forward-mounted RGBD camera and two VLM skills: `terrain_mode_advisor` (fires the `driving → flying` transition) and `landing_site_finder` (fires `flying → driving` when a close-enough landing site is found). See `openloco/docs/PERCEPTION.md` for the design story. Skill implementations live downstream (mgai-vla / user crates) and register against these ids at runtime via `mgai-perception::skill_graph::SkillRegistry`.",
+    "generator": "openloco-cli"
+  },
+  "robot": {
+    "links": [
+      { "name": "base", "mass_kg": 2.416522, "inertia": [2.595748e-2, 9.996347e-2, 1.233433e-1, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_chassis_quadruped_body__height-80__hip_spacing_x-500__hip_spacing_y-300__length-700__width-350" } },
+
+      { "name": "FL_roll_housing", "mass_kg": 0.080000, "inertia": [3.333333e-5, 3.333333e-5, 3.333333e-5, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115" } },
+      { "name": "FL_leg",          "mass_kg": 0.150000, "inertia": [5.200000e-4, 5.200000e-4, 4.000000e-5, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_brackets_leg_segment__length-150" } },
+      { "name": "FL_rotor",        "mass_kg": 0.064238, "inertia": [1.001624e-4, 1.955740e-4, 1.001624e-4, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_wheels_rotor_wheel__hub_radius-8__hub_thickness-10__prop_blade_length-55__shroud_height-40__shroud_radius-62.5" } },
+
+      { "name": "FR_roll_housing", "mass_kg": 0.080000, "inertia": [3.333333e-5, 3.333333e-5, 3.333333e-5, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115" } },
+      { "name": "FR_leg",          "mass_kg": 0.150000, "inertia": [5.200000e-4, 5.200000e-4, 4.000000e-5, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_brackets_leg_segment__length-150" } },
+      { "name": "FR_rotor",        "mass_kg": 0.064238, "inertia": [1.001624e-4, 1.955740e-4, 1.001624e-4, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_wheels_rotor_wheel__hub_radius-8__hub_thickness-10__prop_blade_length-55__shroud_height-40__shroud_radius-62.5" } },
+
+      { "name": "RL_roll_housing", "mass_kg": 0.080000, "inertia": [3.333333e-5, 3.333333e-5, 3.333333e-5, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115" } },
+      { "name": "RL_leg",          "mass_kg": 0.150000, "inertia": [5.200000e-4, 5.200000e-4, 4.000000e-5, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_brackets_leg_segment__length-150" } },
+      { "name": "RL_rotor",        "mass_kg": 0.064238, "inertia": [1.001624e-4, 1.955740e-4, 1.001624e-4, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_wheels_rotor_wheel__hub_radius-8__hub_thickness-10__prop_blade_length-55__shroud_height-40__shroud_radius-62.5" } },
+
+      { "name": "RR_roll_housing", "mass_kg": 0.080000, "inertia": [3.333333e-5, 3.333333e-5, 3.333333e-5, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115" } },
+      { "name": "RR_leg",          "mass_kg": 0.150000, "inertia": [5.200000e-4, 5.200000e-4, 4.000000e-5, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_brackets_leg_segment__length-150" } },
+      { "name": "RR_rotor",        "mass_kg": 0.064238, "inertia": [1.001624e-4, 1.955740e-4, 1.001624e-4, 0, 0, 0], "geometry_ref": { "type": "mesh_hash", "hash": "catalog_wheels_rotor_wheel__hub_radius-8__hub_thickness-10__prop_blade_length-55__shroud_height-40__shroud_radius-62.5" } }
+    ],
+    "joints": [
+      { "name": "FL_HIP_roll",     "joint_type": "revolute",   "parent_link": "base",            "child_link": "FL_roll_housing", "axis": [1, 0, 0], "origin_xyz": [ 0.25,  0.15, -0.04], "origin_rpy": [0, 0, 0], "limits": { "lower": -1.6, "upper": 1.6, "effort_max": 18.0, "velocity_max": 15.0 } },
+      { "name": "FL_HIP_pitch",    "joint_type": "revolute",   "parent_link": "FL_roll_housing", "child_link": "FL_leg",          "axis": [0, 1, 0], "origin_xyz": [ 0.00,  0.00, -0.05], "origin_rpy": [0, 0, 0], "limits": { "lower": -1.6, "upper": 1.6, "effort_max": 18.0, "velocity_max": 15.0 } },
+      { "name": "FL_ROTOR_drive",  "joint_type": "continuous", "parent_link": "FL_leg",          "child_link": "FL_rotor",        "axis": [0, 1, 0], "origin_xyz": [ 0.00,  0.00, -0.15], "origin_rpy": [0, 0, 0], "limits": { "lower": -3.14, "upper": 3.14, "effort_max": 2.0, "velocity_max": 600.0 } },
+
+      { "name": "FR_HIP_roll",     "joint_type": "revolute",   "parent_link": "base",            "child_link": "FR_roll_housing", "axis": [1, 0, 0], "origin_xyz": [ 0.25, -0.15, -0.04], "origin_rpy": [0, 0, 0], "limits": { "lower": -1.6, "upper": 1.6, "effort_max": 18.0, "velocity_max": 15.0 } },
+      { "name": "FR_HIP_pitch",    "joint_type": "revolute",   "parent_link": "FR_roll_housing", "child_link": "FR_leg",          "axis": [0, 1, 0], "origin_xyz": [ 0.00,  0.00, -0.05], "origin_rpy": [0, 0, 0], "limits": { "lower": -1.6, "upper": 1.6, "effort_max": 18.0, "velocity_max": 15.0 } },
+      { "name": "FR_ROTOR_drive",  "joint_type": "continuous", "parent_link": "FR_leg",          "child_link": "FR_rotor",        "axis": [0, 1, 0], "origin_xyz": [ 0.00,  0.00, -0.15], "origin_rpy": [0, 0, 0], "limits": { "lower": -3.14, "upper": 3.14, "effort_max": 2.0, "velocity_max": 600.0 } },
+
+      { "name": "RL_HIP_roll",     "joint_type": "revolute",   "parent_link": "base",            "child_link": "RL_roll_housing", "axis": [1, 0, 0], "origin_xyz": [-0.25,  0.15, -0.04], "origin_rpy": [0, 0, 0], "limits": { "lower": -1.6, "upper": 1.6, "effort_max": 18.0, "velocity_max": 15.0 } },
+      { "name": "RL_HIP_pitch",    "joint_type": "revolute",   "parent_link": "RL_roll_housing", "child_link": "RL_leg",          "axis": [0, 1, 0], "origin_xyz": [ 0.00,  0.00, -0.05], "origin_rpy": [0, 0, 0], "limits": { "lower": -1.6, "upper": 1.6, "effort_max": 18.0, "velocity_max": 15.0 } },
+      { "name": "RL_ROTOR_drive",  "joint_type": "continuous", "parent_link": "RL_leg",          "child_link": "RL_rotor",        "axis": [0, 1, 0], "origin_xyz": [ 0.00,  0.00, -0.15], "origin_rpy": [0, 0, 0], "limits": { "lower": -3.14, "upper": 3.14, "effort_max": 2.0, "velocity_max": 600.0 } },
+
+      { "name": "RR_HIP_roll",     "joint_type": "revolute",   "parent_link": "base",            "child_link": "RR_roll_housing", "axis": [1, 0, 0], "origin_xyz": [-0.25, -0.15, -0.04], "origin_rpy": [0, 0, 0], "limits": { "lower": -1.6, "upper": 1.6, "effort_max": 18.0, "velocity_max": 15.0 } },
+      { "name": "RR_HIP_pitch",    "joint_type": "revolute",   "parent_link": "RR_roll_housing", "child_link": "RR_leg",          "axis": [0, 1, 0], "origin_xyz": [ 0.00,  0.00, -0.05], "origin_rpy": [0, 0, 0], "limits": { "lower": -1.6, "upper": 1.6, "effort_max": 18.0, "velocity_max": 15.0 } },
+      { "name": "RR_ROTOR_drive",  "joint_type": "continuous", "parent_link": "RR_leg",          "child_link": "RR_rotor",        "axis": [0, 1, 0], "origin_xyz": [ 0.00,  0.00, -0.15], "origin_rpy": [0, 0, 0], "limits": { "lower": -3.14, "upper": 3.14, "effort_max": 2.0, "velocity_max": 600.0 } }
+    ],
+    "actuator_slots": [
+      { "name": "FL_HIP_roll",    "joint": "FL_HIP_roll",    "tier": 2 },
+      { "name": "FL_HIP_pitch",   "joint": "FL_HIP_pitch",   "tier": 2 },
+      { "name": "FL_ROTOR_drive", "joint": "FL_ROTOR_drive", "tier": 1 },
+      { "name": "FR_HIP_roll",    "joint": "FR_HIP_roll",    "tier": 2 },
+      { "name": "FR_HIP_pitch",   "joint": "FR_HIP_pitch",   "tier": 2 },
+      { "name": "FR_ROTOR_drive", "joint": "FR_ROTOR_drive", "tier": 1 },
+      { "name": "RL_HIP_roll",    "joint": "RL_HIP_roll",    "tier": 2 },
+      { "name": "RL_HIP_pitch",   "joint": "RL_HIP_pitch",   "tier": 2 },
+      { "name": "RL_ROTOR_drive", "joint": "RL_ROTOR_drive", "tier": 1 },
+      { "name": "RR_HIP_roll",    "joint": "RR_HIP_roll",    "tier": 2 },
+      { "name": "RR_HIP_pitch",   "joint": "RR_HIP_pitch",   "tier": 2 },
+      { "name": "RR_ROTOR_drive", "joint": "RR_ROTOR_drive", "tier": 1 }
+    ],
+    "modes": [
+      {
+        "name": "driving",
+        "hold_positions": {
+          "FL_HIP_roll": 0.0, "FL_HIP_pitch": 0.0,
+          "FR_HIP_roll": 0.0, "FR_HIP_pitch": 0.0,
+          "RL_HIP_roll": 0.0, "RL_HIP_pitch": 0.0,
+          "RR_HIP_roll": 0.0, "RR_HIP_pitch": 0.0
+        },
+        "actuator_roles": {
+          "FL_HIP_roll": "position", "FL_HIP_pitch": "position", "FL_ROTOR_drive": "velocity",
+          "FR_HIP_roll": "position", "FR_HIP_pitch": "position", "FR_ROTOR_drive": "velocity",
+          "RL_HIP_roll": "position", "RL_HIP_pitch": "position", "RL_ROTOR_drive": "velocity",
+          "RR_HIP_roll": "position", "RR_HIP_pitch": "position", "RR_ROTOR_drive": "velocity"
+        }
+      },
+      {
+        "name": "flying",
+        "hold_positions": {
+          "FL_HIP_roll":  1.5707963267948966, "FL_HIP_pitch": 0.0,
+          "FR_HIP_roll": -1.5707963267948966, "FR_HIP_pitch": 0.0,
+          "RL_HIP_roll":  1.5707963267948966, "RL_HIP_pitch": 0.0,
+          "RR_HIP_roll": -1.5707963267948966, "RR_HIP_pitch": 0.0
+        },
+        "actuator_roles": {
+          "FL_HIP_roll": "position", "FL_HIP_pitch": "position", "FL_ROTOR_drive": "rotor",
+          "FR_HIP_roll": "position", "FR_HIP_pitch": "position", "FR_ROTOR_drive": "rotor",
+          "RL_HIP_roll": "position", "RL_HIP_pitch": "position", "RL_ROTOR_drive": "rotor",
+          "RR_HIP_roll": "position", "RR_HIP_pitch": "position", "RR_ROTOR_drive": "rotor"
+        }
+      }
+    ]
+  },
+  "perception": {
+    "sensors": [
+      {
+        "id": "forward_camera",
+        "kind": "rgbd",
+        "mount_link": "base",
+        "mount_pose": [0.15, 0.0, 0.05, 0.0, 0.0, 0.0],
+        "compute_tier_min": 2,
+        "config": {
+          "intrinsics_catalog_ref": "catalog/sensors/orbbec_femto_mega",
+          "width": 1280,
+          "height": 720,
+          "rate_hz": 30.0
+        }
+      }
+    ],
+    "skills": [
+      {
+        "id": "terrain_mode_advisor",
+        "kind": "vlm_query",
+        "sensors": ["forward_camera"],
+        "output": { "kind": "enum", "options": ["drive", "fly"] },
+        "compute_tier_min": 2,
+        "rate_hz": 2.0,
+        "config": {
+          "query": "Is the terrain ahead drivable by a wheeled robot, or does it have obstacles requiring flight?"
+        }
+      },
+      {
+        "id": "landing_site_finder",
+        "kind": "vlm_query",
+        "sensors": ["forward_camera"],
+        "output": { "kind": "point", "dim": 3 },
+        "compute_tier_min": 2,
+        "rate_hz": 1.0,
+        "config": {
+          "query": "Identify a flat, clear area suitable for a small quadrotor to land. Return the 3D point in the camera frame."
+        }
+      }
+    ],
+    "skill_graph": [
+      {
+        "when_mode": "driving",
+        "active_skills": ["terrain_mode_advisor"],
+        "transitions": [
+          {
+            "skill": "terrain_mode_advisor",
+            "predicate": "output == fly",
+            "to_mode": "flying"
+          }
+        ]
+      },
+      {
+        "when_mode": "flying",
+        "active_skills": ["landing_site_finder"],
+        "transitions": [
+          {
+            "skill": "landing_site_finder",
+            "predicate": "output.found && output.z < 0.5",
+            "to_mode": "driving"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="mini_whegs">
+  <link name="base">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.433295"/>
+      <inertia ixx="1.054351e-3" iyy="1.877612e-3" izz="2.671986e-3" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mini_whegs/meshes/catalog_chassis_quadruped_body__height-60__hip_spacing_x-140__hip_spacing_y-120__length-220__width-160.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mini_whegs/meshes/catalog_chassis_quadruped_body__height-60__hip_spacing_x-140__hip_spacing_y-120__length-220__width-160.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="FL_wheg">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.016513"/>
+      <inertia ixx="3.901244e-6" iyy="7.802487e-6" izz="3.901244e-6" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mini_whegs/meshes/catalog_wheels_wheg__hub_radius-10__hub_thickness-8__spoke_length-45__spoke_thickness-8__spoke_width-12.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mini_whegs/meshes/catalog_wheels_wheg__hub_radius-10__hub_thickness-8__spoke_length-45__spoke_thickness-8__spoke_width-12.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="FR_wheg">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.016513"/>
+      <inertia ixx="3.901244e-6" iyy="7.802487e-6" izz="3.901244e-6" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mini_whegs/meshes/catalog_wheels_wheg__hub_radius-10__hub_thickness-8__spoke_length-45__spoke_thickness-8__spoke_width-12.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mini_whegs/meshes/catalog_wheels_wheg__hub_radius-10__hub_thickness-8__spoke_length-45__spoke_thickness-8__spoke_width-12.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="RL_wheg">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.016513"/>
+      <inertia ixx="3.901244e-6" iyy="7.802487e-6" izz="3.901244e-6" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mini_whegs/meshes/catalog_wheels_wheg__hub_radius-10__hub_thickness-8__spoke_length-45__spoke_thickness-8__spoke_width-12.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mini_whegs/meshes/catalog_wheels_wheg__hub_radius-10__hub_thickness-8__spoke_length-45__spoke_thickness-8__spoke_width-12.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="RR_wheg">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.016513"/>
+      <inertia ixx="3.901244e-6" iyy="7.802487e-6" izz="3.901244e-6" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mini_whegs/meshes/catalog_wheels_wheg__hub_radius-10__hub_thickness-8__spoke_length-45__spoke_thickness-8__spoke_width-12.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mini_whegs/meshes/catalog_wheels_wheg__hub_radius-10__hub_thickness-8__spoke_length-45__spoke_thickness-8__spoke_width-12.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="FL_WHEG_drive" type="continuous">
+    <parent link="base"/>
+    <child link="FL_wheg"/>
+    <origin xyz="0.070000 0.060000 -0.030000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit effort="1.500" velocity="20.000"/>
+  </joint>
+  <transmission name="FL_WHEG_drive_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FL_WHEG_drive">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FL_WHEG_drive_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="FR_WHEG_drive" type="continuous">
+    <parent link="base"/>
+    <child link="FR_wheg"/>
+    <origin xyz="0.070000 -0.060000 -0.030000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit effort="1.500" velocity="20.000"/>
+  </joint>
+  <transmission name="FR_WHEG_drive_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FR_WHEG_drive">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FR_WHEG_drive_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="RL_WHEG_drive" type="continuous">
+    <parent link="base"/>
+    <child link="RL_wheg"/>
+    <origin xyz="-0.070000 0.060000 -0.030000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit effort="1.500" velocity="20.000"/>
+  </joint>
+  <transmission name="RL_WHEG_drive_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RL_WHEG_drive">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RL_WHEG_drive_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="RR_WHEG_drive" type="continuous">
+    <parent link="base"/>
+    <child link="RR_wheg"/>
+    <origin xyz="-0.070000 -0.060000 -0.030000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit effort="1.500" velocity="20.000"/>
+  </joint>
+  <transmission name="RR_WHEG_drive_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RR_WHEG_drive">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RR_WHEG_drive_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+</robot>

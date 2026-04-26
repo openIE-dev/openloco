@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco model="anymal_wl">
+  <compiler angle="radian" coordinate="local" meshdir="meshes" autolimits="true"/>
+  <option timestep="0.002" integrator="implicitfast"/>
+  <default>
+    <joint damping="0.1" armature="0.01"/>
+    <geom contype="0" conaffinity="1" friction="1.0 0.005 0.0001"/>
+  </default>
+  <asset>
+    <mesh name="catalog_brackets_leg_segment__length-200" file="catalog_brackets_leg_segment__length-200.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="catalog_brackets_leg_segment__length-220" file="catalog_brackets_leg_segment__length-220.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="catalog_chassis_quadruped_body__height-80__hip_spacing_x-300__hip_spacing_y-180__length-400__width-240" file="catalog_chassis_quadruped_body__height-80__hip_spacing_x-300__hip_spacing_y-180__length-400__width-240.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115" file="catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="catalog_wheels_wheel_simple__radius-60__width-35" file="catalog_wheels_wheel_simple__radius-60__width-35.stl" scale="0.001 0.001 0.001"/>
+  </asset>
+  <worldbody>
+    <geom name="ground" type="plane" size="10 10 0.1" contype="1" conaffinity="1" rgba="0.85 0.85 0.85 1"/>
+    <body name="base" pos="0 0 0.600">
+      <freejoint name="root"/>
+      <inertial pos="0.000000 0.000000 0.000000" mass="1.132107" diaginertia="6.037904e-3 1.569855e-2 2.052887e-2"/>
+      <geom name="base_geom" type="mesh" mesh="catalog_chassis_quadruped_body__height-80__hip_spacing_x-300__hip_spacing_y-180__length-400__width-240" mass="0" rgba="0.55 0.68 0.85 1"/>
+      <body name="FL_hip_roll_housing" pos="0.150000 0.090000 -0.040000">
+        <joint name="FL_HIP_roll" type="hinge" range="-0.5000 0.5000" limited="true" axis="1.000000 0.000000 0.000000" pos="0 0 0" ref="0.000000"/>
+        <inertial pos="0.000000 0.000000 0.000000" mass="0.203539" diaginertia="1.372533e-4 1.372533e-4 1.176457e-4"/>
+        <geom name="FL_hip_roll_housing_geom" type="mesh" mesh="catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115" mass="0" rgba="0.55 0.68 0.85 1"/>
+        <body name="FL_hip_pitch_housing" pos="0.000000 0.060000 0.000000">
+          <inertial pos="0.000000 0.000000 0.000000" mass="0.203539" diaginertia="1.372533e-4 1.372533e-4 1.176457e-4"/>
+          <geom name="FL_hip_pitch_housing_geom" type="mesh" mesh="catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115" mass="0" rgba="0.55 0.68 0.85 1"/>
+          <body name="FL_upper_leg" pos="0.000000 0.000000 0.000000">
+            <joint name="FL_HIP_pitch" type="hinge" range="-2.0000 1.5000" limited="true" axis="0.000000 1.000000 0.000000" pos="0 0 0" ref="-0.250000"/>
+            <inertial pos="0.000000 0.000000 0.000000" mass="0.250000" diaginertia="8.583333e-4 8.583333e-4 5.000000e-5"/>
+            <geom name="FL_upper_leg_geom" type="mesh" mesh="catalog_brackets_leg_segment__length-200" mass="0" rgba="0.55 0.68 0.85 1"/>
+            <body name="FL_knee_housing" pos="0.000000 0.000000 -0.200000">
+              <inertial pos="0.000000 0.000000 0.000000" mass="0.203539" diaginertia="1.372533e-4 1.372533e-4 1.176457e-4"/>
+              <geom name="FL_knee_housing_geom" type="mesh" mesh="catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115" mass="0" rgba="0.55 0.68 0.85 1"/>
+              <body name="FL_lower_leg" pos="0.000000 0.000000 0.000000">
+                <joint name="FL_KNEE_pitch" type="hinge" range="0.2000 2.8000" limited="true" axis="0.000000 1.000000 0.000000" pos="0 0 0" ref="1.500000"/>
+                <inertial pos="0.000000 0.000000 0.000000" mass="0.200000" diaginertia="8.228667e-4 8.228667e-4 3.240000e-5"/>
+                <geom name="FL_lower_leg_geom" type="mesh" mesh="catalog_brackets_leg_segment__length-220" mass="0" rgba="0.55 0.68 0.85 1"/>
+                <body name="FL_wheel" pos="0.000000 0.000000 -0.220000">
+                  <joint name="FL_WHEEL_drive" type="hinge" limited="false" damping="0.001" armature="0.0001" axis="0.000000 1.000000 0.000000" pos="0 0 0"/>
+                  <inertial pos="0.000000 0.000000 0.000000" mass="0.387743" diaginertia="3.885509e-4 6.979376e-4 3.885509e-4"/>
+                  <geom name="FL_wheel_geom" type="mesh" mesh="catalog_wheels_wheel_simple__radius-60__width-35" mass="0" rgba="0.55 0.68 0.85 1"/>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="FR_hip_roll_housing" pos="0.150000 -0.090000 -0.040000">
+        <joint name="FR_HIP_roll" type="hinge" range="-0.5000 0.5000" limited="true" axis="1.000000 0.000000 0.000000" pos="0 0 0" ref="0.000000"/>
+        <inertial pos="0.000000 0.000000 0.000000" mass="0.203539" diaginertia="1.372533e-4 1.372533e-4 1.176457e-4"/>
+        <geom name="FR_hip_roll_housing_geom" type="mesh" mesh="catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115" mass="0" rgba="0.55 0.68 0.85 1"/>
+        <body name="FR_hip_pitch_housing" pos="0.000000 -0.060000 0.000000">
+          <inertial pos="0.000000 0.000000 0.000000" mass="0.203539" diaginertia="1.372533e-4 1.372533e-4 1.176457e-4"/>
+          <geom name="FR_hip_pitch_housing_geom" type="mesh" mesh="catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115" mass="0" rgba="0.55 0.68 0.85 1"/>
+          <body name="FR_upper_leg" pos="0.000000 0.000000 0.000000">
+            <joint name="FR_HIP_pitch" type="hinge" range="-2.0000 1.5000" limited="true" axis="0.000000 1.000000 0.000000" pos="0 0 0" ref="-0.250000"/>
+            <inertial pos="0.000000 0.000000 0.000000" mass="0.250000" diaginertia="8.583333e-4 8.583333e-4 5.000000e-5"/>
+            <geom name="FR_upper_leg_geom" type="mesh" mesh="catalog_brackets_leg_segment__length-200" mass="0" rgba="0.55 0.68 0.85 1"/>
+            <body name="FR_knee_housing" pos="0.000000 0.000000 -0.200000">
+              <inertial pos="0.000000 0.000000 0.000000" mass="0.203539" diaginertia="1.372533e-4 1.372533e-4 1.176457e-4"/>
+              <geom name="FR_knee_housing_geom" type="mesh" mesh="catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115" mass="0" rgba="0.55 0.68 0.85 1"/>
+              <body name="FR_lower_leg" pos="0.000000 0.000000 0.000000">
+                <joint name="FR_KNEE_pitch" type="hinge" range="0.2000 2.8000" limited="true" axis="0.000000 1.000000 0.000000" pos="0 0 0" ref="1.500000"/>
+                <inertial pos="0.000000 0.000000 0.000000" mass="0.200000" diaginertia="8.228667e-4 8.228667e-4 3.240000e-5"/>
+                <geom name="FR_lower_leg_geom" type="mesh" mesh="catalog_brackets_leg_segment__length-220" mass="0" rgba="0.55 0.68 0.85 1"/>
+                <body name="FR_wheel" pos="0.000000 0.000000 -0.220000">
+                  <joint name="FR_WHEEL_drive" type="hinge" limited="false" damping="0.001" armature="0.0001" axis="0.000000 1.000000 0.000000" pos="0 0 0"/>
+                  <inertial pos="0.000000 0.000000 0.000000" mass="0.387743" diaginertia="3.885509e-4 6.979376e-4 3.885509e-4"/>
+                  <geom name="FR_wheel_geom" type="mesh" mesh="catalog_wheels_wheel_simple__radius-60__width-35" mass="0" rgba="0.55 0.68 0.85 1"/>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="RL_hip_roll_housing" pos="-0.150000 0.090000 -0.040000">
+        <joint name="RL_HIP_roll" type="hinge" range="-0.5000 0.5000" limited="true" axis="1.000000 0.000000 0.000000" pos="0 0 0" ref="0.000000"/>
+        <inertial pos="0.000000 0.000000 0.000000" mass="0.203539" diaginertia="1.372533e-4 1.372533e-4 1.176457e-4"/>
+        <geom name="RL_hip_roll_housing_geom" type="mesh" mesh="catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115" mass="0" rgba="0.55 0.68 0.85 1"/>
+        <body name="RL_hip_pitch_housing" pos="0.000000 0.060000 0.000000">
+          <inertial pos="0.000000 0.000000 0.000000" mass="0.203539" diaginertia="1.372533e-4 1.372533e-4 1.176457e-4"/>
+          <geom name="RL_hip_pitch_housing_geom" type="mesh" mesh="catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115" mass="0" rgba="0.55 0.68 0.85 1"/>
+          <body name="RL_upper_leg" pos="0.000000 0.000000 0.000000">
+            <joint name="RL_HIP_pitch" type="hinge" range="-2.0000 1.5000" limited="true" axis="0.000000 1.000000 0.000000" pos="0 0 0" ref="-0.250000"/>
+            <inertial pos="0.000000 0.000000 0.000000" mass="0.250000" diaginertia="8.583333e-4 8.583333e-4 5.000000e-5"/>
+            <geom name="RL_upper_leg_geom" type="mesh" mesh="catalog_brackets_leg_segment__length-200" mass="0" rgba="0.55 0.68 0.85 1"/>
+            <body name="RL_knee_housing" pos="0.000000 0.000000 -0.200000">
+              <inertial pos="0.000000 0.000000 0.000000" mass="0.203539" diaginertia="1.372533e-4 1.372533e-4 1.176457e-4"/>
+              <geom name="RL_knee_housing_geom" type="mesh" mesh="catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115" mass="0" rgba="0.55 0.68 0.85 1"/>
+              <body name="RL_lower_leg" pos="0.000000 0.000000 0.000000">
+                <joint name="RL_KNEE_pitch" type="hinge" range="0.2000 2.8000" limited="true" axis="0.000000 1.000000 0.000000" pos="0 0 0" ref="1.500000"/>
+                <inertial pos="0.000000 0.000000 0.000000" mass="0.200000" diaginertia="8.228667e-4 8.228667e-4 3.240000e-5"/>
+                <geom name="RL_lower_leg_geom" type="mesh" mesh="catalog_brackets_leg_segment__length-220" mass="0" rgba="0.55 0.68 0.85 1"/>
+                <body name="RL_wheel" pos="0.000000 0.000000 -0.220000">
+                  <joint name="RL_WHEEL_drive" type="hinge" limited="false" damping="0.001" armature="0.0001" axis="0.000000 1.000000 0.000000" pos="0 0 0"/>
+                  <inertial pos="0.000000 0.000000 0.000000" mass="0.387743" diaginertia="3.885509e-4 6.979376e-4 3.885509e-4"/>
+                  <geom name="RL_wheel_geom" type="mesh" mesh="catalog_wheels_wheel_simple__radius-60__width-35" mass="0" rgba="0.55 0.68 0.85 1"/>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="RR_hip_roll_housing" pos="-0.150000 -0.090000 -0.040000">
+        <joint name="RR_HIP_roll" type="hinge" range="-0.5000 0.5000" limited="true" axis="1.000000 0.000000 0.000000" pos="0 0 0" ref="0.000000"/>
+        <inertial pos="0.000000 0.000000 0.000000" mass="0.203539" diaginertia="1.372533e-4 1.372533e-4 1.176457e-4"/>
+        <geom name="RR_hip_roll_housing_geom" type="mesh" mesh="catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115" mass="0" rgba="0.55 0.68 0.85 1"/>
+        <body name="RR_hip_pitch_housing" pos="0.000000 -0.060000 0.000000">
+          <inertial pos="0.000000 0.000000 0.000000" mass="0.203539" diaginertia="1.372533e-4 1.372533e-4 1.176457e-4"/>
+          <geom name="RR_hip_pitch_housing_geom" type="mesh" mesh="catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115" mass="0" rgba="0.55 0.68 0.85 1"/>
+          <body name="RR_upper_leg" pos="0.000000 0.000000 0.000000">
+            <joint name="RR_HIP_pitch" type="hinge" range="-2.0000 1.5000" limited="true" axis="0.000000 1.000000 0.000000" pos="0 0 0" ref="-0.250000"/>
+            <inertial pos="0.000000 0.000000 0.000000" mass="0.250000" diaginertia="8.583333e-4 8.583333e-4 5.000000e-5"/>
+            <geom name="RR_upper_leg_geom" type="mesh" mesh="catalog_brackets_leg_segment__length-200" mass="0" rgba="0.55 0.68 0.85 1"/>
+            <body name="RR_knee_housing" pos="0.000000 0.000000 -0.200000">
+              <inertial pos="0.000000 0.000000 0.000000" mass="0.203539" diaginertia="1.372533e-4 1.372533e-4 1.176457e-4"/>
+              <geom name="RR_knee_housing_geom" type="mesh" mesh="catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115" mass="0" rgba="0.55 0.68 0.85 1"/>
+              <body name="RR_lower_leg" pos="0.000000 0.000000 0.000000">
+                <joint name="RR_KNEE_pitch" type="hinge" range="0.2000 2.8000" limited="true" axis="0.000000 1.000000 0.000000" pos="0 0 0" ref="1.500000"/>
+                <inertial pos="0.000000 0.000000 0.000000" mass="0.200000" diaginertia="8.228667e-4 8.228667e-4 3.240000e-5"/>
+                <geom name="RR_lower_leg_geom" type="mesh" mesh="catalog_brackets_leg_segment__length-220" mass="0" rgba="0.55 0.68 0.85 1"/>
+                <body name="RR_wheel" pos="0.000000 0.000000 -0.220000">
+                  <joint name="RR_WHEEL_drive" type="hinge" limited="false" damping="0.001" armature="0.0001" axis="0.000000 1.000000 0.000000" pos="0 0 0"/>
+                  <inertial pos="0.000000 0.000000 0.000000" mass="0.387743" diaginertia="3.885509e-4 6.979376e-4 3.885509e-4"/>
+                  <geom name="RR_wheel_geom" type="mesh" mesh="catalog_wheels_wheel_simple__radius-60__width-35" mass="0" rgba="0.55 0.68 0.85 1"/>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+    <motor name="FL_HIP_roll" joint="FL_HIP_roll" ctrlrange="-18.000 18.000" gear="1"/>
+    <motor name="FL_HIP_pitch" joint="FL_HIP_pitch" ctrlrange="-18.000 18.000" gear="1"/>
+    <motor name="FL_KNEE_pitch" joint="FL_KNEE_pitch" ctrlrange="-25.000 25.000" gear="1"/>
+    <motor name="FL_WHEEL_drive" joint="FL_WHEEL_drive" ctrlrange="-8.000 8.000" gear="1"/>
+    <motor name="FR_HIP_roll" joint="FR_HIP_roll" ctrlrange="-18.000 18.000" gear="1"/>
+    <motor name="FR_HIP_pitch" joint="FR_HIP_pitch" ctrlrange="-18.000 18.000" gear="1"/>
+    <motor name="FR_KNEE_pitch" joint="FR_KNEE_pitch" ctrlrange="-25.000 25.000" gear="1"/>
+    <motor name="FR_WHEEL_drive" joint="FR_WHEEL_drive" ctrlrange="-8.000 8.000" gear="1"/>
+    <motor name="RL_HIP_roll" joint="RL_HIP_roll" ctrlrange="-18.000 18.000" gear="1"/>
+    <motor name="RL_HIP_pitch" joint="RL_HIP_pitch" ctrlrange="-18.000 18.000" gear="1"/>
+    <motor name="RL_KNEE_pitch" joint="RL_KNEE_pitch" ctrlrange="-25.000 25.000" gear="1"/>
+    <motor name="RL_WHEEL_drive" joint="RL_WHEEL_drive" ctrlrange="-8.000 8.000" gear="1"/>
+    <motor name="RR_HIP_roll" joint="RR_HIP_roll" ctrlrange="-18.000 18.000" gear="1"/>
+    <motor name="RR_HIP_pitch" joint="RR_HIP_pitch" ctrlrange="-18.000 18.000" gear="1"/>
+    <motor name="RR_KNEE_pitch" joint="RR_KNEE_pitch" ctrlrange="-25.000 25.000" gear="1"/>
+    <motor name="RR_WHEEL_drive" joint="RR_WHEEL_drive" ctrlrange="-8.000 8.000" gear="1"/>
+  </actuator>
+</mujoco>

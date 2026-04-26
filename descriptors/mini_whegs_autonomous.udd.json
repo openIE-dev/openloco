@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "meta": {
+    "name": "mini_whegs_autonomous",
+    "version": "0.1",
+    "units_length": "Metre",
+    "author": "OpenLoco Contributors",
+    "description": "Mini-Whegs with obstacle-aware gait modulation. Mechanical layer identical to `mini_whegs.udd.json` (same 5 links / 4 joints / 4 actuator slots, same mesh hashes). The superset adds: (1) a forward-facing depth sensor on the chassis, (2) a classical `obstacle_height` skill consuming it, (3) a second `cautious` mode with a ~50 % velocity cap on the wheg drives, and (4) two skill-graph transitions with hysteresis — `normal → cautious` when the obstacle ahead exceeds 0.030 m (spoke-climbability threshold for the 0.045 m spoke length), and `cautious → normal` when the path clears below 0.010 m. First descriptor exercising a transition on a classical-CV skill output; complements the M4 autonomous descriptor's VLM-driven transitions.",
+    "generator": "openloco-cli"
+  },
+  "robot": {
+    "links": [
+      {
+        "name": "base",
+        "mass_kg": 0.433295,
+        "inertia": [1.054351e-3, 1.877612e-3, 2.671986e-3, 0, 0, 0],
+        "geometry_ref": {
+          "type": "mesh_hash",
+          "hash": "catalog_chassis_quadruped_body__height-60__hip_spacing_x-140__hip_spacing_y-120__length-220__width-160"
+        }
+      },
+      {
+        "name": "FL_wheg",
+        "mass_kg": 0.016513,
+        "inertia": [3.901244e-6, 7.802487e-6, 3.901244e-6, 0, 0, 0],
+        "geometry_ref": {
+          "type": "mesh_hash",
+          "hash": "catalog_wheels_wheg__hub_radius-10__hub_thickness-8__spoke_length-45__spoke_thickness-8__spoke_width-12"
+        }
+      },
+      {
+        "name": "FR_wheg",
+        "mass_kg": 0.016513,
+        "inertia": [3.901244e-6, 7.802487e-6, 3.901244e-6, 0, 0, 0],
+        "geometry_ref": {
+          "type": "mesh_hash",
+          "hash": "catalog_wheels_wheg__hub_radius-10__hub_thickness-8__spoke_length-45__spoke_thickness-8__spoke_width-12"
+        }
+      },
+      {
+        "name": "RL_wheg",
+        "mass_kg": 0.016513,
+        "inertia": [3.901244e-6, 7.802487e-6, 3.901244e-6, 0, 0, 0],
+        "geometry_ref": {
+          "type": "mesh_hash",
+          "hash": "catalog_wheels_wheg__hub_radius-10__hub_thickness-8__spoke_length-45__spoke_thickness-8__spoke_width-12"
+        }
+      },
+      {
+        "name": "RR_wheg",
+        "mass_kg": 0.016513,
+        "inertia": [3.901244e-6, 7.802487e-6, 3.901244e-6, 0, 0, 0],
+        "geometry_ref": {
+          "type": "mesh_hash",
+          "hash": "catalog_wheels_wheg__hub_radius-10__hub_thickness-8__spoke_length-45__spoke_thickness-8__spoke_width-12"
+        }
+      }
+    ],
+    "joints": [
+      {
+        "name": "FL_WHEG_drive",
+        "joint_type": "continuous",
+        "parent_link": "base",
+        "child_link": "FL_wheg",
+        "axis": [0, 1, 0],
+        "origin_xyz": [0.07, 0.06, -0.03],
+        "origin_rpy": [0, 0, 0],
+        "limits": { "lower": -3.14, "upper": 3.14, "effort_max": 1.5, "velocity_max": 20.0 }
+      },
+      {
+        "name": "FR_WHEG_drive",
+        "joint_type": "continuous",
+        "parent_link": "base",
+        "child_link": "FR_wheg",
+        "axis": [0, 1, 0],
+        "origin_xyz": [0.07, -0.06, -0.03],
+        "origin_rpy": [0, 0, 0],
+        "limits": { "lower": -3.14, "upper": 3.14, "effort_max": 1.5, "velocity_max": 20.0 }
+      },
+      {
+        "name": "RL_WHEG_drive",
+        "joint_type": "continuous",
+        "parent_link": "base",
+        "child_link": "RL_wheg",
+        "axis": [0, 1, 0],
+        "origin_xyz": [-0.07, 0.06, -0.03],
+        "origin_rpy": [0, 0, 0],
+        "limits": { "lower": -3.14, "upper": 3.14, "effort_max": 1.5, "velocity_max": 20.0 }
+      },
+      {
+        "name": "RR_WHEG_drive",
+        "joint_type": "continuous",
+        "parent_link": "base",
+        "child_link": "RR_wheg",
+        "axis": [0, 1, 0],
+        "origin_xyz": [-0.07, -0.06, -0.03],
+        "origin_rpy": [0, 0, 0],
+        "limits": { "lower": -3.14, "upper": 3.14, "effort_max": 1.5, "velocity_max": 20.0 }
+      }
+    ],
+    "actuator_slots": [
+      { "name": "FL_WHEG_drive", "joint": "FL_WHEG_drive", "tier": 0 },
+      { "name": "FR_WHEG_drive", "joint": "FR_WHEG_drive", "tier": 0 },
+      { "name": "RL_WHEG_drive", "joint": "RL_WHEG_drive", "tier": 0 },
+      { "name": "RR_WHEG_drive", "joint": "RR_WHEG_drive", "tier": 0 }
+    ],
+    "modes": [
+      {
+        "name": "normal",
+        "hold_positions": {},
+        "actuator_roles": {
+          "FL_WHEG_drive": "velocity",
+          "FR_WHEG_drive": "velocity",
+          "RL_WHEG_drive": "velocity",
+          "RR_WHEG_drive": "velocity"
+        }
+      },
+      {
+        "name": "cautious",
+        "hold_positions": {},
+        "actuator_roles": {
+          "FL_WHEG_drive": "velocity",
+          "FR_WHEG_drive": "velocity",
+          "RL_WHEG_drive": "velocity",
+          "RR_WHEG_drive": "velocity"
+        }
+      }
+    ]
+  },
+  "perception": {
+    "sensors": [
+      {
+        "id": "forward_depth",
+        "kind": "depth",
+        "mount_link": "base",
+        "mount_pose": [0.08, 0.0, 0.0, 0.0, 0.3, 0.0],
+        "compute_tier_min": 1,
+        "config": {
+          "intrinsics_catalog_ref": "catalog/sensors/realsense_d435i",
+          "width": 320,
+          "height": 240,
+          "rate_hz": 15.0
+        }
+      }
+    ],
+    "skills": [
+      {
+        "id": "obstacle_height",
+        "kind": "classical",
+        "sensors": ["forward_depth"],
+        "output": { "kind": "scalar" },
+        "compute_tier_min": 1,
+        "rate_hz": 10.0,
+        "config": {
+          "ground_depth_m": 0.25,
+          "min_samples": 16
+        }
+      }
+    ],
+    "skill_graph": [
+      {
+        "when_mode": "normal",
+        "active_skills": ["obstacle_height"],
+        "transitions": [
+          {
+            "skill": "obstacle_height",
+            "predicate": "output.value > 0.030",
+            "to_mode": "cautious"
+          }
+        ]
+      },
+      {
+        "when_mode": "cautious",
+        "active_skills": ["obstacle_height"],
+        "transitions": [
+          {
+            "skill": "obstacle_height",
+            "predicate": "output.value < 0.010",
+            "to_mode": "normal"
+          }
+        ]
+      }
+    ]
+  }
+}

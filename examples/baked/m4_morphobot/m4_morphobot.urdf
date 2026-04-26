@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="m4_morphobot">
+  <link name="base">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="2.416522"/>
+      <inertia ixx="2.595748e-2" iyy="9.996347e-2" izz="1.233433e-1" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://m4_morphobot/meshes/catalog_chassis_quadruped_body__height-80__hip_spacing_x-500__hip_spacing_y-300__length-700__width-350.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://m4_morphobot/meshes/catalog_chassis_quadruped_body__height-80__hip_spacing_x-500__hip_spacing_y-300__length-700__width-350.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="FL_roll_housing">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.080000"/>
+      <inertia ixx="3.333333e-5" iyy="3.333333e-5" izz="3.333333e-5" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://m4_morphobot/meshes/catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://m4_morphobot/meshes/catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="FL_leg">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.150000"/>
+      <inertia ixx="5.200000e-4" iyy="5.200000e-4" izz="4.000000e-5" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://m4_morphobot/meshes/catalog_brackets_leg_segment__length-150.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://m4_morphobot/meshes/catalog_brackets_leg_segment__length-150.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="FL_rotor">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.064238"/>
+      <inertia ixx="1.001624e-4" iyy="1.955740e-4" izz="1.001624e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://m4_morphobot/meshes/catalog_wheels_rotor_wheel__hub_radius-8__hub_thickness-10__prop_blade_length-55__shroud_height-40__shroud_radius-62.5.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://m4_morphobot/meshes/catalog_wheels_rotor_wheel__hub_radius-8__hub_thickness-10__prop_blade_length-55__shroud_height-40__shroud_radius-62.5.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="FR_roll_housing">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.080000"/>
+      <inertia ixx="3.333333e-5" iyy="3.333333e-5" izz="3.333333e-5" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://m4_morphobot/meshes/catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://m4_morphobot/meshes/catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="FR_leg">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.150000"/>
+      <inertia ixx="5.200000e-4" iyy="5.200000e-4" izz="4.000000e-5" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://m4_morphobot/meshes/catalog_brackets_leg_segment__length-150.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://m4_morphobot/meshes/catalog_brackets_leg_segment__length-150.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="FR_rotor">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.064238"/>
+      <inertia ixx="1.001624e-4" iyy="1.955740e-4" izz="1.001624e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://m4_morphobot/meshes/catalog_wheels_rotor_wheel__hub_radius-8__hub_thickness-10__prop_blade_length-55__shroud_height-40__shroud_radius-62.5.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://m4_morphobot/meshes/catalog_wheels_rotor_wheel__hub_radius-8__hub_thickness-10__prop_blade_length-55__shroud_height-40__shroud_radius-62.5.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="RL_roll_housing">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.080000"/>
+      <inertia ixx="3.333333e-5" iyy="3.333333e-5" izz="3.333333e-5" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://m4_morphobot/meshes/catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://m4_morphobot/meshes/catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="RL_leg">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.150000"/>
+      <inertia ixx="5.200000e-4" iyy="5.200000e-4" izz="4.000000e-5" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://m4_morphobot/meshes/catalog_brackets_leg_segment__length-150.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://m4_morphobot/meshes/catalog_brackets_leg_segment__length-150.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="RL_rotor">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.064238"/>
+      <inertia ixx="1.001624e-4" iyy="1.955740e-4" izz="1.001624e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://m4_morphobot/meshes/catalog_wheels_rotor_wheel__hub_radius-8__hub_thickness-10__prop_blade_length-55__shroud_height-40__shroud_radius-62.5.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://m4_morphobot/meshes/catalog_wheels_rotor_wheel__hub_radius-8__hub_thickness-10__prop_blade_length-55__shroud_height-40__shroud_radius-62.5.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="RR_roll_housing">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.080000"/>
+      <inertia ixx="3.333333e-5" iyy="3.333333e-5" izz="3.333333e-5" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://m4_morphobot/meshes/catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://m4_morphobot/meshes/catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="RR_leg">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.150000"/>
+      <inertia ixx="5.200000e-4" iyy="5.200000e-4" izz="4.000000e-5" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://m4_morphobot/meshes/catalog_brackets_leg_segment__length-150.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://m4_morphobot/meshes/catalog_brackets_leg_segment__length-150.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="RR_rotor">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.064238"/>
+      <inertia ixx="1.001624e-4" iyy="1.955740e-4" izz="1.001624e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://m4_morphobot/meshes/catalog_wheels_rotor_wheel__hub_radius-8__hub_thickness-10__prop_blade_length-55__shroud_height-40__shroud_radius-62.5.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://m4_morphobot/meshes/catalog_wheels_rotor_wheel__hub_radius-8__hub_thickness-10__prop_blade_length-55__shroud_height-40__shroud_radius-62.5.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="FL_HIP_roll" type="revolute">
+    <parent link="base"/>
+    <child link="FL_roll_housing"/>
+    <origin xyz="0.250000 0.150000 -0.040000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="1.000000 0.000000 0.000000"/>
+    <limit lower="-1.600" upper="1.600" effort="18.000" velocity="15.000"/>
+  </joint>
+  <transmission name="FL_HIP_roll_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FL_HIP_roll">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FL_HIP_roll_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="FL_HIP_pitch" type="revolute">
+    <parent link="FL_roll_housing"/>
+    <child link="FL_leg"/>
+    <origin xyz="0.000000 0.000000 -0.050000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit lower="-1.600" upper="1.600" effort="18.000" velocity="15.000"/>
+  </joint>
+  <transmission name="FL_HIP_pitch_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FL_HIP_pitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FL_HIP_pitch_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="FL_ROTOR_drive" type="continuous">
+    <parent link="FL_leg"/>
+    <child link="FL_rotor"/>
+    <origin xyz="0.000000 0.000000 -0.150000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit effort="2.000" velocity="600.000"/>
+  </joint>
+  <transmission name="FL_ROTOR_drive_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FL_ROTOR_drive">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FL_ROTOR_drive_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="FR_HIP_roll" type="revolute">
+    <parent link="base"/>
+    <child link="FR_roll_housing"/>
+    <origin xyz="0.250000 -0.150000 -0.040000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="1.000000 0.000000 0.000000"/>
+    <limit lower="-1.600" upper="1.600" effort="18.000" velocity="15.000"/>
+  </joint>
+  <transmission name="FR_HIP_roll_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FR_HIP_roll">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FR_HIP_roll_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="FR_HIP_pitch" type="revolute">
+    <parent link="FR_roll_housing"/>
+    <child link="FR_leg"/>
+    <origin xyz="0.000000 0.000000 -0.050000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit lower="-1.600" upper="1.600" effort="18.000" velocity="15.000"/>
+  </joint>
+  <transmission name="FR_HIP_pitch_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FR_HIP_pitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FR_HIP_pitch_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="FR_ROTOR_drive" type="continuous">
+    <parent link="FR_leg"/>
+    <child link="FR_rotor"/>
+    <origin xyz="0.000000 0.000000 -0.150000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit effort="2.000" velocity="600.000"/>
+  </joint>
+  <transmission name="FR_ROTOR_drive_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FR_ROTOR_drive">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FR_ROTOR_drive_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="RL_HIP_roll" type="revolute">
+    <parent link="base"/>
+    <child link="RL_roll_housing"/>
+    <origin xyz="-0.250000 0.150000 -0.040000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="1.000000 0.000000 0.000000"/>
+    <limit lower="-1.600" upper="1.600" effort="18.000" velocity="15.000"/>
+  </joint>
+  <transmission name="RL_HIP_roll_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RL_HIP_roll">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RL_HIP_roll_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="RL_HIP_pitch" type="revolute">
+    <parent link="RL_roll_housing"/>
+    <child link="RL_leg"/>
+    <origin xyz="0.000000 0.000000 -0.050000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit lower="-1.600" upper="1.600" effort="18.000" velocity="15.000"/>
+  </joint>
+  <transmission name="RL_HIP_pitch_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RL_HIP_pitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RL_HIP_pitch_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="RL_ROTOR_drive" type="continuous">
+    <parent link="RL_leg"/>
+    <child link="RL_rotor"/>
+    <origin xyz="0.000000 0.000000 -0.150000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit effort="2.000" velocity="600.000"/>
+  </joint>
+  <transmission name="RL_ROTOR_drive_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RL_ROTOR_drive">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RL_ROTOR_drive_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="RR_HIP_roll" type="revolute">
+    <parent link="base"/>
+    <child link="RR_roll_housing"/>
+    <origin xyz="-0.250000 -0.150000 -0.040000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="1.000000 0.000000 0.000000"/>
+    <limit lower="-1.600" upper="1.600" effort="18.000" velocity="15.000"/>
+  </joint>
+  <transmission name="RR_HIP_roll_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RR_HIP_roll">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RR_HIP_roll_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="RR_HIP_pitch" type="revolute">
+    <parent link="RR_roll_housing"/>
+    <child link="RR_leg"/>
+    <origin xyz="0.000000 0.000000 -0.050000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit lower="-1.600" upper="1.600" effort="18.000" velocity="15.000"/>
+  </joint>
+  <transmission name="RR_HIP_pitch_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RR_HIP_pitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RR_HIP_pitch_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="RR_ROTOR_drive" type="continuous">
+    <parent link="RR_leg"/>
+    <child link="RR_rotor"/>
+    <origin xyz="0.000000 0.000000 -0.150000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit effort="2.000" velocity="600.000"/>
+  </joint>
+  <transmission name="RR_ROTOR_drive_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RR_ROTOR_drive">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RR_ROTOR_drive_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+</robot>

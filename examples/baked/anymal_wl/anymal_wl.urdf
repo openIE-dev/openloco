@@ -1,0 +1,790 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="anymal_wl">
+  <link name="base">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="1.132107"/>
+      <inertia ixx="6.037904e-3" iyy="1.569855e-2" izz="2.052887e-2" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_chassis_quadruped_body__height-80__hip_spacing_x-300__hip_spacing_y-180__length-400__width-240.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_chassis_quadruped_body__height-80__hip_spacing_x-300__hip_spacing_y-180__length-400__width-240.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="FL_hip_roll_housing">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.203539"/>
+      <inertia ixx="1.372533e-4" iyy="1.372533e-4" izz="1.176457e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="FL_hip_pitch_housing">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.203539"/>
+      <inertia ixx="1.372533e-4" iyy="1.372533e-4" izz="1.176457e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="FL_upper_leg">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.250000"/>
+      <inertia ixx="8.583333e-4" iyy="8.583333e-4" izz="5.000000e-5" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_brackets_leg_segment__length-200.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_brackets_leg_segment__length-200.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="FL_knee_housing">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.203539"/>
+      <inertia ixx="1.372533e-4" iyy="1.372533e-4" izz="1.176457e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="FL_lower_leg">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.200000"/>
+      <inertia ixx="8.228667e-4" iyy="8.228667e-4" izz="3.240000e-5" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_brackets_leg_segment__length-220.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_brackets_leg_segment__length-220.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="FL_wheel">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.387743"/>
+      <inertia ixx="3.885509e-4" iyy="6.979376e-4" izz="3.885509e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_wheels_wheel_simple__radius-60__width-35.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_wheels_wheel_simple__radius-60__width-35.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="FR_hip_roll_housing">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.203539"/>
+      <inertia ixx="1.372533e-4" iyy="1.372533e-4" izz="1.176457e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="FR_hip_pitch_housing">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.203539"/>
+      <inertia ixx="1.372533e-4" iyy="1.372533e-4" izz="1.176457e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="FR_upper_leg">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.250000"/>
+      <inertia ixx="8.583333e-4" iyy="8.583333e-4" izz="5.000000e-5" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_brackets_leg_segment__length-200.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_brackets_leg_segment__length-200.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="FR_knee_housing">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.203539"/>
+      <inertia ixx="1.372533e-4" iyy="1.372533e-4" izz="1.176457e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="FR_lower_leg">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.200000"/>
+      <inertia ixx="8.228667e-4" iyy="8.228667e-4" izz="3.240000e-5" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_brackets_leg_segment__length-220.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_brackets_leg_segment__length-220.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="FR_wheel">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.387743"/>
+      <inertia ixx="3.885509e-4" iyy="6.979376e-4" izz="3.885509e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_wheels_wheel_simple__radius-60__width-35.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_wheels_wheel_simple__radius-60__width-35.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="RL_hip_roll_housing">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.203539"/>
+      <inertia ixx="1.372533e-4" iyy="1.372533e-4" izz="1.176457e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="RL_hip_pitch_housing">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.203539"/>
+      <inertia ixx="1.372533e-4" iyy="1.372533e-4" izz="1.176457e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="RL_upper_leg">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.250000"/>
+      <inertia ixx="8.583333e-4" iyy="8.583333e-4" izz="5.000000e-5" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_brackets_leg_segment__length-200.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_brackets_leg_segment__length-200.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="RL_knee_housing">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.203539"/>
+      <inertia ixx="1.372533e-4" iyy="1.372533e-4" izz="1.176457e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="RL_lower_leg">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.200000"/>
+      <inertia ixx="8.228667e-4" iyy="8.228667e-4" izz="3.240000e-5" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_brackets_leg_segment__length-220.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_brackets_leg_segment__length-220.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="RL_wheel">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.387743"/>
+      <inertia ixx="3.885509e-4" iyy="6.979376e-4" izz="3.885509e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_wheels_wheel_simple__radius-60__width-35.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_wheels_wheel_simple__radius-60__width-35.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="RR_hip_roll_housing">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.203539"/>
+      <inertia ixx="1.372533e-4" iyy="1.372533e-4" izz="1.176457e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="RR_hip_pitch_housing">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.203539"/>
+      <inertia ixx="1.372533e-4" iyy="1.372533e-4" izz="1.176457e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="RR_upper_leg">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.250000"/>
+      <inertia ixx="8.583333e-4" iyy="8.583333e-4" izz="5.000000e-5" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_brackets_leg_segment__length-200.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_brackets_leg_segment__length-200.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="RR_knee_housing">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.203539"/>
+      <inertia ixx="1.372533e-4" iyy="1.372533e-4" izz="1.176457e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_joints_joint_t2__gearbox-planetary-9-1__motor-t-motor-r60-kv115.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="RR_lower_leg">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.200000"/>
+      <inertia ixx="8.228667e-4" iyy="8.228667e-4" izz="3.240000e-5" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_brackets_leg_segment__length-220.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_brackets_leg_segment__length-220.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="RR_wheel">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.387743"/>
+      <inertia ixx="3.885509e-4" iyy="6.979376e-4" izz="3.885509e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_wheels_wheel_simple__radius-60__width-35.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://anymal_wl/meshes/catalog_wheels_wheel_simple__radius-60__width-35.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="FL_HIP_roll" type="revolute">
+    <parent link="base"/>
+    <child link="FL_hip_roll_housing"/>
+    <origin xyz="0.150000 0.090000 -0.040000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="1.000000 0.000000 0.000000"/>
+    <limit lower="-0.500" upper="0.500" effort="18.000" velocity="20.000"/>
+  </joint>
+  <transmission name="FL_HIP_roll_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FL_HIP_roll">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FL_HIP_roll_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="FL_HIP_bracket" type="fixed">
+    <parent link="FL_hip_roll_housing"/>
+    <child link="FL_hip_pitch_housing"/>
+    <origin xyz="0.000000 0.060000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+  </joint>
+  <joint name="FL_HIP_pitch" type="revolute">
+    <parent link="FL_hip_pitch_housing"/>
+    <child link="FL_upper_leg"/>
+    <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit lower="-2.000" upper="1.500" effort="18.000" velocity="20.000"/>
+  </joint>
+  <transmission name="FL_HIP_pitch_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FL_HIP_pitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FL_HIP_pitch_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="FL_KNEE_mount" type="fixed">
+    <parent link="FL_upper_leg"/>
+    <child link="FL_knee_housing"/>
+    <origin xyz="0.000000 0.000000 -0.200000" rpy="0.000000 0.000000 0.000000"/>
+  </joint>
+  <joint name="FL_KNEE_pitch" type="revolute">
+    <parent link="FL_knee_housing"/>
+    <child link="FL_lower_leg"/>
+    <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit lower="0.200" upper="2.800" effort="25.000" velocity="20.000"/>
+  </joint>
+  <transmission name="FL_KNEE_pitch_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FL_KNEE_pitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FL_KNEE_pitch_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="FL_WHEEL_drive" type="continuous">
+    <parent link="FL_lower_leg"/>
+    <child link="FL_wheel"/>
+    <origin xyz="0.000000 0.000000 -0.220000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit effort="8.000" velocity="60.000"/>
+  </joint>
+  <transmission name="FL_WHEEL_drive_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FL_WHEEL_drive">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FL_WHEEL_drive_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="FR_HIP_roll" type="revolute">
+    <parent link="base"/>
+    <child link="FR_hip_roll_housing"/>
+    <origin xyz="0.150000 -0.090000 -0.040000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="1.000000 0.000000 0.000000"/>
+    <limit lower="-0.500" upper="0.500" effort="18.000" velocity="20.000"/>
+  </joint>
+  <transmission name="FR_HIP_roll_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FR_HIP_roll">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FR_HIP_roll_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="FR_HIP_bracket" type="fixed">
+    <parent link="FR_hip_roll_housing"/>
+    <child link="FR_hip_pitch_housing"/>
+    <origin xyz="0.000000 -0.060000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+  </joint>
+  <joint name="FR_HIP_pitch" type="revolute">
+    <parent link="FR_hip_pitch_housing"/>
+    <child link="FR_upper_leg"/>
+    <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit lower="-2.000" upper="1.500" effort="18.000" velocity="20.000"/>
+  </joint>
+  <transmission name="FR_HIP_pitch_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FR_HIP_pitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FR_HIP_pitch_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="FR_KNEE_mount" type="fixed">
+    <parent link="FR_upper_leg"/>
+    <child link="FR_knee_housing"/>
+    <origin xyz="0.000000 0.000000 -0.200000" rpy="0.000000 0.000000 0.000000"/>
+  </joint>
+  <joint name="FR_KNEE_pitch" type="revolute">
+    <parent link="FR_knee_housing"/>
+    <child link="FR_lower_leg"/>
+    <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit lower="0.200" upper="2.800" effort="25.000" velocity="20.000"/>
+  </joint>
+  <transmission name="FR_KNEE_pitch_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FR_KNEE_pitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FR_KNEE_pitch_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="FR_WHEEL_drive" type="continuous">
+    <parent link="FR_lower_leg"/>
+    <child link="FR_wheel"/>
+    <origin xyz="0.000000 0.000000 -0.220000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit effort="8.000" velocity="60.000"/>
+  </joint>
+  <transmission name="FR_WHEEL_drive_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FR_WHEEL_drive">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FR_WHEEL_drive_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="RL_HIP_roll" type="revolute">
+    <parent link="base"/>
+    <child link="RL_hip_roll_housing"/>
+    <origin xyz="-0.150000 0.090000 -0.040000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="1.000000 0.000000 0.000000"/>
+    <limit lower="-0.500" upper="0.500" effort="18.000" velocity="20.000"/>
+  </joint>
+  <transmission name="RL_HIP_roll_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RL_HIP_roll">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RL_HIP_roll_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="RL_HIP_bracket" type="fixed">
+    <parent link="RL_hip_roll_housing"/>
+    <child link="RL_hip_pitch_housing"/>
+    <origin xyz="0.000000 0.060000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+  </joint>
+  <joint name="RL_HIP_pitch" type="revolute">
+    <parent link="RL_hip_pitch_housing"/>
+    <child link="RL_upper_leg"/>
+    <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit lower="-2.000" upper="1.500" effort="18.000" velocity="20.000"/>
+  </joint>
+  <transmission name="RL_HIP_pitch_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RL_HIP_pitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RL_HIP_pitch_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="RL_KNEE_mount" type="fixed">
+    <parent link="RL_upper_leg"/>
+    <child link="RL_knee_housing"/>
+    <origin xyz="0.000000 0.000000 -0.200000" rpy="0.000000 0.000000 0.000000"/>
+  </joint>
+  <joint name="RL_KNEE_pitch" type="revolute">
+    <parent link="RL_knee_housing"/>
+    <child link="RL_lower_leg"/>
+    <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit lower="0.200" upper="2.800" effort="25.000" velocity="20.000"/>
+  </joint>
+  <transmission name="RL_KNEE_pitch_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RL_KNEE_pitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RL_KNEE_pitch_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="RL_WHEEL_drive" type="continuous">
+    <parent link="RL_lower_leg"/>
+    <child link="RL_wheel"/>
+    <origin xyz="0.000000 0.000000 -0.220000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit effort="8.000" velocity="60.000"/>
+  </joint>
+  <transmission name="RL_WHEEL_drive_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RL_WHEEL_drive">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RL_WHEEL_drive_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="RR_HIP_roll" type="revolute">
+    <parent link="base"/>
+    <child link="RR_hip_roll_housing"/>
+    <origin xyz="-0.150000 -0.090000 -0.040000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="1.000000 0.000000 0.000000"/>
+    <limit lower="-0.500" upper="0.500" effort="18.000" velocity="20.000"/>
+  </joint>
+  <transmission name="RR_HIP_roll_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RR_HIP_roll">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RR_HIP_roll_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="RR_HIP_bracket" type="fixed">
+    <parent link="RR_hip_roll_housing"/>
+    <child link="RR_hip_pitch_housing"/>
+    <origin xyz="0.000000 -0.060000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+  </joint>
+  <joint name="RR_HIP_pitch" type="revolute">
+    <parent link="RR_hip_pitch_housing"/>
+    <child link="RR_upper_leg"/>
+    <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit lower="-2.000" upper="1.500" effort="18.000" velocity="20.000"/>
+  </joint>
+  <transmission name="RR_HIP_pitch_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RR_HIP_pitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RR_HIP_pitch_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="RR_KNEE_mount" type="fixed">
+    <parent link="RR_upper_leg"/>
+    <child link="RR_knee_housing"/>
+    <origin xyz="0.000000 0.000000 -0.200000" rpy="0.000000 0.000000 0.000000"/>
+  </joint>
+  <joint name="RR_KNEE_pitch" type="revolute">
+    <parent link="RR_knee_housing"/>
+    <child link="RR_lower_leg"/>
+    <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit lower="0.200" upper="2.800" effort="25.000" velocity="20.000"/>
+  </joint>
+  <transmission name="RR_KNEE_pitch_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RR_KNEE_pitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RR_KNEE_pitch_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="RR_WHEEL_drive" type="continuous">
+    <parent link="RR_lower_leg"/>
+    <child link="RR_wheel"/>
+    <origin xyz="0.000000 0.000000 -0.220000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit effort="8.000" velocity="60.000"/>
+  </joint>
+  <transmission name="RR_WHEEL_drive_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RR_WHEEL_drive">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RR_WHEEL_drive_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+</robot>
