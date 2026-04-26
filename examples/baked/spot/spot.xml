@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco model="spot">
+  <compiler angle="radian" coordinate="local" meshdir="meshes" autolimits="true"/>
+  <option timestep="0.002" integrator="implicitfast"/>
+  <default>
+    <joint damping="0.1" armature="0.01"/>
+    <geom contype="0" conaffinity="1" friction="1.0 0.005 0.0001"/>
+  </default>
+  <asset>
+  </asset>
+  <worldbody>
+    <geom name="ground" type="plane" size="10 10 0.1" contype="1" conaffinity="1" rgba="0.85 0.85 0.85 1"/>
+    <body name="base" pos="0 0 0.600">
+      <freejoint name="root"/>
+      <inertial pos="0.000000 0.000000 0.000000" mass="16.000000" diaginertia="1.500000e-1 1.100000e0 1.100000e0"/>
+      <body name="FL_hip_housing" pos="0.290000 0.115000 0.000000">
+        <joint name="FL_HIP_roll" type="hinge" range="-0.8000 0.8000" limited="true" axis="1.000000 0.000000 0.000000" pos="0 0 0" ref="0.000000"/>
+        <inertial pos="0.000000 0.000000 0.000000" mass="1.500000" diaginertia="3.000000e-3 3.000000e-3 3.000000e-3"/>
+        <body name="FL_upper_leg" pos="0.000000 0.060000 0.000000">
+          <joint name="FL_HIP_pitch" type="hinge" range="-2.7900 0.5000" limited="true" axis="0.000000 1.000000 0.000000" pos="0 0 0" ref="-1.145000"/>
+          <inertial pos="0.000000 0.000000 0.000000" mass="1.200000" diaginertia="1.200000e-2 1.200000e-2 4.000000e-4"/>
+          <body name="FL_lower_leg" pos="0.000000 0.000000 -0.340000">
+            <joint name="FL_KNEE_pitch" type="hinge" range="-0.2500 1.5700" limited="true" axis="0.000000 1.000000 0.000000" pos="0 0 0" ref="0.660000"/>
+            <inertial pos="0.000000 0.000000 0.000000" mass="0.500000" diaginertia="3.000000e-3 3.000000e-3 1.500000e-4"/>
+            <body name="FL_foot" pos="0.000000 0.000000 -0.300000">
+              <inertial pos="0.000000 0.000000 0.000000" mass="0.100000" diaginertia="3.000000e-5 3.000000e-5 3.000000e-5"/>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="FR_hip_housing" pos="0.290000 -0.115000 0.000000">
+        <joint name="FR_HIP_roll" type="hinge" range="-0.8000 0.8000" limited="true" axis="1.000000 0.000000 0.000000" pos="0 0 0" ref="0.000000"/>
+        <inertial pos="0.000000 0.000000 0.000000" mass="1.500000" diaginertia="3.000000e-3 3.000000e-3 3.000000e-3"/>
+        <body name="FR_upper_leg" pos="0.000000 -0.060000 0.000000">
+          <joint name="FR_HIP_pitch" type="hinge" range="-2.7900 0.5000" limited="true" axis="0.000000 1.000000 0.000000" pos="0 0 0" ref="-1.145000"/>
+          <inertial pos="0.000000 0.000000 0.000000" mass="1.200000" diaginertia="1.200000e-2 1.200000e-2 4.000000e-4"/>
+          <body name="FR_lower_leg" pos="0.000000 0.000000 -0.340000">
+            <joint name="FR_KNEE_pitch" type="hinge" range="-0.2500 1.5700" limited="true" axis="0.000000 1.000000 0.000000" pos="0 0 0" ref="0.660000"/>
+            <inertial pos="0.000000 0.000000 0.000000" mass="0.500000" diaginertia="3.000000e-3 3.000000e-3 1.500000e-4"/>
+            <body name="FR_foot" pos="0.000000 0.000000 -0.300000">
+              <inertial pos="0.000000 0.000000 0.000000" mass="0.100000" diaginertia="3.000000e-5 3.000000e-5 3.000000e-5"/>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="RL_hip_housing" pos="-0.290000 0.115000 0.000000">
+        <joint name="RL_HIP_roll" type="hinge" range="-0.8000 0.8000" limited="true" axis="1.000000 0.000000 0.000000" pos="0 0 0" ref="0.000000"/>
+        <inertial pos="0.000000 0.000000 0.000000" mass="1.500000" diaginertia="3.000000e-3 3.000000e-3 3.000000e-3"/>
+        <body name="RL_upper_leg" pos="0.000000 0.060000 0.000000">
+          <joint name="RL_HIP_pitch" type="hinge" range="-2.7900 0.5000" limited="true" axis="0.000000 1.000000 0.000000" pos="0 0 0" ref="-1.145000"/>
+          <inertial pos="0.000000 0.000000 0.000000" mass="1.200000" diaginertia="1.200000e-2 1.200000e-2 4.000000e-4"/>
+          <body name="RL_lower_leg" pos="0.000000 0.000000 -0.340000">
+            <joint name="RL_KNEE_pitch" type="hinge" range="-0.2500 1.5700" limited="true" axis="0.000000 1.000000 0.000000" pos="0 0 0" ref="0.660000"/>
+            <inertial pos="0.000000 0.000000 0.000000" mass="0.500000" diaginertia="3.000000e-3 3.000000e-3 1.500000e-4"/>
+            <body name="RL_foot" pos="0.000000 0.000000 -0.300000">
+              <inertial pos="0.000000 0.000000 0.000000" mass="0.100000" diaginertia="3.000000e-5 3.000000e-5 3.000000e-5"/>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="RR_hip_housing" pos="-0.290000 -0.115000 0.000000">
+        <joint name="RR_HIP_roll" type="hinge" range="-0.8000 0.8000" limited="true" axis="1.000000 0.000000 0.000000" pos="0 0 0" ref="0.000000"/>
+        <inertial pos="0.000000 0.000000 0.000000" mass="1.500000" diaginertia="3.000000e-3 3.000000e-3 3.000000e-3"/>
+        <body name="RR_upper_leg" pos="0.000000 -0.060000 0.000000">
+          <joint name="RR_HIP_pitch" type="hinge" range="-2.7900 0.5000" limited="true" axis="0.000000 1.000000 0.000000" pos="0 0 0" ref="-1.145000"/>
+          <inertial pos="0.000000 0.000000 0.000000" mass="1.200000" diaginertia="1.200000e-2 1.200000e-2 4.000000e-4"/>
+          <body name="RR_lower_leg" pos="0.000000 0.000000 -0.340000">
+            <joint name="RR_KNEE_pitch" type="hinge" range="-0.2500 1.5700" limited="true" axis="0.000000 1.000000 0.000000" pos="0 0 0" ref="0.660000"/>
+            <inertial pos="0.000000 0.000000 0.000000" mass="0.500000" diaginertia="3.000000e-3 3.000000e-3 1.500000e-4"/>
+            <body name="RR_foot" pos="0.000000 0.000000 -0.300000">
+              <inertial pos="0.000000 0.000000 0.000000" mass="0.100000" diaginertia="3.000000e-5 3.000000e-5 3.000000e-5"/>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+    <motor name="FL_HIP_roll" joint="FL_HIP_roll" ctrlrange="-45.000 45.000" gear="1"/>
+    <motor name="FL_HIP_pitch" joint="FL_HIP_pitch" ctrlrange="-45.000 45.000" gear="1"/>
+    <motor name="FL_KNEE_pitch" joint="FL_KNEE_pitch" ctrlrange="-60.000 60.000" gear="1"/>
+    <motor name="FR_HIP_roll" joint="FR_HIP_roll" ctrlrange="-45.000 45.000" gear="1"/>
+    <motor name="FR_HIP_pitch" joint="FR_HIP_pitch" ctrlrange="-45.000 45.000" gear="1"/>
+    <motor name="FR_KNEE_pitch" joint="FR_KNEE_pitch" ctrlrange="-60.000 60.000" gear="1"/>
+    <motor name="RL_HIP_roll" joint="RL_HIP_roll" ctrlrange="-45.000 45.000" gear="1"/>
+    <motor name="RL_HIP_pitch" joint="RL_HIP_pitch" ctrlrange="-45.000 45.000" gear="1"/>
+    <motor name="RL_KNEE_pitch" joint="RL_KNEE_pitch" ctrlrange="-60.000 60.000" gear="1"/>
+    <motor name="RR_HIP_roll" joint="RR_HIP_roll" ctrlrange="-45.000 45.000" gear="1"/>
+    <motor name="RR_HIP_pitch" joint="RR_HIP_pitch" ctrlrange="-45.000 45.000" gear="1"/>
+    <motor name="RR_KNEE_pitch" joint="RR_KNEE_pitch" ctrlrange="-60.000 60.000" gear="1"/>
+  </actuator>
+</mujoco>

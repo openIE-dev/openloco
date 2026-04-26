@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "meta": {
+    "name": "reachy2",
+    "version": "0.1",
+    "units_length": "Metre",
+    "author": "OpenLoco Contributors",
+    "description": "Reachy 2 — Pollen Robotics' open-source humanoid upper body (head + neck + 2 × 7-DoF arms + torso). Apache-2.0. Currently the most-installed open humanoid arm platform. ~12 kg upper body, ~80 cm reach. Tier 1 brushless actuators (Pollen's in-house designs). This descriptor covers the *upper body only* — Reachy 2's holonomic mobile base is a separate morphology and will be ported as `reachy2_mobile_base.udd.json` once Pollen publishes its full URDF. Geometry adapted from pollen-robotics/reachy2-sdk and pollen-robotics/reachy_description URDFs.",
+    "generator": "openloco-cli"
+  },
+  "robot": {
+    "links": [
+      { "name": "torso", "mass_kg": 4.000, "inertia": [3.50e-2, 3.00e-2, 1.50e-2, 0, 0, 0] },
+
+      { "name": "neck_yaw_link",   "mass_kg": 0.150, "inertia": [1.00e-4, 1.00e-4, 1.00e-4, 0, 0, 0] },
+      { "name": "neck_pitch_link", "mass_kg": 0.200, "inertia": [1.50e-4, 1.50e-4, 1.50e-4, 0, 0, 0] },
+      { "name": "head",            "mass_kg": 0.500, "inertia": [1.20e-3, 1.20e-3, 1.20e-3, 0, 0, 0] },
+
+      { "name": "L_shoulder_pitch", "mass_kg": 0.400, "inertia": [3.00e-4, 3.00e-4, 3.00e-4, 0, 0, 0] },
+      { "name": "L_shoulder_roll",  "mass_kg": 0.300, "inertia": [2.50e-4, 2.50e-4, 2.50e-4, 0, 0, 0] },
+      { "name": "L_upper_arm",      "mass_kg": 0.500, "inertia": [3.00e-3, 3.00e-3, 3.00e-4, 0, 0, 0] },
+      { "name": "L_elbow_link",     "mass_kg": 0.250, "inertia": [2.00e-4, 2.00e-4, 2.00e-4, 0, 0, 0] },
+      { "name": "L_forearm",        "mass_kg": 0.350, "inertia": [2.00e-3, 2.00e-3, 2.00e-4, 0, 0, 0] },
+      { "name": "L_wrist_pitch_link","mass_kg": 0.150, "inertia": [1.00e-4, 1.00e-4, 1.00e-4, 0, 0, 0] },
+      { "name": "L_gripper_base",   "mass_kg": 0.200, "inertia": [2.00e-4, 2.00e-4, 2.00e-4, 0, 0, 0] },
+      { "name": "L_gripper_jaw",    "mass_kg": 0.050, "inertia": [2.00e-5, 2.00e-5, 2.00e-5, 0, 0, 0] },
+
+      { "name": "R_shoulder_pitch", "mass_kg": 0.400, "inertia": [3.00e-4, 3.00e-4, 3.00e-4, 0, 0, 0] },
+      { "name": "R_shoulder_roll",  "mass_kg": 0.300, "inertia": [2.50e-4, 2.50e-4, 2.50e-4, 0, 0, 0] },
+      { "name": "R_upper_arm",      "mass_kg": 0.500, "inertia": [3.00e-3, 3.00e-3, 3.00e-4, 0, 0, 0] },
+      { "name": "R_elbow_link",     "mass_kg": 0.250, "inertia": [2.00e-4, 2.00e-4, 2.00e-4, 0, 0, 0] },
+      { "name": "R_forearm",        "mass_kg": 0.350, "inertia": [2.00e-3, 2.00e-3, 2.00e-4, 0, 0, 0] },
+      { "name": "R_wrist_pitch_link","mass_kg": 0.150, "inertia": [1.00e-4, 1.00e-4, 1.00e-4, 0, 0, 0] },
+      { "name": "R_gripper_base",   "mass_kg": 0.200, "inertia": [2.00e-4, 2.00e-4, 2.00e-4, 0, 0, 0] },
+      { "name": "R_gripper_jaw",    "mass_kg": 0.050, "inertia": [2.00e-5, 2.00e-5, 2.00e-5, 0, 0, 0] }
+    ],
+    "joints": [
+      { "name": "NECK_yaw",   "joint_type": "revolute", "parent_link": "torso",            "child_link": "neck_yaw_link",   "axis": [0, 0, 1], "origin_xyz": [0.000,  0.000, 0.350], "origin_rpy": [0, 0, 0], "limits": { "lower": -1.74, "upper": 1.74, "effort_max": 4.0, "velocity_max": 3.0 } },
+      { "name": "NECK_pitch", "joint_type": "revolute", "parent_link": "neck_yaw_link",    "child_link": "neck_pitch_link", "axis": [0, 1, 0], "origin_xyz": [0.000,  0.000, 0.060], "origin_rpy": [0, 0, 0], "limits": { "lower": -1.05, "upper": 1.05, "effort_max": 4.0, "velocity_max": 3.0 } },
+      { "name": "HEAD_mount", "joint_type": "fixed",    "parent_link": "neck_pitch_link",  "child_link": "head",            "axis": [0, 0, 1], "origin_xyz": [0.000,  0.000, 0.080], "origin_rpy": [0, 0, 0] },
+
+      { "name": "L_SHOULDER_pitch", "joint_type": "revolute",  "parent_link": "torso",             "child_link": "L_shoulder_pitch", "axis": [0, 1, 0], "origin_xyz": [0.000,  0.190, 0.300], "origin_rpy": [0, 0, 0], "limits": { "lower": -2.50, "upper": 2.50, "effort_max": 12.0, "velocity_max": 4.0 } },
+      { "name": "L_SHOULDER_roll",  "joint_type": "revolute",  "parent_link": "L_shoulder_pitch",  "child_link": "L_shoulder_roll",  "axis": [1, 0, 0], "origin_xyz": [0.000,  0.060, 0.000], "origin_rpy": [0, 0, 0], "limits": { "lower": -1.74, "upper": 1.74, "effort_max": 12.0, "velocity_max": 4.0 } },
+      { "name": "L_ARM_yaw",        "joint_type": "revolute",  "parent_link": "L_shoulder_roll",   "child_link": "L_upper_arm",      "axis": [0, 0, 1], "origin_xyz": [0.000,  0.020, -0.100], "origin_rpy": [0, 0, 0], "limits": { "lower": -3.14, "upper": 3.14, "effort_max":  8.0, "velocity_max": 4.0 } },
+      { "name": "L_ELBOW",          "joint_type": "revolute",  "parent_link": "L_upper_arm",       "child_link": "L_elbow_link",     "axis": [0, 1, 0], "origin_xyz": [0.000,  0.000, -0.220], "origin_rpy": [0, 0, 0], "limits": { "lower": -2.50, "upper": 0.00, "effort_max":  8.0, "velocity_max": 4.0 } },
+      { "name": "L_FOREARM_yaw",    "joint_type": "revolute",  "parent_link": "L_elbow_link",      "child_link": "L_forearm",        "axis": [0, 0, 1], "origin_xyz": [0.000,  0.000, -0.040], "origin_rpy": [0, 0, 0], "limits": { "lower": -3.14, "upper": 3.14, "effort_max":  4.0, "velocity_max": 4.0 } },
+      { "name": "L_WRIST_pitch",    "joint_type": "revolute",  "parent_link": "L_forearm",         "child_link": "L_wrist_pitch_link","axis": [0, 1, 0], "origin_xyz": [0.000,  0.000, -0.180], "origin_rpy": [0, 0, 0], "limits": { "lower": -1.30, "upper": 1.30, "effort_max":  3.0, "velocity_max": 4.0 } },
+      { "name": "L_WRIST_roll",     "joint_type": "revolute",  "parent_link": "L_wrist_pitch_link","child_link": "L_gripper_base",   "axis": [1, 0, 0], "origin_xyz": [0.000,  0.000, -0.040], "origin_rpy": [0, 0, 0], "limits": { "lower": -3.14, "upper": 3.14, "effort_max":  2.0, "velocity_max": 4.0 } },
+      { "name": "L_GRIPPER",        "joint_type": "prismatic", "parent_link": "L_gripper_base",    "child_link": "L_gripper_jaw",    "axis": [0, 1, 0], "origin_xyz": [0.060,  0.000, 0.000], "origin_rpy": [0, 0, 0], "limits": { "lower": 0.0,  "upper": 0.05, "effort_max": 4.0, "velocity_max": 0.5 } },
+
+      { "name": "R_SHOULDER_pitch", "joint_type": "revolute",  "parent_link": "torso",             "child_link": "R_shoulder_pitch", "axis": [0, 1, 0], "origin_xyz": [0.000, -0.190, 0.300], "origin_rpy": [0, 0, 0], "limits": { "lower": -2.50, "upper": 2.50, "effort_max": 12.0, "velocity_max": 4.0 } },
+      { "name": "R_SHOULDER_roll",  "joint_type": "revolute",  "parent_link": "R_shoulder_pitch",  "child_link": "R_shoulder_roll",  "axis": [1, 0, 0], "origin_xyz": [0.000, -0.060, 0.000], "origin_rpy": [0, 0, 0], "limits": { "lower": -1.74, "upper": 1.74, "effort_max": 12.0, "velocity_max": 4.0 } },
+      { "name": "R_ARM_yaw",        "joint_type": "revolute",  "parent_link": "R_shoulder_roll",   "child_link": "R_upper_arm",      "axis": [0, 0, 1], "origin_xyz": [0.000, -0.020, -0.100], "origin_rpy": [0, 0, 0], "limits": { "lower": -3.14, "upper": 3.14, "effort_max":  8.0, "velocity_max": 4.0 } },
+      { "name": "R_ELBOW",          "joint_type": "revolute",  "parent_link": "R_upper_arm",       "child_link": "R_elbow_link",     "axis": [0, 1, 0], "origin_xyz": [0.000,  0.000, -0.220], "origin_rpy": [0, 0, 0], "limits": { "lower": -2.50, "upper": 0.00, "effort_max":  8.0, "velocity_max": 4.0 } },
+      { "name": "R_FOREARM_yaw",    "joint_type": "revolute",  "parent_link": "R_elbow_link",      "child_link": "R_forearm",        "axis": [0, 0, 1], "origin_xyz": [0.000,  0.000, -0.040], "origin_rpy": [0, 0, 0], "limits": { "lower": -3.14, "upper": 3.14, "effort_max":  4.0, "velocity_max": 4.0 } },
+      { "name": "R_WRIST_pitch",    "joint_type": "revolute",  "parent_link": "R_forearm",         "child_link": "R_wrist_pitch_link","axis": [0, 1, 0], "origin_xyz": [0.000,  0.000, -0.180], "origin_rpy": [0, 0, 0], "limits": { "lower": -1.30, "upper": 1.30, "effort_max":  3.0, "velocity_max": 4.0 } },
+      { "name": "R_WRIST_roll",     "joint_type": "revolute",  "parent_link": "R_wrist_pitch_link","child_link": "R_gripper_base",   "axis": [1, 0, 0], "origin_xyz": [0.000,  0.000, -0.040], "origin_rpy": [0, 0, 0], "limits": { "lower": -3.14, "upper": 3.14, "effort_max":  2.0, "velocity_max": 4.0 } },
+      { "name": "R_GRIPPER",        "joint_type": "prismatic", "parent_link": "R_gripper_base",    "child_link": "R_gripper_jaw",    "axis": [0, 1, 0], "origin_xyz": [0.060,  0.000, 0.000], "origin_rpy": [0, 0, 0], "limits": { "lower": 0.0,  "upper": 0.05, "effort_max": 4.0, "velocity_max": 0.5 } }
+    ],
+    "actuator_slots": [
+      { "name": "NECK_yaw",         "joint": "NECK_yaw",         "tier": 1 },
+      { "name": "NECK_pitch",       "joint": "NECK_pitch",       "tier": 1 },
+      { "name": "L_SHOULDER_pitch", "joint": "L_SHOULDER_pitch", "tier": 1 },
+      { "name": "L_SHOULDER_roll",  "joint": "L_SHOULDER_roll",  "tier": 1 },
+      { "name": "L_ARM_yaw",        "joint": "L_ARM_yaw",        "tier": 1 },
+      { "name": "L_ELBOW",          "joint": "L_ELBOW",          "tier": 1 },
+      { "name": "L_FOREARM_yaw",    "joint": "L_FOREARM_yaw",    "tier": 1 },
+      { "name": "L_WRIST_pitch",    "joint": "L_WRIST_pitch",    "tier": 1 },
+      { "name": "L_WRIST_roll",     "joint": "L_WRIST_roll",     "tier": 0 },
+      { "name": "L_GRIPPER",        "joint": "L_GRIPPER",        "tier": 0 },
+      { "name": "R_SHOULDER_pitch", "joint": "R_SHOULDER_pitch", "tier": 1 },
+      { "name": "R_SHOULDER_roll",  "joint": "R_SHOULDER_roll",  "tier": 1 },
+      { "name": "R_ARM_yaw",        "joint": "R_ARM_yaw",        "tier": 1 },
+      { "name": "R_ELBOW",          "joint": "R_ELBOW",          "tier": 1 },
+      { "name": "R_FOREARM_yaw",    "joint": "R_FOREARM_yaw",    "tier": 1 },
+      { "name": "R_WRIST_pitch",    "joint": "R_WRIST_pitch",    "tier": 1 },
+      { "name": "R_WRIST_roll",     "joint": "R_WRIST_roll",     "tier": 0 },
+      { "name": "R_GRIPPER",        "joint": "R_GRIPPER",        "tier": 0 }
+    ],
+    "modes": [
+      {
+        "name": "manipulation",
+        "hold_positions": {},
+        "actuator_roles": {
+          "NECK_yaw": "impedance", "NECK_pitch": "impedance",
+          "L_SHOULDER_pitch": "impedance", "L_SHOULDER_roll": "impedance", "L_ARM_yaw": "impedance",
+          "L_ELBOW": "impedance", "L_FOREARM_yaw": "impedance", "L_WRIST_pitch": "impedance", "L_WRIST_roll": "impedance", "L_GRIPPER": "position",
+          "R_SHOULDER_pitch": "impedance", "R_SHOULDER_roll": "impedance", "R_ARM_yaw": "impedance",
+          "R_ELBOW": "impedance", "R_FOREARM_yaw": "impedance", "R_WRIST_pitch": "impedance", "R_WRIST_roll": "impedance", "R_GRIPPER": "position"
+        }
+      }
+    ]
+  }
+}

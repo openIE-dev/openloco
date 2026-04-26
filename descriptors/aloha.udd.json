@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "meta": {
+    "name": "aloha",
+    "version": "0.1",
+    "units_length": "Metre",
+    "author": "OpenLoco Contributors",
+    "description": "ALOHA — Stanford's bimanual teleoperation rig (Tony Z. Zhao et al., 2023; published with the original ACT paper, MIT licensed). Two Trossen ViperX 300 arms (6 DoF + gripper each = 14 actuators total) mounted on a fixed table. First manipulation morphology in the OpenLoco catalog: arms use L/R prefix and joint chain waist → shoulder → elbow → forearm_roll → wrist_angle → wrist_rotate → gripper. Geometry adapted from Trossen Robotics' published ViperX 300 dimensions and the LeRobot Aloha URDF.",
+    "generator": "openloco-cli"
+  },
+  "robot": {
+    "links": [
+      { "name": "base", "mass_kg": 5.000, "inertia": [4.00e-2, 4.00e-2, 8.00e-2, 0, 0, 0] },
+
+      { "name": "L_shoulder",      "mass_kg": 0.700, "inertia": [8.00e-4, 8.00e-4, 8.00e-4, 0, 0, 0] },
+      { "name": "L_upper_arm",     "mass_kg": 0.500, "inertia": [3.00e-3, 3.00e-3, 2.00e-4, 0, 0, 0] },
+      { "name": "L_forearm",       "mass_kg": 0.350, "inertia": [2.00e-3, 2.00e-3, 1.50e-4, 0, 0, 0] },
+      { "name": "L_wrist_pitch",   "mass_kg": 0.150, "inertia": [1.00e-4, 1.00e-4, 1.00e-4, 0, 0, 0] },
+      { "name": "L_wrist_roll",    "mass_kg": 0.100, "inertia": [5.00e-5, 5.00e-5, 5.00e-5, 0, 0, 0] },
+      { "name": "L_gripper_base",  "mass_kg": 0.100, "inertia": [5.00e-5, 5.00e-5, 5.00e-5, 0, 0, 0] },
+      { "name": "L_gripper_jaw",   "mass_kg": 0.030, "inertia": [1.00e-5, 1.00e-5, 1.00e-5, 0, 0, 0] },
+
+      { "name": "R_shoulder",      "mass_kg": 0.700, "inertia": [8.00e-4, 8.00e-4, 8.00e-4, 0, 0, 0] },
+      { "name": "R_upper_arm",     "mass_kg": 0.500, "inertia": [3.00e-3, 3.00e-3, 2.00e-4, 0, 0, 0] },
+      { "name": "R_forearm",       "mass_kg": 0.350, "inertia": [2.00e-3, 2.00e-3, 1.50e-4, 0, 0, 0] },
+      { "name": "R_wrist_pitch",   "mass_kg": 0.150, "inertia": [1.00e-4, 1.00e-4, 1.00e-4, 0, 0, 0] },
+      { "name": "R_wrist_roll",    "mass_kg": 0.100, "inertia": [5.00e-5, 5.00e-5, 5.00e-5, 0, 0, 0] },
+      { "name": "R_gripper_base",  "mass_kg": 0.100, "inertia": [5.00e-5, 5.00e-5, 5.00e-5, 0, 0, 0] },
+      { "name": "R_gripper_jaw",   "mass_kg": 0.030, "inertia": [1.00e-5, 1.00e-5, 1.00e-5, 0, 0, 0] }
+    ],
+    "joints": [
+      { "name": "L_WAIST",        "joint_type": "revolute",  "parent_link": "base",         "child_link": "L_shoulder",     "axis": [0, 0, 1], "origin_xyz": [0.000,  0.250, 0.080], "origin_rpy": [0, 0, 0], "limits": { "lower": -3.14, "upper": 3.14, "effort_max": 8.0, "velocity_max": 3.0 } },
+      { "name": "L_SHOULDER",     "joint_type": "revolute",  "parent_link": "L_shoulder",   "child_link": "L_upper_arm",    "axis": [0, 1, 0], "origin_xyz": [0.000,  0.000, 0.060], "origin_rpy": [0, 0, 0], "limits": { "lower": -1.85, "upper": 1.85, "effort_max": 8.0, "velocity_max": 3.0 } },
+      { "name": "L_ELBOW",        "joint_type": "revolute",  "parent_link": "L_upper_arm",  "child_link": "L_forearm",      "axis": [0, 1, 0], "origin_xyz": [0.000,  0.000, 0.300], "origin_rpy": [0, 0, 0], "limits": { "lower": -1.85, "upper": 1.85, "effort_max": 6.0, "velocity_max": 3.0 } },
+      { "name": "L_FOREARM_roll", "joint_type": "revolute",  "parent_link": "L_forearm",    "child_link": "L_wrist_pitch",  "axis": [1, 0, 0], "origin_xyz": [0.300,  0.000, 0.000], "origin_rpy": [0, 0, 0], "limits": { "lower": -3.14, "upper": 3.14, "effort_max": 3.0, "velocity_max": 3.0 } },
+      { "name": "L_WRIST_pitch",  "joint_type": "revolute",  "parent_link": "L_wrist_pitch","child_link": "L_wrist_roll",   "axis": [0, 1, 0], "origin_xyz": [0.080,  0.000, 0.000], "origin_rpy": [0, 0, 0], "limits": { "lower": -1.74, "upper": 2.14, "effort_max": 3.0, "velocity_max": 3.0 } },
+      { "name": "L_WRIST_roll",   "joint_type": "revolute",  "parent_link": "L_wrist_roll", "child_link": "L_gripper_base", "axis": [1, 0, 0], "origin_xyz": [0.060,  0.000, 0.000], "origin_rpy": [0, 0, 0], "limits": { "lower": -3.14, "upper": 3.14, "effort_max": 2.0, "velocity_max": 3.0 } },
+      { "name": "L_GRIPPER",      "joint_type": "prismatic", "parent_link": "L_gripper_base","child_link": "L_gripper_jaw", "axis": [0, 1, 0], "origin_xyz": [0.045,  0.000, 0.000], "origin_rpy": [0, 0, 0], "limits": { "lower": 0.0,   "upper": 0.04, "effort_max": 4.0, "velocity_max": 1.0 } },
+
+      { "name": "R_WAIST",        "joint_type": "revolute",  "parent_link": "base",         "child_link": "R_shoulder",     "axis": [0, 0, 1], "origin_xyz": [0.000, -0.250, 0.080], "origin_rpy": [0, 0, 0], "limits": { "lower": -3.14, "upper": 3.14, "effort_max": 8.0, "velocity_max": 3.0 } },
+      { "name": "R_SHOULDER",     "joint_type": "revolute",  "parent_link": "R_shoulder",   "child_link": "R_upper_arm",    "axis": [0, 1, 0], "origin_xyz": [0.000,  0.000, 0.060], "origin_rpy": [0, 0, 0], "limits": { "lower": -1.85, "upper": 1.85, "effort_max": 8.0, "velocity_max": 3.0 } },
+      { "name": "R_ELBOW",        "joint_type": "revolute",  "parent_link": "R_upper_arm",  "child_link": "R_forearm",      "axis": [0, 1, 0], "origin_xyz": [0.000,  0.000, 0.300], "origin_rpy": [0, 0, 0], "limits": { "lower": -1.85, "upper": 1.85, "effort_max": 6.0, "velocity_max": 3.0 } },
+      { "name": "R_FOREARM_roll", "joint_type": "revolute",  "parent_link": "R_forearm",    "child_link": "R_wrist_pitch",  "axis": [1, 0, 0], "origin_xyz": [0.300,  0.000, 0.000], "origin_rpy": [0, 0, 0], "limits": { "lower": -3.14, "upper": 3.14, "effort_max": 3.0, "velocity_max": 3.0 } },
+      { "name": "R_WRIST_pitch",  "joint_type": "revolute",  "parent_link": "R_wrist_pitch","child_link": "R_wrist_roll",   "axis": [0, 1, 0], "origin_xyz": [0.080,  0.000, 0.000], "origin_rpy": [0, 0, 0], "limits": { "lower": -1.74, "upper": 2.14, "effort_max": 3.0, "velocity_max": 3.0 } },
+      { "name": "R_WRIST_roll",   "joint_type": "revolute",  "parent_link": "R_wrist_roll", "child_link": "R_gripper_base", "axis": [1, 0, 0], "origin_xyz": [0.060,  0.000, 0.000], "origin_rpy": [0, 0, 0], "limits": { "lower": -3.14, "upper": 3.14, "effort_max": 2.0, "velocity_max": 3.0 } },
+      { "name": "R_GRIPPER",      "joint_type": "prismatic", "parent_link": "R_gripper_base","child_link": "R_gripper_jaw", "axis": [0, 1, 0], "origin_xyz": [0.045,  0.000, 0.000], "origin_rpy": [0, 0, 0], "limits": { "lower": 0.0,   "upper": 0.04, "effort_max": 4.0, "velocity_max": 1.0 } }
+    ],
+    "actuator_slots": [
+      { "name": "L_WAIST",        "joint": "L_WAIST",        "tier": 1 },
+      { "name": "L_SHOULDER",     "joint": "L_SHOULDER",     "tier": 1 },
+      { "name": "L_ELBOW",        "joint": "L_ELBOW",        "tier": 1 },
+      { "name": "L_FOREARM_roll", "joint": "L_FOREARM_roll", "tier": 0 },
+      { "name": "L_WRIST_pitch",  "joint": "L_WRIST_pitch",  "tier": 0 },
+      { "name": "L_WRIST_roll",   "joint": "L_WRIST_roll",   "tier": 0 },
+      { "name": "L_GRIPPER",      "joint": "L_GRIPPER",      "tier": 0 },
+      { "name": "R_WAIST",        "joint": "R_WAIST",        "tier": 1 },
+      { "name": "R_SHOULDER",     "joint": "R_SHOULDER",     "tier": 1 },
+      { "name": "R_ELBOW",        "joint": "R_ELBOW",        "tier": 1 },
+      { "name": "R_FOREARM_roll", "joint": "R_FOREARM_roll", "tier": 0 },
+      { "name": "R_WRIST_pitch",  "joint": "R_WRIST_pitch",  "tier": 0 },
+      { "name": "R_WRIST_roll",   "joint": "R_WRIST_roll",   "tier": 0 },
+      { "name": "R_GRIPPER",      "joint": "R_GRIPPER",      "tier": 0 }
+    ],
+    "modes": [
+      {
+        "name": "manipulation",
+        "hold_positions": {},
+        "actuator_roles": {
+          "L_WAIST": "impedance", "L_SHOULDER": "impedance", "L_ELBOW": "impedance",
+          "L_FOREARM_roll": "impedance", "L_WRIST_pitch": "impedance", "L_WRIST_roll": "impedance", "L_GRIPPER": "position",
+          "R_WAIST": "impedance", "R_SHOULDER": "impedance", "R_ELBOW": "impedance",
+          "R_FOREARM_roll": "impedance", "R_WRIST_pitch": "impedance", "R_WRIST_roll": "impedance", "R_GRIPPER": "position"
+        }
+      }
+    ]
+  }
+}

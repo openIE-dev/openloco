@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco model="crazyflie">
+  <compiler angle="radian" coordinate="local" meshdir="meshes" autolimits="true"/>
+  <option timestep="0.002" integrator="implicitfast"/>
+  <default>
+    <joint damping="0.1" armature="0.01"/>
+    <geom contype="0" conaffinity="1" friction="1.0 0.005 0.0001"/>
+  </default>
+  <asset>
+  </asset>
+  <worldbody>
+    <geom name="ground" type="plane" size="10 10 0.1" contype="1" conaffinity="1" rgba="0.85 0.85 0.85 1"/>
+    <body name="base" pos="0 0 0.600">
+      <freejoint name="root"/>
+      <inertial pos="0.000000 0.000000 0.000000" mass="0.025000" diaginertia="1.400000e-5 1.400000e-5 2.200000e-5"/>
+      <body name="FL_motor" pos="0.032500 0.032500 0.000000">
+        <inertial pos="0.000000 0.000000 0.000000" mass="0.000800" diaginertia="1.000000e-9 1.000000e-9 1.000000e-9"/>
+        <body name="FL_prop" pos="0.000000 0.000000 0.005000">
+          <joint name="FL_PROP_drive" type="hinge" limited="false" damping="0.001" armature="0.0001" axis="0.000000 0.000000 1.000000" pos="0 0 0"/>
+          <inertial pos="0.000000 0.000000 0.000000" mass="0.000400" diaginertia="4.000000e-10 4.000000e-10 8.000000e-10"/>
+        </body>
+      </body>
+      <body name="FR_motor" pos="0.032500 -0.032500 0.000000">
+        <inertial pos="0.000000 0.000000 0.000000" mass="0.000800" diaginertia="1.000000e-9 1.000000e-9 1.000000e-9"/>
+        <body name="FR_prop" pos="0.000000 0.000000 0.005000">
+          <joint name="FR_PROP_drive" type="hinge" limited="false" damping="0.001" armature="0.0001" axis="0.000000 0.000000 1.000000" pos="0 0 0"/>
+          <inertial pos="0.000000 0.000000 0.000000" mass="0.000400" diaginertia="4.000000e-10 4.000000e-10 8.000000e-10"/>
+        </body>
+      </body>
+      <body name="RL_motor" pos="-0.032500 0.032500 0.000000">
+        <inertial pos="0.000000 0.000000 0.000000" mass="0.000800" diaginertia="1.000000e-9 1.000000e-9 1.000000e-9"/>
+        <body name="RL_prop" pos="0.000000 0.000000 0.005000">
+          <joint name="RL_PROP_drive" type="hinge" limited="false" damping="0.001" armature="0.0001" axis="0.000000 0.000000 1.000000" pos="0 0 0"/>
+          <inertial pos="0.000000 0.000000 0.000000" mass="0.000400" diaginertia="4.000000e-10 4.000000e-10 8.000000e-10"/>
+        </body>
+      </body>
+      <body name="RR_motor" pos="-0.032500 -0.032500 0.000000">
+        <inertial pos="0.000000 0.000000 0.000000" mass="0.000800" diaginertia="1.000000e-9 1.000000e-9 1.000000e-9"/>
+        <body name="RR_prop" pos="0.000000 0.000000 0.005000">
+          <joint name="RR_PROP_drive" type="hinge" limited="false" damping="0.001" armature="0.0001" axis="0.000000 0.000000 1.000000" pos="0 0 0"/>
+          <inertial pos="0.000000 0.000000 0.000000" mass="0.000400" diaginertia="4.000000e-10 4.000000e-10 8.000000e-10"/>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+    <motor name="FL_PROP_drive" joint="FL_PROP_drive" ctrlrange="-0.001 0.001" gear="1"/>
+    <motor name="FR_PROP_drive" joint="FR_PROP_drive" ctrlrange="-0.001 0.001" gear="1"/>
+    <motor name="RL_PROP_drive" joint="RL_PROP_drive" ctrlrange="-0.001 0.001" gear="1"/>
+    <motor name="RR_PROP_drive" joint="RR_PROP_drive" ctrlrange="-0.001 0.001" gear="1"/>
+  </actuator>
+</mujoco>

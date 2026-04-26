@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="crazyflie">
+  <link name="base">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.025000"/>
+      <inertia ixx="1.400000e-5" iyy="1.400000e-5" izz="2.200000e-5" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="FL_motor">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.000800"/>
+      <inertia ixx="1.000000e-9" iyy="1.000000e-9" izz="1.000000e-9" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="FL_prop">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.000400"/>
+      <inertia ixx="4.000000e-10" iyy="4.000000e-10" izz="8.000000e-10" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="FR_motor">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.000800"/>
+      <inertia ixx="1.000000e-9" iyy="1.000000e-9" izz="1.000000e-9" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="FR_prop">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.000400"/>
+      <inertia ixx="4.000000e-10" iyy="4.000000e-10" izz="8.000000e-10" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="RL_motor">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.000800"/>
+      <inertia ixx="1.000000e-9" iyy="1.000000e-9" izz="1.000000e-9" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="RL_prop">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.000400"/>
+      <inertia ixx="4.000000e-10" iyy="4.000000e-10" izz="8.000000e-10" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="RR_motor">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.000800"/>
+      <inertia ixx="1.000000e-9" iyy="1.000000e-9" izz="1.000000e-9" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="RR_prop">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.000400"/>
+      <inertia ixx="4.000000e-10" iyy="4.000000e-10" izz="8.000000e-10" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <joint name="FL_motor_mount" type="fixed">
+    <parent link="base"/>
+    <child link="FL_motor"/>
+    <origin xyz="0.032500 0.032500 0.000000" rpy="0.000000 0.000000 0.000000"/>
+  </joint>
+  <joint name="FL_PROP_drive" type="continuous">
+    <parent link="FL_motor"/>
+    <child link="FL_prop"/>
+    <origin xyz="0.000000 0.000000 0.005000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 0.000000 1.000000"/>
+    <limit effort="0.001" velocity="3000.000"/>
+  </joint>
+  <transmission name="FL_PROP_drive_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FL_PROP_drive">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FL_PROP_drive_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="FR_motor_mount" type="fixed">
+    <parent link="base"/>
+    <child link="FR_motor"/>
+    <origin xyz="0.032500 -0.032500 0.000000" rpy="0.000000 0.000000 0.000000"/>
+  </joint>
+  <joint name="FR_PROP_drive" type="continuous">
+    <parent link="FR_motor"/>
+    <child link="FR_prop"/>
+    <origin xyz="0.000000 0.000000 0.005000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 0.000000 1.000000"/>
+    <limit effort="0.001" velocity="3000.000"/>
+  </joint>
+  <transmission name="FR_PROP_drive_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FR_PROP_drive">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FR_PROP_drive_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="RL_motor_mount" type="fixed">
+    <parent link="base"/>
+    <child link="RL_motor"/>
+    <origin xyz="-0.032500 0.032500 0.000000" rpy="0.000000 0.000000 0.000000"/>
+  </joint>
+  <joint name="RL_PROP_drive" type="continuous">
+    <parent link="RL_motor"/>
+    <child link="RL_prop"/>
+    <origin xyz="0.000000 0.000000 0.005000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 0.000000 1.000000"/>
+    <limit effort="0.001" velocity="3000.000"/>
+  </joint>
+  <transmission name="RL_PROP_drive_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RL_PROP_drive">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RL_PROP_drive_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="RR_motor_mount" type="fixed">
+    <parent link="base"/>
+    <child link="RR_motor"/>
+    <origin xyz="-0.032500 -0.032500 0.000000" rpy="0.000000 0.000000 0.000000"/>
+  </joint>
+  <joint name="RR_PROP_drive" type="continuous">
+    <parent link="RR_motor"/>
+    <child link="RR_prop"/>
+    <origin xyz="0.000000 0.000000 0.005000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 0.000000 1.000000"/>
+    <limit effort="0.001" velocity="3000.000"/>
+  </joint>
+  <transmission name="RR_PROP_drive_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RR_PROP_drive">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RR_PROP_drive_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+</robot>

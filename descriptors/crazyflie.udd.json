@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "meta": {
+    "name": "crazyflie",
+    "version": "0.1",
+    "units_length": "Metre",
+    "author": "OpenLoco Contributors",
+    "description": "Crazyflie 2.1 — Bitcraze's open-source nano quadcopter (BSD-3 firmware, fully-open hardware), the most-installed open UAV platform. ~27 g, 92 mm motor-to-motor diagonal. Brushed-DC coreless motors at four corners (Tier 0) driving 7 mm × 16 mm props in an X configuration. First pure-aerial morphology in the OpenLoco catalog: no legs, no wheels, four continuous-drive rotor joints terminating in fixed propellers. Hover/flight only.",
+    "generator": "openloco-cli"
+  },
+  "robot": {
+    "links": [
+      { "name": "base", "mass_kg": 0.025, "inertia": [1.40e-5, 1.40e-5, 2.20e-5, 0, 0, 0] },
+
+      { "name": "FL_motor", "mass_kg": 0.0008, "inertia": [1.00e-9, 1.00e-9, 1.00e-9, 0, 0, 0] },
+      { "name": "FL_prop",  "mass_kg": 0.0004, "inertia": [4.00e-10, 4.00e-10, 8.00e-10, 0, 0, 0] },
+
+      { "name": "FR_motor", "mass_kg": 0.0008, "inertia": [1.00e-9, 1.00e-9, 1.00e-9, 0, 0, 0] },
+      { "name": "FR_prop",  "mass_kg": 0.0004, "inertia": [4.00e-10, 4.00e-10, 8.00e-10, 0, 0, 0] },
+
+      { "name": "RL_motor", "mass_kg": 0.0008, "inertia": [1.00e-9, 1.00e-9, 1.00e-9, 0, 0, 0] },
+      { "name": "RL_prop",  "mass_kg": 0.0004, "inertia": [4.00e-10, 4.00e-10, 8.00e-10, 0, 0, 0] },
+
+      { "name": "RR_motor", "mass_kg": 0.0008, "inertia": [1.00e-9, 1.00e-9, 1.00e-9, 0, 0, 0] },
+      { "name": "RR_prop",  "mass_kg": 0.0004, "inertia": [4.00e-10, 4.00e-10, 8.00e-10, 0, 0, 0] }
+    ],
+    "joints": [
+      { "name": "FL_motor_mount", "joint_type": "fixed",      "parent_link": "base",     "child_link": "FL_motor", "axis": [0, 0, 1], "origin_xyz": [ 0.0325,  0.0325, 0.000], "origin_rpy": [0, 0, 0] },
+      { "name": "FL_PROP_drive",  "joint_type": "continuous", "parent_link": "FL_motor", "child_link": "FL_prop",  "axis": [0, 0, 1], "origin_xyz": [ 0.0000,  0.0000, 0.005], "origin_rpy": [0, 0, 0], "limits": { "lower": -3.14, "upper": 3.14, "effort_max": 0.001, "velocity_max": 3000.0 } },
+
+      { "name": "FR_motor_mount", "joint_type": "fixed",      "parent_link": "base",     "child_link": "FR_motor", "axis": [0, 0, 1], "origin_xyz": [ 0.0325, -0.0325, 0.000], "origin_rpy": [0, 0, 0] },
+      { "name": "FR_PROP_drive",  "joint_type": "continuous", "parent_link": "FR_motor", "child_link": "FR_prop",  "axis": [0, 0, 1], "origin_xyz": [ 0.0000,  0.0000, 0.005], "origin_rpy": [0, 0, 0], "limits": { "lower": -3.14, "upper": 3.14, "effort_max": 0.001, "velocity_max": 3000.0 } },
+
+      { "name": "RL_motor_mount", "joint_type": "fixed",      "parent_link": "base",     "child_link": "RL_motor", "axis": [0, 0, 1], "origin_xyz": [-0.0325,  0.0325, 0.000], "origin_rpy": [0, 0, 0] },
+      { "name": "RL_PROP_drive",  "joint_type": "continuous", "parent_link": "RL_motor", "child_link": "RL_prop",  "axis": [0, 0, 1], "origin_xyz": [ 0.0000,  0.0000, 0.005], "origin_rpy": [0, 0, 0], "limits": { "lower": -3.14, "upper": 3.14, "effort_max": 0.001, "velocity_max": 3000.0 } },
+
+      { "name": "RR_motor_mount", "joint_type": "fixed",      "parent_link": "base",     "child_link": "RR_motor", "axis": [0, 0, 1], "origin_xyz": [-0.0325, -0.0325, 0.000], "origin_rpy": [0, 0, 0] },
+      { "name": "RR_PROP_drive",  "joint_type": "continuous", "parent_link": "RR_motor", "child_link": "RR_prop",  "axis": [0, 0, 1], "origin_xyz": [ 0.0000,  0.0000, 0.005], "origin_rpy": [0, 0, 0], "limits": { "lower": -3.14, "upper": 3.14, "effort_max": 0.001, "velocity_max": 3000.0 } }
+    ],
+    "actuator_slots": [
+      { "name": "FL_PROP_drive", "joint": "FL_PROP_drive", "tier": 0 },
+      { "name": "FR_PROP_drive", "joint": "FR_PROP_drive", "tier": 0 },
+      { "name": "RL_PROP_drive", "joint": "RL_PROP_drive", "tier": 0 },
+      { "name": "RR_PROP_drive", "joint": "RR_PROP_drive", "tier": 0 }
+    ],
+    "modes": [
+      {
+        "name": "flying",
+        "hold_positions": {},
+        "actuator_roles": {
+          "FL_PROP_drive": "rotor", "FR_PROP_drive": "rotor",
+          "RL_PROP_drive": "rotor", "RR_PROP_drive": "rotor"
+        }
+      }
+    ]
+  }
+}

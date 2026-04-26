@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "meta": {
+    "name": "so100",
+    "version": "0.1",
+    "units_length": "Metre",
+    "author": "OpenLoco Contributors",
+    "description": "SO-100 — The Robot Studio's open-source 6-DoF arm (~$110 build cost), popularised by Hugging Face LeRobot as the reference low-cost teleoperation arm. ~600 g, ~46 cm reach. 5 Feetech STS3215 PWM servos along the arm + 1 servo for the gripper (Tier 0). Single open kinematic chain: base → shoulder_pan → shoulder_lift → elbow_flex → wrist_flex → wrist_roll → gripper. Geometry adapted from TheRobotStudio/SO-ARM100 published CAD.",
+    "generator": "openloco-cli"
+  },
+  "robot": {
+    "links": [
+      { "name": "base",            "mass_kg": 0.150, "inertia": [3.00e-4, 3.00e-4, 5.00e-4, 0, 0, 0] },
+      { "name": "shoulder_pan",    "mass_kg": 0.090, "inertia": [3.00e-5, 3.00e-5, 3.00e-5, 0, 0, 0] },
+      { "name": "shoulder_lift",   "mass_kg": 0.080, "inertia": [4.00e-5, 4.00e-5, 4.00e-5, 0, 0, 0] },
+      { "name": "elbow",           "mass_kg": 0.070, "inertia": [3.00e-5, 3.00e-5, 3.00e-5, 0, 0, 0] },
+      { "name": "wrist_flex",      "mass_kg": 0.050, "inertia": [2.00e-5, 2.00e-5, 2.00e-5, 0, 0, 0] },
+      { "name": "wrist_roll",      "mass_kg": 0.030, "inertia": [1.00e-5, 1.00e-5, 1.00e-5, 0, 0, 0] },
+      { "name": "gripper_base",    "mass_kg": 0.040, "inertia": [1.50e-5, 1.50e-5, 1.50e-5, 0, 0, 0] },
+      { "name": "gripper_jaw",     "mass_kg": 0.020, "inertia": [5.00e-6, 5.00e-6, 5.00e-6, 0, 0, 0] }
+    ],
+    "joints": [
+      { "name": "SHOULDER_pan",  "joint_type": "revolute",  "parent_link": "base",          "child_link": "shoulder_pan",  "axis": [0, 0, 1], "origin_xyz": [0.000, 0.000, 0.060], "origin_rpy": [0, 0, 0], "limits": { "lower": -3.14, "upper": 3.14, "effort_max": 1.5, "velocity_max": 3.0 } },
+      { "name": "SHOULDER_lift", "joint_type": "revolute",  "parent_link": "shoulder_pan",  "child_link": "shoulder_lift", "axis": [0, 1, 0], "origin_xyz": [0.000, 0.000, 0.030], "origin_rpy": [0, 0, 0], "limits": { "lower": -2.20, "upper": 2.20, "effort_max": 1.5, "velocity_max": 3.0 } },
+      { "name": "ELBOW_flex",    "joint_type": "revolute",  "parent_link": "shoulder_lift", "child_link": "elbow",         "axis": [0, 1, 0], "origin_xyz": [0.000, 0.000, 0.110], "origin_rpy": [0, 0, 0], "limits": { "lower": -2.50, "upper": 2.50, "effort_max": 1.5, "velocity_max": 3.0 } },
+      { "name": "WRIST_flex",    "joint_type": "revolute",  "parent_link": "elbow",         "child_link": "wrist_flex",    "axis": [0, 1, 0], "origin_xyz": [0.000, 0.000, 0.105], "origin_rpy": [0, 0, 0], "limits": { "lower": -2.20, "upper": 2.20, "effort_max": 1.0, "velocity_max": 3.0 } },
+      { "name": "WRIST_roll",    "joint_type": "revolute",  "parent_link": "wrist_flex",    "child_link": "wrist_roll",    "axis": [1, 0, 0], "origin_xyz": [0.045, 0.000, 0.000], "origin_rpy": [0, 0, 0], "limits": { "lower": -3.14, "upper": 3.14, "effort_max": 1.0, "velocity_max": 3.0 } },
+      { "name": "GRIPPER_mount", "joint_type": "fixed",     "parent_link": "wrist_roll",    "child_link": "gripper_base",  "axis": [0, 0, 1], "origin_xyz": [0.030, 0.000, 0.000], "origin_rpy": [0, 0, 0] },
+      { "name": "GRIPPER",       "joint_type": "prismatic", "parent_link": "gripper_base",  "child_link": "gripper_jaw",   "axis": [0, 1, 0], "origin_xyz": [0.020, 0.000, 0.000], "origin_rpy": [0, 0, 0], "limits": { "lower": 0.0, "upper": 0.04, "effort_max": 1.0, "velocity_max": 0.5 } }
+    ],
+    "actuator_slots": [
+      { "name": "SHOULDER_pan",  "joint": "SHOULDER_pan",  "tier": 0 },
+      { "name": "SHOULDER_lift", "joint": "SHOULDER_lift", "tier": 0 },
+      { "name": "ELBOW_flex",    "joint": "ELBOW_flex",    "tier": 0 },
+      { "name": "WRIST_flex",    "joint": "WRIST_flex",    "tier": 0 },
+      { "name": "WRIST_roll",    "joint": "WRIST_roll",    "tier": 0 },
+      { "name": "GRIPPER",       "joint": "GRIPPER",       "tier": 0 }
+    ],
+    "modes": [
+      {
+        "name": "manipulation",
+        "hold_positions": {},
+        "actuator_roles": {
+          "SHOULDER_pan": "impedance", "SHOULDER_lift": "impedance", "ELBOW_flex": "impedance",
+          "WRIST_flex": "impedance", "WRIST_roll": "impedance", "GRIPPER": "position"
+        }
+      }
+    ]
+  }
+}

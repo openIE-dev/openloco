@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco model="reachy2">
+  <compiler angle="radian" coordinate="local" meshdir="meshes" autolimits="true"/>
+  <option timestep="0.002" integrator="implicitfast"/>
+  <default>
+    <joint damping="0.1" armature="0.01"/>
+    <geom contype="0" conaffinity="1" friction="1.0 0.005 0.0001"/>
+  </default>
+  <asset>
+  </asset>
+  <worldbody>
+    <geom name="ground" type="plane" size="10 10 0.1" contype="1" conaffinity="1" rgba="0.85 0.85 0.85 1"/>
+    <body name="torso" pos="0 0 0.600">
+      <freejoint name="root"/>
+      <inertial pos="0.000000 0.000000 0.000000" mass="4.000000" diaginertia="3.500000e-2 3.000000e-2 1.500000e-2"/>
+      <body name="neck_yaw_link" pos="0.000000 0.000000 0.350000">
+        <joint name="NECK_yaw" type="hinge" range="-1.7400 1.7400" limited="true" axis="0.000000 0.000000 1.000000" pos="0 0 0" ref="0.000000"/>
+        <inertial pos="0.000000 0.000000 0.000000" mass="0.150000" diaginertia="1.000000e-4 1.000000e-4 1.000000e-4"/>
+        <body name="neck_pitch_link" pos="0.000000 0.000000 0.060000">
+          <joint name="NECK_pitch" type="hinge" range="-1.0500 1.0500" limited="true" axis="0.000000 1.000000 0.000000" pos="0 0 0" ref="0.000000"/>
+          <inertial pos="0.000000 0.000000 0.000000" mass="0.200000" diaginertia="1.500000e-4 1.500000e-4 1.500000e-4"/>
+          <body name="head" pos="0.000000 0.000000 0.080000">
+            <inertial pos="0.000000 0.000000 0.000000" mass="0.500000" diaginertia="1.200000e-3 1.200000e-3 1.200000e-3"/>
+          </body>
+        </body>
+      </body>
+      <body name="L_shoulder_pitch" pos="0.000000 0.190000 0.300000">
+        <joint name="L_SHOULDER_pitch" type="hinge" range="-2.5000 2.5000" limited="true" axis="0.000000 1.000000 0.000000" pos="0 0 0" ref="0.000000"/>
+        <inertial pos="0.000000 0.000000 0.000000" mass="0.400000" diaginertia="3.000000e-4 3.000000e-4 3.000000e-4"/>
+        <body name="L_shoulder_roll" pos="0.000000 0.060000 0.000000">
+          <joint name="L_SHOULDER_roll" type="hinge" range="-1.7400 1.7400" limited="true" axis="1.000000 0.000000 0.000000" pos="0 0 0" ref="0.000000"/>
+          <inertial pos="0.000000 0.000000 0.000000" mass="0.300000" diaginertia="2.500000e-4 2.500000e-4 2.500000e-4"/>
+          <body name="L_upper_arm" pos="0.000000 0.020000 -0.100000">
+            <joint name="L_ARM_yaw" type="hinge" range="-3.1400 3.1400" limited="true" axis="0.000000 0.000000 1.000000" pos="0 0 0" ref="0.000000"/>
+            <inertial pos="0.000000 0.000000 0.000000" mass="0.500000" diaginertia="3.000000e-3 3.000000e-3 3.000000e-4"/>
+            <body name="L_elbow_link" pos="0.000000 0.000000 -0.220000">
+              <joint name="L_ELBOW" type="hinge" range="-2.5000 0.0000" limited="true" axis="0.000000 1.000000 0.000000" pos="0 0 0" ref="-1.250000"/>
+              <inertial pos="0.000000 0.000000 0.000000" mass="0.250000" diaginertia="2.000000e-4 2.000000e-4 2.000000e-4"/>
+              <body name="L_forearm" pos="0.000000 0.000000 -0.040000">
+                <joint name="L_FOREARM_yaw" type="hinge" range="-3.1400 3.1400" limited="true" axis="0.000000 0.000000 1.000000" pos="0 0 0" ref="0.000000"/>
+                <inertial pos="0.000000 0.000000 0.000000" mass="0.350000" diaginertia="2.000000e-3 2.000000e-3 2.000000e-4"/>
+                <body name="L_wrist_pitch_link" pos="0.000000 0.000000 -0.180000">
+                  <joint name="L_WRIST_pitch" type="hinge" range="-1.3000 1.3000" limited="true" axis="0.000000 1.000000 0.000000" pos="0 0 0" ref="0.000000"/>
+                  <inertial pos="0.000000 0.000000 0.000000" mass="0.150000" diaginertia="1.000000e-4 1.000000e-4 1.000000e-4"/>
+                  <body name="L_gripper_base" pos="0.000000 0.000000 -0.040000">
+                    <joint name="L_WRIST_roll" type="hinge" range="-3.1400 3.1400" limited="true" axis="1.000000 0.000000 0.000000" pos="0 0 0" ref="0.000000"/>
+                    <inertial pos="0.000000 0.000000 0.000000" mass="0.200000" diaginertia="2.000000e-4 2.000000e-4 2.000000e-4"/>
+                    <body name="L_gripper_jaw" pos="0.060000 0.000000 0.000000">
+                      <joint name="L_GRIPPER" type="slide" range="0.0000 0.0500" limited="true" axis="0.000000 1.000000 0.000000" pos="0 0 0" ref="0.025000"/>
+                      <inertial pos="0.000000 0.000000 0.000000" mass="0.050000" diaginertia="2.000000e-5 2.000000e-5 2.000000e-5"/>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="R_shoulder_pitch" pos="0.000000 -0.190000 0.300000">
+        <joint name="R_SHOULDER_pitch" type="hinge" range="-2.5000 2.5000" limited="true" axis="0.000000 1.000000 0.000000" pos="0 0 0" ref="0.000000"/>
+        <inertial pos="0.000000 0.000000 0.000000" mass="0.400000" diaginertia="3.000000e-4 3.000000e-4 3.000000e-4"/>
+        <body name="R_shoulder_roll" pos="0.000000 -0.060000 0.000000">
+          <joint name="R_SHOULDER_roll" type="hinge" range="-1.7400 1.7400" limited="true" axis="1.000000 0.000000 0.000000" pos="0 0 0" ref="0.000000"/>
+          <inertial pos="0.000000 0.000000 0.000000" mass="0.300000" diaginertia="2.500000e-4 2.500000e-4 2.500000e-4"/>
+          <body name="R_upper_arm" pos="0.000000 -0.020000 -0.100000">
+            <joint name="R_ARM_yaw" type="hinge" range="-3.1400 3.1400" limited="true" axis="0.000000 0.000000 1.000000" pos="0 0 0" ref="0.000000"/>
+            <inertial pos="0.000000 0.000000 0.000000" mass="0.500000" diaginertia="3.000000e-3 3.000000e-3 3.000000e-4"/>
+            <body name="R_elbow_link" pos="0.000000 0.000000 -0.220000">
+              <joint name="R_ELBOW" type="hinge" range="-2.5000 0.0000" limited="true" axis="0.000000 1.000000 0.000000" pos="0 0 0" ref="-1.250000"/>
+              <inertial pos="0.000000 0.000000 0.000000" mass="0.250000" diaginertia="2.000000e-4 2.000000e-4 2.000000e-4"/>
+              <body name="R_forearm" pos="0.000000 0.000000 -0.040000">
+                <joint name="R_FOREARM_yaw" type="hinge" range="-3.1400 3.1400" limited="true" axis="0.000000 0.000000 1.000000" pos="0 0 0" ref="0.000000"/>
+                <inertial pos="0.000000 0.000000 0.000000" mass="0.350000" diaginertia="2.000000e-3 2.000000e-3 2.000000e-4"/>
+                <body name="R_wrist_pitch_link" pos="0.000000 0.000000 -0.180000">
+                  <joint name="R_WRIST_pitch" type="hinge" range="-1.3000 1.3000" limited="true" axis="0.000000 1.000000 0.000000" pos="0 0 0" ref="0.000000"/>
+                  <inertial pos="0.000000 0.000000 0.000000" mass="0.150000" diaginertia="1.000000e-4 1.000000e-4 1.000000e-4"/>
+                  <body name="R_gripper_base" pos="0.000000 0.000000 -0.040000">
+                    <joint name="R_WRIST_roll" type="hinge" range="-3.1400 3.1400" limited="true" axis="1.000000 0.000000 0.000000" pos="0 0 0" ref="0.000000"/>
+                    <inertial pos="0.000000 0.000000 0.000000" mass="0.200000" diaginertia="2.000000e-4 2.000000e-4 2.000000e-4"/>
+                    <body name="R_gripper_jaw" pos="0.060000 0.000000 0.000000">
+                      <joint name="R_GRIPPER" type="slide" range="0.0000 0.0500" limited="true" axis="0.000000 1.000000 0.000000" pos="0 0 0" ref="0.025000"/>
+                      <inertial pos="0.000000 0.000000 0.000000" mass="0.050000" diaginertia="2.000000e-5 2.000000e-5 2.000000e-5"/>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+    <motor name="NECK_yaw" joint="NECK_yaw" ctrlrange="-4.000 4.000" gear="1"/>
+    <motor name="NECK_pitch" joint="NECK_pitch" ctrlrange="-4.000 4.000" gear="1"/>
+    <motor name="L_SHOULDER_pitch" joint="L_SHOULDER_pitch" ctrlrange="-12.000 12.000" gear="1"/>
+    <motor name="L_SHOULDER_roll" joint="L_SHOULDER_roll" ctrlrange="-12.000 12.000" gear="1"/>
+    <motor name="L_ARM_yaw" joint="L_ARM_yaw" ctrlrange="-8.000 8.000" gear="1"/>
+    <motor name="L_ELBOW" joint="L_ELBOW" ctrlrange="-8.000 8.000" gear="1"/>
+    <motor name="L_FOREARM_yaw" joint="L_FOREARM_yaw" ctrlrange="-4.000 4.000" gear="1"/>
+    <motor name="L_WRIST_pitch" joint="L_WRIST_pitch" ctrlrange="-3.000 3.000" gear="1"/>
+    <motor name="L_WRIST_roll" joint="L_WRIST_roll" ctrlrange="-2.000 2.000" gear="1"/>
+    <motor name="L_GRIPPER" joint="L_GRIPPER" ctrlrange="-4.000 4.000" gear="1"/>
+    <motor name="R_SHOULDER_pitch" joint="R_SHOULDER_pitch" ctrlrange="-12.000 12.000" gear="1"/>
+    <motor name="R_SHOULDER_roll" joint="R_SHOULDER_roll" ctrlrange="-12.000 12.000" gear="1"/>
+    <motor name="R_ARM_yaw" joint="R_ARM_yaw" ctrlrange="-8.000 8.000" gear="1"/>
+    <motor name="R_ELBOW" joint="R_ELBOW" ctrlrange="-8.000 8.000" gear="1"/>
+    <motor name="R_FOREARM_yaw" joint="R_FOREARM_yaw" ctrlrange="-4.000 4.000" gear="1"/>
+    <motor name="R_WRIST_pitch" joint="R_WRIST_pitch" ctrlrange="-3.000 3.000" gear="1"/>
+    <motor name="R_WRIST_roll" joint="R_WRIST_roll" ctrlrange="-2.000 2.000" gear="1"/>
+    <motor name="R_GRIPPER" joint="R_GRIPPER" ctrlrange="-4.000 4.000" gear="1"/>
+  </actuator>
+</mujoco>

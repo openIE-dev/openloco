@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco model="so100">
+  <compiler angle="radian" coordinate="local" meshdir="meshes" autolimits="true"/>
+  <option timestep="0.002" integrator="implicitfast"/>
+  <default>
+    <joint damping="0.1" armature="0.01"/>
+    <geom contype="0" conaffinity="1" friction="1.0 0.005 0.0001"/>
+  </default>
+  <asset>
+  </asset>
+  <worldbody>
+    <geom name="ground" type="plane" size="10 10 0.1" contype="1" conaffinity="1" rgba="0.85 0.85 0.85 1"/>
+    <body name="base" pos="0 0 0.600">
+      <freejoint name="root"/>
+      <inertial pos="0.000000 0.000000 0.000000" mass="0.150000" diaginertia="3.000000e-4 3.000000e-4 5.000000e-4"/>
+      <body name="shoulder_pan" pos="0.000000 0.000000 0.060000">
+        <joint name="SHOULDER_pan" type="hinge" range="-3.1400 3.1400" limited="true" axis="0.000000 0.000000 1.000000" pos="0 0 0" ref="0.000000"/>
+        <inertial pos="0.000000 0.000000 0.000000" mass="0.090000" diaginertia="3.000000e-5 3.000000e-5 3.000000e-5"/>
+        <body name="shoulder_lift" pos="0.000000 0.000000 0.030000">
+          <joint name="SHOULDER_lift" type="hinge" range="-2.2000 2.2000" limited="true" axis="0.000000 1.000000 0.000000" pos="0 0 0" ref="0.000000"/>
+          <inertial pos="0.000000 0.000000 0.000000" mass="0.080000" diaginertia="4.000000e-5 4.000000e-5 4.000000e-5"/>
+          <body name="elbow" pos="0.000000 0.000000 0.110000">
+            <joint name="ELBOW_flex" type="hinge" range="-2.5000 2.5000" limited="true" axis="0.000000 1.000000 0.000000" pos="0 0 0" ref="0.000000"/>
+            <inertial pos="0.000000 0.000000 0.000000" mass="0.070000" diaginertia="3.000000e-5 3.000000e-5 3.000000e-5"/>
+            <body name="wrist_flex" pos="0.000000 0.000000 0.105000">
+              <joint name="WRIST_flex" type="hinge" range="-2.2000 2.2000" limited="true" axis="0.000000 1.000000 0.000000" pos="0 0 0" ref="0.000000"/>
+              <inertial pos="0.000000 0.000000 0.000000" mass="0.050000" diaginertia="2.000000e-5 2.000000e-5 2.000000e-5"/>
+              <body name="wrist_roll" pos="0.045000 0.000000 0.000000">
+                <joint name="WRIST_roll" type="hinge" range="-3.1400 3.1400" limited="true" axis="1.000000 0.000000 0.000000" pos="0 0 0" ref="0.000000"/>
+                <inertial pos="0.000000 0.000000 0.000000" mass="0.030000" diaginertia="1.000000e-5 1.000000e-5 1.000000e-5"/>
+                <body name="gripper_base" pos="0.030000 0.000000 0.000000">
+                  <inertial pos="0.000000 0.000000 0.000000" mass="0.040000" diaginertia="1.500000e-5 1.500000e-5 1.500000e-5"/>
+                  <body name="gripper_jaw" pos="0.020000 0.000000 0.000000">
+                    <joint name="GRIPPER" type="slide" range="0.0000 0.0400" limited="true" axis="0.000000 1.000000 0.000000" pos="0 0 0" ref="0.020000"/>
+                    <inertial pos="0.000000 0.000000 0.000000" mass="0.020000" diaginertia="5.000000e-6 5.000000e-6 5.000000e-6"/>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+    <motor name="SHOULDER_pan" joint="SHOULDER_pan" ctrlrange="-1.500 1.500" gear="1"/>
+    <motor name="SHOULDER_lift" joint="SHOULDER_lift" ctrlrange="-1.500 1.500" gear="1"/>
+    <motor name="ELBOW_flex" joint="ELBOW_flex" ctrlrange="-1.500 1.500" gear="1"/>
+    <motor name="WRIST_flex" joint="WRIST_flex" ctrlrange="-1.000 1.000" gear="1"/>
+    <motor name="WRIST_roll" joint="WRIST_roll" ctrlrange="-1.000 1.000" gear="1"/>
+    <motor name="GRIPPER" joint="GRIPPER" ctrlrange="-1.000 1.000" gear="1"/>
+  </actuator>
+</mujoco>

@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="reachy2">
+  <link name="torso">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="4.000000"/>
+      <inertia ixx="3.500000e-2" iyy="3.000000e-2" izz="1.500000e-2" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="neck_yaw_link">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.150000"/>
+      <inertia ixx="1.000000e-4" iyy="1.000000e-4" izz="1.000000e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="neck_pitch_link">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.200000"/>
+      <inertia ixx="1.500000e-4" iyy="1.500000e-4" izz="1.500000e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="head">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.500000"/>
+      <inertia ixx="1.200000e-3" iyy="1.200000e-3" izz="1.200000e-3" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="L_shoulder_pitch">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.400000"/>
+      <inertia ixx="3.000000e-4" iyy="3.000000e-4" izz="3.000000e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="L_shoulder_roll">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.300000"/>
+      <inertia ixx="2.500000e-4" iyy="2.500000e-4" izz="2.500000e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="L_upper_arm">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.500000"/>
+      <inertia ixx="3.000000e-3" iyy="3.000000e-3" izz="3.000000e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="L_elbow_link">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.250000"/>
+      <inertia ixx="2.000000e-4" iyy="2.000000e-4" izz="2.000000e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="L_forearm">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.350000"/>
+      <inertia ixx="2.000000e-3" iyy="2.000000e-3" izz="2.000000e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="L_wrist_pitch_link">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.150000"/>
+      <inertia ixx="1.000000e-4" iyy="1.000000e-4" izz="1.000000e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="L_gripper_base">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.200000"/>
+      <inertia ixx="2.000000e-4" iyy="2.000000e-4" izz="2.000000e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="L_gripper_jaw">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.050000"/>
+      <inertia ixx="2.000000e-5" iyy="2.000000e-5" izz="2.000000e-5" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="R_shoulder_pitch">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.400000"/>
+      <inertia ixx="3.000000e-4" iyy="3.000000e-4" izz="3.000000e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="R_shoulder_roll">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.300000"/>
+      <inertia ixx="2.500000e-4" iyy="2.500000e-4" izz="2.500000e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="R_upper_arm">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.500000"/>
+      <inertia ixx="3.000000e-3" iyy="3.000000e-3" izz="3.000000e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="R_elbow_link">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.250000"/>
+      <inertia ixx="2.000000e-4" iyy="2.000000e-4" izz="2.000000e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="R_forearm">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.350000"/>
+      <inertia ixx="2.000000e-3" iyy="2.000000e-3" izz="2.000000e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="R_wrist_pitch_link">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.150000"/>
+      <inertia ixx="1.000000e-4" iyy="1.000000e-4" izz="1.000000e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="R_gripper_base">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.200000"/>
+      <inertia ixx="2.000000e-4" iyy="2.000000e-4" izz="2.000000e-4" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="R_gripper_jaw">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.050000"/>
+      <inertia ixx="2.000000e-5" iyy="2.000000e-5" izz="2.000000e-5" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <joint name="NECK_yaw" type="revolute">
+    <parent link="torso"/>
+    <child link="neck_yaw_link"/>
+    <origin xyz="0.000000 0.000000 0.350000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 0.000000 1.000000"/>
+    <limit lower="-1.740" upper="1.740" effort="4.000" velocity="3.000"/>
+  </joint>
+  <transmission name="NECK_yaw_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="NECK_yaw">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="NECK_yaw_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="NECK_pitch" type="revolute">
+    <parent link="neck_yaw_link"/>
+    <child link="neck_pitch_link"/>
+    <origin xyz="0.000000 0.000000 0.060000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit lower="-1.050" upper="1.050" effort="4.000" velocity="3.000"/>
+  </joint>
+  <transmission name="NECK_pitch_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="NECK_pitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="NECK_pitch_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="HEAD_mount" type="fixed">
+    <parent link="neck_pitch_link"/>
+    <child link="head"/>
+    <origin xyz="0.000000 0.000000 0.080000" rpy="0.000000 0.000000 0.000000"/>
+  </joint>
+  <joint name="L_SHOULDER_pitch" type="revolute">
+    <parent link="torso"/>
+    <child link="L_shoulder_pitch"/>
+    <origin xyz="0.000000 0.190000 0.300000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit lower="-2.500" upper="2.500" effort="12.000" velocity="4.000"/>
+  </joint>
+  <transmission name="L_SHOULDER_pitch_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="L_SHOULDER_pitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="L_SHOULDER_pitch_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="L_SHOULDER_roll" type="revolute">
+    <parent link="L_shoulder_pitch"/>
+    <child link="L_shoulder_roll"/>
+    <origin xyz="0.000000 0.060000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="1.000000 0.000000 0.000000"/>
+    <limit lower="-1.740" upper="1.740" effort="12.000" velocity="4.000"/>
+  </joint>
+  <transmission name="L_SHOULDER_roll_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="L_SHOULDER_roll">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="L_SHOULDER_roll_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="L_ARM_yaw" type="revolute">
+    <parent link="L_shoulder_roll"/>
+    <child link="L_upper_arm"/>
+    <origin xyz="0.000000 0.020000 -0.100000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 0.000000 1.000000"/>
+    <limit lower="-3.140" upper="3.140" effort="8.000" velocity="4.000"/>
+  </joint>
+  <transmission name="L_ARM_yaw_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="L_ARM_yaw">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="L_ARM_yaw_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="L_ELBOW" type="revolute">
+    <parent link="L_upper_arm"/>
+    <child link="L_elbow_link"/>
+    <origin xyz="0.000000 0.000000 -0.220000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit lower="-2.500" upper="0.000" effort="8.000" velocity="4.000"/>
+  </joint>
+  <transmission name="L_ELBOW_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="L_ELBOW">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="L_ELBOW_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="L_FOREARM_yaw" type="revolute">
+    <parent link="L_elbow_link"/>
+    <child link="L_forearm"/>
+    <origin xyz="0.000000 0.000000 -0.040000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 0.000000 1.000000"/>
+    <limit lower="-3.140" upper="3.140" effort="4.000" velocity="4.000"/>
+  </joint>
+  <transmission name="L_FOREARM_yaw_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="L_FOREARM_yaw">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="L_FOREARM_yaw_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="L_WRIST_pitch" type="revolute">
+    <parent link="L_forearm"/>
+    <child link="L_wrist_pitch_link"/>
+    <origin xyz="0.000000 0.000000 -0.180000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit lower="-1.300" upper="1.300" effort="3.000" velocity="4.000"/>
+  </joint>
+  <transmission name="L_WRIST_pitch_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="L_WRIST_pitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="L_WRIST_pitch_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="L_WRIST_roll" type="revolute">
+    <parent link="L_wrist_pitch_link"/>
+    <child link="L_gripper_base"/>
+    <origin xyz="0.000000 0.000000 -0.040000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="1.000000 0.000000 0.000000"/>
+    <limit lower="-3.140" upper="3.140" effort="2.000" velocity="4.000"/>
+  </joint>
+  <transmission name="L_WRIST_roll_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="L_WRIST_roll">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="L_WRIST_roll_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="L_GRIPPER" type="prismatic">
+    <parent link="L_gripper_base"/>
+    <child link="L_gripper_jaw"/>
+    <origin xyz="0.060000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit lower="0.000" upper="0.050" effort="4.000" velocity="0.500"/>
+  </joint>
+  <transmission name="L_GRIPPER_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="L_GRIPPER">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="L_GRIPPER_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="R_SHOULDER_pitch" type="revolute">
+    <parent link="torso"/>
+    <child link="R_shoulder_pitch"/>
+    <origin xyz="0.000000 -0.190000 0.300000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit lower="-2.500" upper="2.500" effort="12.000" velocity="4.000"/>
+  </joint>
+  <transmission name="R_SHOULDER_pitch_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="R_SHOULDER_pitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="R_SHOULDER_pitch_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="R_SHOULDER_roll" type="revolute">
+    <parent link="R_shoulder_pitch"/>
+    <child link="R_shoulder_roll"/>
+    <origin xyz="0.000000 -0.060000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="1.000000 0.000000 0.000000"/>
+    <limit lower="-1.740" upper="1.740" effort="12.000" velocity="4.000"/>
+  </joint>
+  <transmission name="R_SHOULDER_roll_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="R_SHOULDER_roll">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="R_SHOULDER_roll_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="R_ARM_yaw" type="revolute">
+    <parent link="R_shoulder_roll"/>
+    <child link="R_upper_arm"/>
+    <origin xyz="0.000000 -0.020000 -0.100000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 0.000000 1.000000"/>
+    <limit lower="-3.140" upper="3.140" effort="8.000" velocity="4.000"/>
+  </joint>
+  <transmission name="R_ARM_yaw_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="R_ARM_yaw">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="R_ARM_yaw_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="R_ELBOW" type="revolute">
+    <parent link="R_upper_arm"/>
+    <child link="R_elbow_link"/>
+    <origin xyz="0.000000 0.000000 -0.220000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit lower="-2.500" upper="0.000" effort="8.000" velocity="4.000"/>
+  </joint>
+  <transmission name="R_ELBOW_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="R_ELBOW">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="R_ELBOW_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="R_FOREARM_yaw" type="revolute">
+    <parent link="R_elbow_link"/>
+    <child link="R_forearm"/>
+    <origin xyz="0.000000 0.000000 -0.040000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 0.000000 1.000000"/>
+    <limit lower="-3.140" upper="3.140" effort="4.000" velocity="4.000"/>
+  </joint>
+  <transmission name="R_FOREARM_yaw_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="R_FOREARM_yaw">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="R_FOREARM_yaw_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="R_WRIST_pitch" type="revolute">
+    <parent link="R_forearm"/>
+    <child link="R_wrist_pitch_link"/>
+    <origin xyz="0.000000 0.000000 -0.180000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit lower="-1.300" upper="1.300" effort="3.000" velocity="4.000"/>
+  </joint>
+  <transmission name="R_WRIST_pitch_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="R_WRIST_pitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="R_WRIST_pitch_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="R_WRIST_roll" type="revolute">
+    <parent link="R_wrist_pitch_link"/>
+    <child link="R_gripper_base"/>
+    <origin xyz="0.000000 0.000000 -0.040000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="1.000000 0.000000 0.000000"/>
+    <limit lower="-3.140" upper="3.140" effort="2.000" velocity="4.000"/>
+  </joint>
+  <transmission name="R_WRIST_roll_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="R_WRIST_roll">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="R_WRIST_roll_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="R_GRIPPER" type="prismatic">
+    <parent link="R_gripper_base"/>
+    <child link="R_gripper_jaw"/>
+    <origin xyz="0.060000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit lower="0.000" upper="0.050" effort="4.000" velocity="0.500"/>
+  </joint>
+  <transmission name="R_GRIPPER_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="R_GRIPPER">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="R_GRIPPER_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+</robot>
