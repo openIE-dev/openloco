@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="mini_pupper">
+  <link name="base">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.450000"/>
+      <inertia ixx="3.200000e-4" iyy="1.300000e-3" izz="1.500000e-3" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="FL_hip_housing">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.020000"/>
+      <inertia ixx="4.000000e-6" iyy="4.000000e-6" izz="4.000000e-6" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="FL_upper_leg">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.012000"/>
+      <inertia ixx="4.200000e-6" iyy="4.200000e-6" izz="1.500000e-7" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="FL_lower_leg">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.008000"/>
+      <inertia ixx="3.000000e-6" iyy="3.000000e-6" izz="1.200000e-7" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="FL_foot">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.003000"/>
+      <inertia ixx="1.000000e-7" iyy="1.000000e-7" izz="1.000000e-7" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="FR_hip_housing">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.020000"/>
+      <inertia ixx="4.000000e-6" iyy="4.000000e-6" izz="4.000000e-6" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="FR_upper_leg">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.012000"/>
+      <inertia ixx="4.200000e-6" iyy="4.200000e-6" izz="1.500000e-7" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="FR_lower_leg">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.008000"/>
+      <inertia ixx="3.000000e-6" iyy="3.000000e-6" izz="1.200000e-7" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="FR_foot">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.003000"/>
+      <inertia ixx="1.000000e-7" iyy="1.000000e-7" izz="1.000000e-7" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="RL_hip_housing">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.020000"/>
+      <inertia ixx="4.000000e-6" iyy="4.000000e-6" izz="4.000000e-6" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="RL_upper_leg">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.012000"/>
+      <inertia ixx="4.200000e-6" iyy="4.200000e-6" izz="1.500000e-7" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="RL_lower_leg">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.008000"/>
+      <inertia ixx="3.000000e-6" iyy="3.000000e-6" izz="1.200000e-7" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="RL_foot">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.003000"/>
+      <inertia ixx="1.000000e-7" iyy="1.000000e-7" izz="1.000000e-7" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="RR_hip_housing">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.020000"/>
+      <inertia ixx="4.000000e-6" iyy="4.000000e-6" izz="4.000000e-6" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="RR_upper_leg">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.012000"/>
+      <inertia ixx="4.200000e-6" iyy="4.200000e-6" izz="1.500000e-7" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="RR_lower_leg">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.008000"/>
+      <inertia ixx="3.000000e-6" iyy="3.000000e-6" izz="1.200000e-7" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="RR_foot">
+    <inertial>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0 0 0"/>
+      <mass value="0.003000"/>
+      <inertia ixx="1.000000e-7" iyy="1.000000e-7" izz="1.000000e-7" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <joint name="FL_HIP_roll" type="revolute">
+    <parent link="base"/>
+    <child link="FL_hip_housing"/>
+    <origin xyz="0.077500 0.022000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="1.000000 0.000000 0.000000"/>
+    <limit lower="-1.500" upper="1.500" effort="1.500" velocity="6.000"/>
+  </joint>
+  <transmission name="FL_HIP_roll_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FL_HIP_roll">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FL_HIP_roll_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="FL_HIP_pitch" type="revolute">
+    <parent link="FL_hip_housing"/>
+    <child link="FL_upper_leg"/>
+    <origin xyz="0.000000 0.027000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit lower="-2.000" upper="2.000" effort="1.500" velocity="6.000"/>
+  </joint>
+  <transmission name="FL_HIP_pitch_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FL_HIP_pitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FL_HIP_pitch_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="FL_KNEE_pitch" type="revolute">
+    <parent link="FL_upper_leg"/>
+    <child link="FL_lower_leg"/>
+    <origin xyz="0.000000 0.000000 -0.060000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit lower="-2.000" upper="2.000" effort="1.500" velocity="6.000"/>
+  </joint>
+  <transmission name="FL_KNEE_pitch_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FL_KNEE_pitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FL_KNEE_pitch_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="FL_FOOT_mount" type="fixed">
+    <parent link="FL_lower_leg"/>
+    <child link="FL_foot"/>
+    <origin xyz="0.000000 0.000000 -0.060000" rpy="0.000000 0.000000 0.000000"/>
+  </joint>
+  <joint name="FR_HIP_roll" type="revolute">
+    <parent link="base"/>
+    <child link="FR_hip_housing"/>
+    <origin xyz="0.077500 -0.022000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="1.000000 0.000000 0.000000"/>
+    <limit lower="-1.500" upper="1.500" effort="1.500" velocity="6.000"/>
+  </joint>
+  <transmission name="FR_HIP_roll_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FR_HIP_roll">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FR_HIP_roll_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="FR_HIP_pitch" type="revolute">
+    <parent link="FR_hip_housing"/>
+    <child link="FR_upper_leg"/>
+    <origin xyz="0.000000 -0.027000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit lower="-2.000" upper="2.000" effort="1.500" velocity="6.000"/>
+  </joint>
+  <transmission name="FR_HIP_pitch_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FR_HIP_pitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FR_HIP_pitch_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="FR_KNEE_pitch" type="revolute">
+    <parent link="FR_upper_leg"/>
+    <child link="FR_lower_leg"/>
+    <origin xyz="0.000000 0.000000 -0.060000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit lower="-2.000" upper="2.000" effort="1.500" velocity="6.000"/>
+  </joint>
+  <transmission name="FR_KNEE_pitch_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FR_KNEE_pitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FR_KNEE_pitch_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="FR_FOOT_mount" type="fixed">
+    <parent link="FR_lower_leg"/>
+    <child link="FR_foot"/>
+    <origin xyz="0.000000 0.000000 -0.060000" rpy="0.000000 0.000000 0.000000"/>
+  </joint>
+  <joint name="RL_HIP_roll" type="revolute">
+    <parent link="base"/>
+    <child link="RL_hip_housing"/>
+    <origin xyz="-0.077500 0.022000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="1.000000 0.000000 0.000000"/>
+    <limit lower="-1.500" upper="1.500" effort="1.500" velocity="6.000"/>
+  </joint>
+  <transmission name="RL_HIP_roll_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RL_HIP_roll">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RL_HIP_roll_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="RL_HIP_pitch" type="revolute">
+    <parent link="RL_hip_housing"/>
+    <child link="RL_upper_leg"/>
+    <origin xyz="0.000000 0.027000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit lower="-2.000" upper="2.000" effort="1.500" velocity="6.000"/>
+  </joint>
+  <transmission name="RL_HIP_pitch_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RL_HIP_pitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RL_HIP_pitch_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="RL_KNEE_pitch" type="revolute">
+    <parent link="RL_upper_leg"/>
+    <child link="RL_lower_leg"/>
+    <origin xyz="0.000000 0.000000 -0.060000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit lower="-2.000" upper="2.000" effort="1.500" velocity="6.000"/>
+  </joint>
+  <transmission name="RL_KNEE_pitch_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RL_KNEE_pitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RL_KNEE_pitch_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="RL_FOOT_mount" type="fixed">
+    <parent link="RL_lower_leg"/>
+    <child link="RL_foot"/>
+    <origin xyz="0.000000 0.000000 -0.060000" rpy="0.000000 0.000000 0.000000"/>
+  </joint>
+  <joint name="RR_HIP_roll" type="revolute">
+    <parent link="base"/>
+    <child link="RR_hip_housing"/>
+    <origin xyz="-0.077500 -0.022000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="1.000000 0.000000 0.000000"/>
+    <limit lower="-1.500" upper="1.500" effort="1.500" velocity="6.000"/>
+  </joint>
+  <transmission name="RR_HIP_roll_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RR_HIP_roll">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RR_HIP_roll_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="RR_HIP_pitch" type="revolute">
+    <parent link="RR_hip_housing"/>
+    <child link="RR_upper_leg"/>
+    <origin xyz="0.000000 -0.027000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit lower="-2.000" upper="2.000" effort="1.500" velocity="6.000"/>
+  </joint>
+  <transmission name="RR_HIP_pitch_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RR_HIP_pitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RR_HIP_pitch_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="RR_KNEE_pitch" type="revolute">
+    <parent link="RR_upper_leg"/>
+    <child link="RR_lower_leg"/>
+    <origin xyz="0.000000 0.000000 -0.060000" rpy="0.000000 0.000000 0.000000"/>
+    <axis xyz="0.000000 1.000000 0.000000"/>
+    <limit lower="-2.000" upper="2.000" effort="1.500" velocity="6.000"/>
+  </joint>
+  <transmission name="RR_KNEE_pitch_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RR_KNEE_pitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RR_KNEE_pitch_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="RR_FOOT_mount" type="fixed">
+    <parent link="RR_lower_leg"/>
+    <child link="RR_foot"/>
+    <origin xyz="0.000000 0.000000 -0.060000" rpy="0.000000 0.000000 0.000000"/>
+  </joint>
+</robot>
