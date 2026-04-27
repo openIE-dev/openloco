@@ -11,10 +11,13 @@ Open-source schema + compiler for hybrid robots. One descriptor
 emits URDF, MJCF, STL meshes, BOM, and assembly instructions.
 {: .fs-6 .fw-300 }
 
-[View the catalog](catalog.html){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+[Watch the videos](videos.html){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+[View the catalog](catalog.html){: .btn .fs-5 .mb-4 .mb-md-0 .mr-2 }
 [GitHub](https://github.com/openIE-dev/openloco){: .btn .fs-5 .mb-4 .mb-md-0 }
 
-![hero](assets/renders/hero.png)
+<video controls preload="metadata" width="100%" style="max-width: 960px; margin-top: 1.5em">
+  <source src="assets/videos/s1.mp4" type="video/mp4">
+</video>
 
 ## What you get
 
