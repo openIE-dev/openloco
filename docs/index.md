@@ -60,26 +60,8 @@ OpenLoco code.
 
 [Browse the full catalog →](catalog.html)
 
-## Architecture
-
-```text
-descriptor.udd.json   ─┐
-  (Robot + Perception) │
-                       ├─► urdf::emit          → <name>.urdf
-                       ├─► mjcf::emit          → <name>.xml  (+ <camera>/<sensor>)
-                       ├─► mechanical_bom      → bom.csv
-                       ├─► assembly_steps_md   → assembly.md
-                       ├─► bake::generate_meshes → meshes/<hash>.stl
-                       │
-                       ├─► skill_graph::SkillGraphRuntime
-                       │     ├─ classical: FootholdMap · ObstacleHeight · GroundPlaneFit
-                       │     ├─ detector:  StubDetector
-                       │     └─ vlm:       VilaQueryStub / VilaQuerySubprocess
-                       │
-                       ├─► legged_kinematics → FK/IK
-                       ├─► locomotion::quadruped → stance/trot/wheg/morphobot
-                       └─► sim::runner::PhysicsBackend (CannedPhysics / MuJoCo FFI)
-```
+For the descriptor → URDF/MJCF/STL/BOM pipeline and an end-to-end
+gait test walkthrough, see [How it works](how-it-works.html).
 
 ## License
 
