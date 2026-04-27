@@ -13,6 +13,7 @@ descriptors/        16 robots in OpenLoco's UDD descriptor format
 examples/baked/     pre-emitted URDF + MJCF + BOM + assembly per robot
 CATALOG.md          full robot index, grouped by morphology
 HOW_IT_WORKS.md     descriptor → URDF/MJCF/STL/BOM walkthrough
+LEARN.md            curated index of free + open robotics references
 SOURCE.md           Rust source release plan
 ```
 

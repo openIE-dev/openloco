@@ -73,6 +73,16 @@ The schema is small: a 12-DoF quadruped is ~150 lines of JSON.
 
 [Browse all 16 →](catalog.html)
 
+## Learn
+
+OpenLoco builds on a deep stack of open robotics theory, control,
+simulation, and hardware references. The [Learn page](learn.html)
+indexes the canonical free + open material — Tedrake's
+*Underactuated Robotics* and *Robotic Manipulation*, LaValle's
+*Planning Algorithms*, MuJoCo / Drake / Brax docs, mjbots Moteus
+and SimpleFOC references, and the open-hardware repos behind every
+robot in the catalog.
+
 ## License
 
 CC0-1.0 — public-domain dedication. No paywall, no enterprise
